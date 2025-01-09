@@ -1,0 +1,19 @@
+body, .App{
+  min-height: 100vh;
+  min-width:100vw;
+}
+
+.navbar-brand{
+  height:200px !important;
+}
+
+.navbar-brand-img{
+  max-height:auto !important;
+  margin-right:20px;
+}
+
+
+.loginHero{
+  background:url('./assets/img/efl-login-vertical-hero.png') center center no-repeat;
+  background-size:cover;
+}
