@@ -5,7 +5,7 @@ import SideNav from '../../SideNav'
 import TopNav from '../../TopNav'
 import Footer from '../../Footer'
 
-const DashboardTemplate = ({children}) => {
+const MainTemplate = ({children}) => {
     return(
             <div className=" App g-sidenav-show  bg-gray-100">
 
@@ -25,4 +25,4 @@ const DashboardTemplate = ({children}) => {
 };
 
 
-export default DashboardTemplate;
+export default MainTemplate;

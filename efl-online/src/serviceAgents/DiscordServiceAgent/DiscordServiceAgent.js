@@ -30,8 +30,10 @@ class DiscordServiceAgent  {
                             },
                         });
 
-            console.log('Access Token:', response.data.access_token);                            
-            return response.data.access_token;
+            console.log('Access Token:', response.data.access_token); 
+            console.log('Refresh Token:', response.data.refresh_token); 
+            console.log('ExpiresIn:', response.data.expires_in);                            
+            return response.data;
                     
         }
         catch(error){
@@ -39,26 +41,30 @@ class DiscordServiceAgent  {
             console.error('Error exchanging code for token:', error);
         }
     }
+    
 
-    static async GetDiscordGuildMember(bearer, guild_id){
-        
-            //GET EFL GUILD MEMBER
-        try{
+    static async GetDiscordGuildMember(bearer, guild_id) {
+        // GET EFL GUILD MEMBER
+        try {
             const response = await axios.get(`https://discord.com/api/users/@me/guilds/${guild_id}/member`, {
-                    headers: {
+                headers: {
                     Authorization: `Bearer ${bearer}`
                 }
-    
             });
 
-            console.log(`Guild Member: ${response.data.user.id} | ${response.data.nick}`); 
+            console.log(`Guild Member: ${response.data.user.id} | ${response.data.nick}`);
             const jsonString = JSON.stringify(response.data, null, 2);
-            return jsonString;
-                    
-        }
-        catch(error){
-            return undefined;
+            return {
+                status: response.status,
+                data: response.data
+            };
+
+        } catch (error) {
             console.error('Error getting guild member:', error);
+            return {
+                status: error.response ? error.response.status : 500,
+                data: undefined
+            };
         }
     }
 

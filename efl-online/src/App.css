@@ -14,6 +14,20 @@ body, .App{
 
 
 .loginHero{
-  background:url('./assets/img/efl-login-vertical-hero.png') center center no-repeat;
+  background:url('./assets/img/efl-login-vertical-hero.png') top center no-repeat;
   background-size:cover;
+}
+
+
+label{
+  
+  display:block;
+}
+.sub-label{
+  opacity:.5;
+  font-size:.75em;
+}
+
+.sub-label.required{
+  color:red;
 }

@@ -2,7 +2,10 @@ import React, { useEffect, useState  } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
-import DiscordServiceAgent from '../../../serviceAgents/DiscordServiceAgent'
+
+import DiscordServiceAgent from '../../../serviceAgents/DiscordServiceAgent/DiscordServiceAgent.js';
+import EFLOAuthServiceAgent from '../../../serviceAgents/EFLOAuthServiceAgent/EFLOAuthServiceAgent.js';
+
 
 const DiscordCallback = () => {
 
@@ -16,38 +19,81 @@ const DiscordCallback = () => {
     const [dsa, setDsa] = useState(null);
     const [error, setError] = useState(null);
 
+    
+    const [refresh, SetRefreshToken] = useState(null);
+
 
   useEffect(() => {
 
     
-            //GET ACCESS TOKEN                    
-            DiscordServiceAgent.HelloWorld().then(rsp => {            
-                console.log("Hello World: ", rsp);
-            }).catch(error => {                
-                console.error('Error getting hello world:', error);
-            });
-
     const params = new URLSearchParams(location.search);
     const code = params.get('code');
 
     setStatus("Trying");
 
-    const clientId = "1326244369090478161";
-    const clientSecret = "Shn9KEdoq6AfMb0URjlcEl6msWAgyqwU";
-    const redirectUri = "https://eflo.io/auth/discord/callback";
-    const efl_id = "333828099001286656";
+    const clientId = process.env.REACT_APP_DISCORD_CLIENTID;
+    const clientSecret = process.env.REACT_APP_DISCORD_CLIENTSECRET;
+    const redirectUri = process.env.REACT_APP_DISCORD_CALLBACK;
+    const efl_id = process.env.REACT_APP_DISCORD_EFLSERVERID;
 
 
         if (code) {
 
             //GET ACCESS TOKEN                    
             DiscordServiceAgent.GetDiscordAuthToken(clientId, clientSecret, redirectUri, code).then(rsp => {
-                
-                DiscordServiceAgent.GetDiscordGuildMember(rsp, efl_id).then(rsp => {
-                    setGuildData(rsp);
-                    console.log("GuildData: ", rsp);
-                    window.location.href = '/';
 
+                //generate eflo auth token paramaters
+                var params = {
+                    DiscordId : "",
+                    DiscordAccessToken : rsp.access_token,
+                    DiscordRefreshToken : rsp.refresh_token,
+                    ExpirationTime: rsp.expires_in,
+                };
+
+
+                DiscordServiceAgent.GetDiscordGuildMember(rsp.access_token, efl_id).then(rsp => {
+
+                    if(rsp.status == 404)
+                    {
+                        window.location.href = "/discord";
+                    }
+                    else{
+                        setGuildData(rsp);
+                        console.log("GuildData: ", rsp);
+
+                        params.DiscordId = rsp.data.user.id;
+
+                        //generate eflo auth token paramaters
+                        EFLOAuthServiceAgent.GenerateAuthToken(params).then(rsp => {  
+                            
+                            params = {
+                                eflo_access_token : rsp
+                            };
+
+
+                            console.log(`GENERATED ACCESS TOKEN: ${params.eflo_access_token}`);
+
+                            EFLOAuthServiceAgent.GetActiveUser(params).then(rsp => {
+
+                                    if(rsp.ForumNick == undefined){
+                                        window.location.href = "/setup";
+                                    }
+                                    else{
+                                        window.location.href = '/';
+                                    }
+                                
+                            }).catch(error => {
+                                console.error('Error getting active user in callback:', error);
+                                window.location.href = '/login';
+                            });
+
+
+
+                        }).catch(error => {
+                            console.error('Error generating access token:', error);
+                            window.location.href = '/login';
+                        });
+                    }
 
                 }).catch(error => {                
                     console.error('Error getting guild member:', error);
@@ -73,8 +119,11 @@ const DiscordCallback = () => {
         <div>
             {/*<h5>Guild Member</h5>
             <pre>{guildData}</pre>
-            <br/>*/}
+            <br/>
             <a href="/login"> return to login </a>    
+
+            */}
+
         </div>
 
 

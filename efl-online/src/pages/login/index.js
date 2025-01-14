@@ -6,9 +6,9 @@ import vertHero from '../../assets/img/efl-login-vertical-hero.png'
 
 const Login = () => {
     
-    const clientId = "1326244369090478161";
-    const clientSecret = "Shn9KEdoq6AfMb0URjlcEl6msWAgyqwU";
-    const redirectUri = "https://eflo.io/auth/discord/callback";
+    const clientId = process.env.REACT_APP_DISCORD_CLIENTID;
+    const clientSecret = process.env.REACT_APP_DISCORD_CLIENTSECRET;
+    const redirectUri = process.env.REACT_APP_DISCORD_CALLBACK;
 
     const loginDiscordClick = () => {
 
@@ -17,6 +17,12 @@ const Login = () => {
             const responseType = 'code';
             const authUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}`;
             window.location.href = authUrl;
+          }
+
+          else{
+            console.log("CLIENTID: ", process.env.REACT_APP_DISCORD_CLIENTID);
+            console.log("CLIENTSECRET: ", process.env.REACT_APP_DISCORD_CLIENTSECRET);
+            console.log("CALLBACK: ", process.env.REACT_APP_DISCORD_CALLBACK);
           }
         };
 

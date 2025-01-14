@@ -9,10 +9,13 @@ import PlayerDash from './pages/dashboards/player'
 
 
 import LoginPage from './pages/login'
+import DiscordLanding from './pages/landing/discord'
+import SetupLanding from './pages/landing/setup'
+import DirectorLanding from './pages/landing/director'
 
 export const routes = [
     { 
-      path: '/', 
+      path: '/dashboard/eflo', 
       component: DefaultDash, 
       category:'Dashboard', 
       title: 'Home', 
@@ -44,10 +47,18 @@ export const routes = [
 
     
     { 
+      path: '/data/teams', 
+      component: PlayerDash, 
+      category:'Data', 
+      title: 'Teams', 
+      ShowInNav: true 
+
+    },
+    { 
       path: '/data/players', 
       component: PlayerDash, 
       category:'Data', 
-      title: 'Player Search', 
+      title: 'Players', 
       ShowInNav: true 
 
     },
@@ -55,10 +66,31 @@ export const routes = [
 
 
     { 
+      path: '/', 
+      component: DirectorLanding, 
+      category: 'Landing', 
+      title: 'Routing', 
+      ShowInNav: false 
+    },
+    { 
       path: '/login', 
       component: LoginPage, 
       category: 'Login', 
       title: 'Login', 
+      ShowInNav: false 
+    },
+    { 
+      path: '/discord', 
+      component: DiscordLanding, 
+      category: 'Landing', 
+      title: 'Discord', 
+      ShowInNav: false 
+    },
+    { 
+      path: '/setup', 
+      component: SetupLanding, 
+      category: 'Landing', 
+      title: 'Setup', 
       ShowInNav: false 
     }
 

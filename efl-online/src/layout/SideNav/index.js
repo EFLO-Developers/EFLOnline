@@ -1,9 +1,10 @@
-
+import React, { useEffect, useState  } from 'react';
 import { routes } from '../../routes';
 
 
 import logo from '../../assets/img/efl-logos/efl1000.png';
 import whiteCurve from '../../assets/soft-ui/img/curved-images/white-curved.jpg';
+import { error } from 'jquery';
 
 
 function isActivePage(path) {
@@ -15,6 +16,11 @@ function isActivePage(path) {
   }
 
 export default function SideNav(){
+    // Get unique categories where there is at least one route that has ShowInNav = true
+    const categories = [...new Set(routes.filter(route => route.ShowInNav).map(route => route.category))];
+
+
+
     return (
         
         <aside className="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
@@ -34,31 +40,32 @@ export default function SideNav(){
 
 
 
-                    <li className="nav-item">
-                    <a data-bs-toggle="collapse" href="#dashboards" className="nav-link active" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
-                        <div className="icon icon-sm shadow-sm border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
-                        <i className="ni ni-compass-04" aria-hidden="true"></i>
-                        </div>
-                        <span className="nav-link-text ms-1">Dashboards</span>
-                    </a>
 
 
+                    {categories.map(category => (
+                        <li key={category} className="nav-item">
+                            <a data-bs-toggle="collapse" href={`#${category}`} className="nav-link active" aria-controls={category} role="button" aria-expanded="false">
+                                <div className="icon icon-sm shadow-sm border-radius-md bg-white text-center d-flex align-items-center justify-content-center me-2">
+                                    <i className="ni ni-compass-04" aria-hidden="true"></i>
+                                </div>
+                                <span className="nav-link-text ms-1">{category}</span>
+                            </a>
+                            <div className="collapse show" id={category}>
+                                <ul className="nav ms-4 ps-3">
+                                    {routes.filter(route => route.category === category && route.ShowInNav === true).map(route => (
+                                        <li key={route.path} className={`nav-item ${isActivePage(route.path) ? 'active' : ''}`}>
+                                            <a className="nav-link" href={route.path}>
+                                                <span className="sidenav-mini-icon"> D </span>
+                                                <span className="sidenav-normal">{route.title}</span>
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </li>
+                    ))}
 
-                    <div className="collapse  show " id="dashboards">
-                        <ul className="nav ms-4 ps-3">
-                                    
-                            {routes.filter(r => r.ShowInNav === true).map(route => (
-                                <li key={route.path} className={`nav-item ${isActivePage(route.path) ? 'active' : ''}`}>
-                                    <a className="nav-link" href={route.path}>
-                                    <span className="sidenav-mini-icon"> D </span>
-                                    <span className="sidenav-normal">{route.title}</span>
-                                    </a>
-                                </li>
-                            ))}
-                     
-                        </ul>
-                    </div>
-                    </li>
+
                 </ul>
             </div>
             

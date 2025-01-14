@@ -1,7 +1,10 @@
-
+import React, { useEffect, useState  } from 'react';
 import { useLocation } from 'react-router-dom';
 import { routes } from '../../routes';
 
+import EFLOAuthServiceAgent from '../../serviceAgents/EFLOAuthServiceAgent/EFLOAuthServiceAgent';
+import { error } from 'jquery';
+import Cookies from 'js-cookie';
 
 export default function TopNav(){
     
@@ -9,6 +12,58 @@ const location = useLocation();
 const currentRoute = routes.find(route => route.path === location.pathname);
 const bc_category = currentRoute ? currentRoute.category : 'udf';
 const bc_title = currentRoute ? currentRoute.title : 'udf';
+
+
+    const [member, SetMember] = useState(null);
+
+    useEffect(() => {
+
+        if (member == null){
+            const TokenKey = "eflo.auth";
+            const eflo_access_token = Cookies.get(TokenKey);
+
+            if (!eflo_access_token) {
+                console.log("Token not found");
+                window.location.href = "/login";
+                return;
+            }
+        
+            const params = {
+                eflo_access_token
+            };
+
+            EFLOAuthServiceAgent.GetActiveUser(params).then(res => {
+                console.log("token validated");
+                console.log(res);
+
+                if(res != undefined)
+                {
+                    if(res.ForumNick == null){
+                        window.location.href = "/setup";                    
+                    }
+
+                    SetMember(res);
+                }
+                else{                    
+                    //window.location.href = "/login";
+                }
+            }).catch(error => {
+                console.log(error , 'Could not get user information');
+            });
+        }
+    });
+
+    
+
+    const handleLogOut = (e) => {
+        e.preventDefault();
+
+        //delete cookie with key
+        const TokenKey = "eflo.auth";
+        Cookies.remove(TokenKey);
+        window.location.href = "/login";
+
+    };
 
     return (
         
@@ -41,11 +96,27 @@ const bc_title = currentRoute ? currentRoute.title : 'udf';
 
                 <ul className="navbar-nav  justify-content-end">
                     <li className="nav-item d-flex align-items-center">
-                    <a href="/login" className="nav-link text-body font-weight-bold px-0" >
-                        <i className="fa fa-user me-sm-1"></i>
-                        <span className="d-sm-inline d-none">Sign In</span>
-                    </a>
+
+                    {member ? (
+                                <a href={`/profile/${member.Id}`} className="nav-link text-body font-weight-bold px-0">
+                                    <i className="fa fa-user me-sm-1"></i>
+                                    <span className="d-sm-inline d-none">Hello, {member.DiscordNick}</span>
+                                </a>
+                            ) : (
+
+                                <div>
+                                    Member not found
+                                </div>
+                            )}
+
+                            
                     </li>
+                    <li className="nav-item d-flex align-items-center">
+                        <a href="#" onClick={handleLogOut} className="nav-link">
+                            Log Out
+                        </a>                    
+                    </li>
+
                     <li className="nav-item d-xl-none ps-3 d-flex align-items-center">
                     <a href="javascript:;" className="nav-link text-body p-0" id="iconNavbarSidenav">
                         <div className="sidenav-toggler-inner">
