@@ -45,6 +45,9 @@ class UserController {
             return $users;
         } catch (PDOException $e) {
             return ['error' => 'Failed to fetch users'];
+        } finally {
+            // Close the connection
+            $this->pdo = null;
         }
     }
 
@@ -114,6 +117,12 @@ class UserController {
             }
 
 
+            
+            $stmt = $this->pdo->prepare("SELECT sg.Name FROM SecurityGroup sg INNER JOIN SecurityGroupMembership sgm on sg.GroupId = sgm.GroupId WHERE (sgm.ExpireDate IS NULL OR sgm.ExpireDate > NOW()) AND sgm.UserId = ?");
+            $stmt->execute([$token['UserId']]);
+            $security_groups = $stmt->fetchAll(PDO::FETCH_COLUMN);
+            
+
             return [
                 'eflo_member' => [
                     'Id' => $user['UserId'],
@@ -121,11 +130,16 @@ class UserController {
                     'DiscordNick' => $user['DiscordNick'],
                     'ForumNick' => $user['ForumNick'],
                     'RecruitedBy' => $user['RecruitedBy'],
-                    'AgencyName' => $user['AgencyName']
-                ]
+                    'AgencyName' => $user['AgencyName'],
+                    'security_groups' => $security_groups
+
+                    ]
             ];
         } catch (Exception $e) {
             return ['error' => 'Failed to validate auth token with Discord'];
+        } finally {
+            // Close the connection
+            $this->pdo = null;
         }
     }
 
@@ -163,7 +177,7 @@ class UserController {
                 'eflo_member' => [
                     'Id' => $user['UserId'],
                     'DiscordId' => $user['DiscordId'],
-                    'Nick' => $user['DiscordNick'],
+                    'DiscordNick' => $user['DiscordNick'],
                     'ForumNick' => $user['ForumNick'],
                     'RecruitedBy' => $user['RecruitedBy'],
                     'AgencyName' => $user['AgencyName'],
@@ -174,6 +188,9 @@ class UserController {
 
         } catch (PDOException $e) {
             return ['error' => 'Failed to fetch user'];
+        } finally {
+            // Close the connection
+            $this->pdo = null;
         }
     }
 
@@ -221,6 +238,9 @@ class UserController {
     
         } catch (PDOException $e) {
             return ['error' => 'Failed to update user'];
+        } finally {
+            // Close the connection
+            $this->pdo = null;
         }
     }
 

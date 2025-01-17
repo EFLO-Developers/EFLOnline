@@ -3,6 +3,10 @@ import AuthorizedTemplate from "../../../layout/PageTemplates/Authorized";
 import MainTemplate from "../../../layout/PageTemplates/Main/main";
 
 export default function DefaultDash(){
+
+
+
+    
     return(
         <AuthorizedTemplate>
             <div>

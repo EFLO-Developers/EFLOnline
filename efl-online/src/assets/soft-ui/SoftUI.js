@@ -5,6 +5,8 @@ import './css/nucleo-icons.css';
 import './css/nucleo-svg.css';
 import './css/soft-ui-dashboard.css';
 
+
+
 const SoftUI = () => {
     useEffect(() => {
       WebFont.load({
@@ -14,5 +16,6 @@ const SoftUI = () => {
       });
     }, []);
 };
+
 
 export default SoftUI;

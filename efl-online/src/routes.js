@@ -12,6 +12,8 @@ import LoginPage from './pages/login'
 import DiscordLanding from './pages/landing/discord'
 import SetupLanding from './pages/landing/setup'
 import DirectorLanding from './pages/landing/director'
+import Profile from './pages/profile'
+import PlayerCreate from './pages/player/create'
 
 export const routes = [
     { 
@@ -64,6 +66,14 @@ export const routes = [
     },
 
 
+    { 
+      path: '/player/create', 
+      component: PlayerCreate, 
+      category: 'Player', 
+      title: 'Create a new player', 
+      ShowInNav: true
+    },
+
 
     { 
       path: '/', 
@@ -91,6 +101,15 @@ export const routes = [
       component: SetupLanding, 
       category: 'Landing', 
       title: 'Setup', 
+      ShowInNav: false 
+    }
+
+    ,
+    { 
+      path: '/profile/:userId', 
+      component: Profile, 
+      category: 'Profile', 
+      title: 'Profile', 
       ShowInNav: false 
     }
 

@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import DashboardTemplate from "../../../layout/PageTemplates/Dashboard";
 import MainTemplate from "../../../layout/PageTemplates/Main/main.js";
 import AuthorizedTemplate from '../../../layout/PageTemplates/Authorized';
+import { Helmet } from 'react-helmet';
+import PlayerCreate from '../../player/create.js';
 
 const PlayerDash = () => {
 
@@ -92,53 +94,120 @@ const PlayerDash = () => {
           }));
         }
       };
+
     
       return (
         <AuthorizedTemplate>
           <MainTemplate>    
+
+
+
+
+
               <div className="container-fluid py-4">
                   <div className="row">
                       <h2 className="mb-0">Player Dashboard</h2>
                       <p className="mb-4 ms-1">This is a simple dashboard with some statistics and charts.</p>
                   </div>
                   <div className="row">
-                      <div>
-                      <h2>Total TPE: {player.totalTPE}</h2>
-                      <h2>Applied TPE: {player.totalTPE - player.availableTPE}</h2>
-                      <h2>Bank TPE: {player.availableTPE}</h2>
-                          {Object.keys(player.attributes).map((key) => (
-                              <div key={key} className="attribute">
-                                  <span className="attribute-name">{key.toUpperCase()} [{player.attributes[key].cap}]:</span>
-                                  <button
-                                      onClick={() => handleDecrease(key)}
-                                      disabled={player.attributes[key].committedValue + player.attributes[key].pendingValue === initialPlayerData.player.attributes[key].committedValue}
-                                  >
-                                      Decrease
-                                  </button>
 
 
-                                  <span className="attribute-value">
-                                      {player.attributes[key].committedValue + player.attributes[key].pendingValue}
-                                  </span>
 
-                                  <button
-                                      onClick={() => handleIncrease(key)}
-                                      disabled={
-                                      player.attributes[key].committedValue + player.attributes[key].pendingValue >= player.attributes[key].cap ||
-                                      player.availableTPE === 0
-                                      }
-                                  >
-                                      Increase
-                                  </button>
-                                  
-                                  <span className="attribute-value">
-                                      + {player.attributes[key].pendingValue}
-                                  </span>
+
+
+
+                    <div class="col-xl-7">
+
+                      <div className="card">
+                      <div className=" d-flex pb-0 p-3">    
+                        <h6> Players</h6>
+                        </div>
+                        <div className="card-header d-flex pb-0 p-3">                          
+                          <div className="nav-wrapper position-relative ms-auto w-50">
+                            <ul className="nav nav-pills nav-fill p-1" role="tablist">
+                              <li className="nav-item">
+                                <a className="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#player_off" role="tab" aria-controls="player_off" aria-selected="true">
+                                  OFF Player
+                                </a>
+                              </li>
+                              <li className="nav-item">
+                                <a className="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#player_def" role="tab" aria-controls="player_def" aria-selected="false">
+                                  DEF Player
+                                </a>
+                              </li>
+                              
+                            </ul>
+                          </div>
+                        </div>
+                          <div className="card-body p-3 mt-2">
+                            <div className="tab-content" id="v-pills-tabContent">
+                              <div className="tab-pane fade show position-relative active border-radius-lg" 
+                                  id="player_off" role="tabpanel" aria-labelledby="player_off">
+                                <div className=" d-flex top-0 w-100">
+                                  <PlayerCreate />
+                                </div>
                               </div>
-                          ))}
+                              <div className="tab-pane fade position-relative border-radius-lg" 
+                                  id="player_def" role="tabpanel" aria-labelledby="player_def">
+                                <div className=" d-flex top-0 w-100">                            
+                                <div>
+                                  <h2>Total TPE: {player.totalTPE}</h2>
+                                  <h2>Applied TPE: {player.totalTPE - player.availableTPE}</h2>
+                                  <h2>Bank TPE: {player.availableTPE}</h2>
+                                      {Object.keys(player.attributes).map((key) => (
+                                          <div key={key} className="attribute">
+                                              <span className="attribute-name">{key.toUpperCase()} [{player.attributes[key].cap}]:</span>
+                                              <button
+                                                  onClick={() => handleDecrease(key)}
+                                                  disabled={player.attributes[key].committedValue + player.attributes[key].pendingValue === initialPlayerData.player.attributes[key].committedValue}
+                                              >
+                                                  Decrease
+                                              </button>
+
+
+                                              <span className="attribute-value">
+                                                  {player.attributes[key].committedValue + player.attributes[key].pendingValue}
+                                              </span>
+
+                                              <button
+                                                  onClick={() => handleIncrease(key)}
+                                                  disabled={
+                                                  player.attributes[key].committedValue + player.attributes[key].pendingValue >= player.attributes[key].cap ||
+                                                  player.availableTPE === 0
+                                                  }
+                                              >
+                                                  Increase
+                                              </button>
+                                              
+                                              <span className="attribute-value">
+                                                  + {player.attributes[key].pendingValue}
+                                              </span>
+                                          </div>
+                                      ))}
+                                  </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
                       </div>
-                  </div>
+                    </div>
+
+
+                      
               </div>
+
+
+              <Helmet>
+                              
+                <script src="/SoftUI_js/js/core/popper.min.js"></script>
+                <script src="/SoftUI_js/js/core/bootstrap.min.js"></script>
+                <script src="/SoftUI_js/js/plugins/perfect-scrollbar.min.js"></script>
+                
+
+                <script src="/SoftUI_js/js/soft-ui-dashboard.js?v=1.2.0"></script>
+              </Helmet>
           </MainTemplate>  
         </AuthorizedTemplate>    
     );

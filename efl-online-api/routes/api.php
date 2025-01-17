@@ -17,11 +17,13 @@ require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../controllers/HelloController.php';
 require_once __DIR__ . '/../controllers/EFLOAuthController.php';
 require_once __DIR__ . '/../controllers/UserController.php';
+require_once __DIR__ . '/../controllers/PlayerController.php';
 
 $pdo = $GLOBALS['pdo'];
 $helloController = new HelloController($pdo);
 $eflOAuthController = new EFLOAuthController($pdo);
 $userController = new UserController($pdo);
+$playerController = new PlayerController($pdo);
 
 
 $requestUri = $_SERVER['REQUEST_URI'];
@@ -85,6 +87,25 @@ switch ($requestUri) {
             }
             break;
 
+
+
+            
+        case '/Player':
+            if ($requestMethod == 'GET') {
+                echo json_encode($playerController->GetPlayers());
+            }
+            else if ($requestMethod == 'POST') {
+                $input = json_decode(file_get_contents('php://input'), true);
+                echo json_encode($playerController->UpsertPlayer($input['player']));
+
+            }
+            break;
+            
+        case '/Player/Active':
+            if ($requestMethod == 'GET') {
+                echo json_encode($playerController->GetActivePlayers());
+            }
+            break;
 
 
     default:

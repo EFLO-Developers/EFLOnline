@@ -7,11 +7,18 @@ import { error } from 'jquery';
 import Cookies from 'js-cookie';
 
 export default function TopNav(){
-    
-const location = useLocation();
-const currentRoute = routes.find(route => route.path === location.pathname);
-const bc_category = currentRoute ? currentRoute.category : 'udf';
-const bc_title = currentRoute ? currentRoute.title : 'udf';
+        
+    const location = useLocation();
+
+    const matchRoute = (route, pathname) => {
+        const routePattern = new RegExp(`^${route.path.replace(/:\w+/g, '[^/]+')}$`);
+        return routePattern.test(pathname);
+    };
+
+  const currentRoute = routes.find(route => matchRoute(route, location.pathname));
+  const bc_category = currentRoute ? currentRoute.category : 'udf';
+  const bc_title = currentRoute ? currentRoute.title : 'udf';
+
 
 
     const [member, SetMember] = useState(null);
@@ -45,7 +52,7 @@ const bc_title = currentRoute ? currentRoute.title : 'udf';
                     SetMember(res);
                 }
                 else{                    
-                    //window.location.href = "/login";
+                    window.location.href = "/login";
                 }
             }).catch(error => {
                 console.log(error , 'Could not get user information');
@@ -104,9 +111,7 @@ const bc_title = currentRoute ? currentRoute.title : 'udf';
                                 </a>
                             ) : (
 
-                                <div>
-                                    Member not found
-                                </div>
+                                <span>...</span>
                             )}
 
                             
