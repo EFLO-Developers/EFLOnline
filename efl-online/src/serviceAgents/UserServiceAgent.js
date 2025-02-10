@@ -1,16 +1,19 @@
 import React, { useEffect, useState  } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import EFLOAuthServiceAgent from './EFLOAuthServiceAgent/EFLOAuthServiceAgent';
 
 class UserServiceAgent  {
 
 
 
-    static async GetUser(eflo_access_token, UserId){
+    static async GetUser(UserId){
         
-        if(eflo_access_token == null || UserId == null){
+        if(UserId == null){
             throw new Error(`Missing required parameter in Get User`);
         }
+        
+        var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
     
         const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
         const endpoint = `User/${UserId}`;
@@ -30,14 +33,18 @@ class UserServiceAgent  {
             }
     }
 
-    static async UpdateUser(eflo_access_token, eflo_member) {
+    static async UpdateUser(eflo_member) {
     
-        if(eflo_access_token == null || eflo_member == null){
+        if(eflo_member == null){
             throw new Error(`Missing required parameter in UpdateUser`);
         }
     
+        var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
+
         const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
-        const endpoint = `User/${eflo_member.Id}`;
+        const endpoint = `User/${eflo_member.eflo_member.Id}`;
+
+        console.log("USER SETUP ROUTE: ", endpoint);
     
         try {
 

@@ -53,7 +53,7 @@ class UserController {
 
 
     //GET ActiveUser
-    public function getActiveUser($eflo_access_token) {
+    public function getActiveUser($eflo_access_token, $closeConn = true) {
 
 
         if(!$eflo_access_token){
@@ -108,10 +108,15 @@ class UserController {
                 $stmt = $this->pdo->prepare("UPDATE User SET LastDiscordSync = NOW() WHERE UserId = ?");
                 $stmt->execute([$user['UserId']]);
 
+                $nickname = $member['nick'] ?? $member["user"]["global_name"];
+
                 // Update user info if necessary
-                if ($user['DiscordNick'] !== $member['nick']) {
+                if ($user['DiscordNick'] !== $nickname) {
                     $stmt = $this->pdo->prepare("UPDATE User SET DiscordNick = ?, UpdateDate = NOW() WHERE UserId = ?");
-                    $stmt->execute([$member['nick'], $user['UserId']]);
+                    $stmt->execute([
+                        $nickname, 
+                        $user['UserId']
+                    ]);
                 }
 
             }
@@ -139,7 +144,8 @@ class UserController {
             return ['error' => 'Failed to validate auth token with Discord'];
         } finally {
             // Close the connection
-            $this->pdo = null;
+            if($closeConn)
+                $this->pdo = null;
         }
     }
 

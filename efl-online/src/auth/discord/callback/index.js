@@ -31,9 +31,22 @@ const DiscordCallback = () => {
 
     setStatus("Trying");
 
+
+    let env;
+
+    //create a switch, if the location is production, use the production env, otherwise use the development env
+    if (window.location.hostname.includes(process.env.REACT_APP_PROD_BASEURL)) {
+        env = 'PROD';
+    } else if (window.location.hostname.includes(process.env.REACT_APP_DEV_BASEURL)) {
+        env = 'DEV';
+    } else {
+        env = 'UNKNOWN'; // Fallback case
+    }
+
+    
     const clientId = process.env.REACT_APP_DISCORD_CLIENTID;
     const clientSecret = process.env.REACT_APP_DISCORD_CLIENTSECRET;
-    const redirectUri = process.env.REACT_APP_DISCORD_CALLBACK;
+    const redirectUri = (env === "PROD" ? process.env.REACT_APP_PROD_DISCORD_CALLBACK : process.env.REACT_APP_DEV_DISCORD_CALLBACK);
     const efl_id = process.env.REACT_APP_DISCORD_EFLSERVERID;
 
 
@@ -66,6 +79,12 @@ const DiscordCallback = () => {
                         //generate eflo auth token paramaters
                         EFLOAuthServiceAgent.GenerateAuthToken(params).then(rsp => {  
                             
+                            if(rsp == undefined){
+                               alert("Error generating access token");
+                               return;
+                            }
+                            
+
                             params = {
                                 eflo_access_token : rsp
                             };

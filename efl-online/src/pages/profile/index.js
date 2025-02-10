@@ -9,6 +9,7 @@ import AuthorizedTemplate from "../../layout/PageTemplates/Authorized";
 import MainTemplate from "../../layout/PageTemplates/Main/main";
 
 import LoadingSpinner from '../../components/LoadingSpinner/spinner.js';
+import PlayerServiceAgent from '../../serviceAgents/PlayerServiceAgent.js';
 
 export default function Profile(){
     const { userId } = useParams();
@@ -33,25 +34,24 @@ export default function Profile(){
     const [canEdit, SetCanEdit] = useState(false);
     const [loading, setLoading] = useState(true);
 
+    const [userPlayers, SetUserPlayers] = useState([]);
+
+    
+    const sortedUserPlayers = userPlayers.sort((a, b) => {
+        // Sort by RetiredDate (NULL first)
+        if (a.player.RetiredDate === null && b.player.RetiredDate !== null) return -1;
+        if (a.player.RetiredDate !== null && b.player.RetiredDate === null) return 1;
+        // Sort by CreateDate (newest to oldest)
+        return new Date(b.player.CreateDate) - new Date(a.player.CreateDate);
+    });
+
     useEffect(() => {
 
         SetCanEdit(false);
 
         if (member.Id == ''){
-            const TokenKey = "eflo.auth";
-            const eflo_access_token = Cookies.get(TokenKey);
 
-            if (!eflo_access_token) {
-                console.log("Token not found");
-                window.location.href = "/login";
-                return;
-            }
-        
-            const params = {
-                eflo_access_token
-            };
-
-            EFLOAuthServiceAgent.GetActiveUser(params).then(res => {
+            EFLOAuthServiceAgent.GetActiveUser().then(res => {
                 if(res != undefined)
                 {
                     SetActiveMember(res);
@@ -60,21 +60,25 @@ export default function Profile(){
                 console.log(error , 'Could not get active user information');
             });
 
-            
-            UserServiceAgent.GetUser(eflo_access_token, userId).then(res => {
+            UserServiceAgent.GetUser(userId).then(res => {
                 if (res !== undefined) {                    
                     SetMember(res.eflo_member);
-                    console.log(res);
-                    console.log("Member returned");
-                    console.log(member);
-
                     console.log(activeMember.security_groups);                  
                 }
             }).catch(error => {
                 console.log(error, 'Could not get user information');
-            }).finally(() => {
-                setLoading(false);
             });
+
+            PlayerServiceAgent.GetAllUserPlayers(userId).then(res => {
+                SetUserPlayers(res);
+                console.log("All User players returned");
+                console.log(res);
+            }).catch(error => {
+                console.log(error, 'Could not get user players');
+            });
+            
+            
+            setLoading(false);
         }
 
         
@@ -84,7 +88,9 @@ export default function Profile(){
         else{
             SetCanEdit(false);
         }
-    });
+
+        
+    },[]);
 
 if (loading) {
     return <div><MainTemplate><LoadingSpinner></LoadingSpinner></MainTemplate></div>;
@@ -203,8 +209,50 @@ return(
                                 <h5>Players</h5>
                             </div>
                             <div className="card-body pt-0">
-                                <div className="row">
+                                <div className="table-responsive">
 
+
+                                    {userPlayers.length > 0 ? (
+                                        <table className="table table-flush text-sm" id="datatable-search" style={{minHeight: '200px'}}>
+                                            <thead className="thead-light">
+                                                <tr>
+                                                    <th>Status</th>
+                                                    
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Nickname</th>
+                                                    <th>Position</th>
+                                                    <th>Archetype</th>
+                                                    <th>Season</th>
+                                                    <th>TPE</th>
+                                                    <th>APE</th>
+                                                    <th>Banked TPE</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                                {userPlayers && userPlayers.length > 0 && sortedUserPlayers.map((item, index) => (
+                                                    <tr key={index} className="link" onClick={() => window.location.href = `/player/${item.player.PlayerId}/profile`}>
+                                                        <td>
+                                                            <div className={`badge bg-${item.player.RetiredDate ? 'danger' : 'primary'} d-inline-block`} style={{width: 'auto'}}>{item.player.RetiredDate ? "RETIRED" : "ACTIVE"}</div>
+                                                        </td>
+                                                        
+                                                        <td>{item.player.FirstName}</td>
+                                                        <td>{item.player.LastName}</td>
+                                                        <td>{item.player.Nickname}</td>
+                                                        <td>{item.player.Position}</td>
+                                                        <td>{item.player.ArchetypeName}</td>
+                                                        <td>{item.player.SeasonCreated}</td>
+                                                        <td>{item.player.tpe.TotalTPE}</td>
+                                                        <td>{parseInt(item.player.tpe.AppliedTPE) + parseInt(item.player.tpe.AppliedPendingTPE)}</td>
+                                                        <td>{item.player.tpe.BankedTPE}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    ) : (
+                                        <div><LoadingSpinner /></div>
+                                    )}
                                 </div>
                             </div>
                         </div>

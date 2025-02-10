@@ -4,6 +4,7 @@ import React from 'react';
 import SideNav from '../../SideNav'
 import TopNav from '../../TopNav'
 import Footer from '../../Footer'
+import Alerts from '../../../components/Alerts/alerts';
 
 const MainTemplate = ({children}) => {
     return(
@@ -11,17 +12,19 @@ const MainTemplate = ({children}) => {
 
                 {/*Sidenav*/}
                 <SideNav />
-
+        
+                {/*Main Content*/}
                 <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
                     <TopNav />
                         
-                        {children}
-
+                    {children}
+  
                     <Footer />
                 </main>
 
 
                 
+                <Alerts />  
             </div>
     );
 };

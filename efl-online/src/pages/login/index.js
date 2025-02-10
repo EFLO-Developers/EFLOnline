@@ -3,13 +3,28 @@ import { useNavigate } from 'react-router-dom';
 import $ from 'jquery';
 
 import vertHero from '../../assets/img/efl-login-vertical-hero.png'
+import Analytics from '../../layout/analytics';
 
 const Login = () => {
     
+    
+    let env;
+
+    //create a switch, if the location is production, use the production env, otherwise use the development env
+    if (window.location.hostname.includes(process.env.REACT_APP_PROD_BASEURL)) {
+        env = 'PROD';
+    } else if (window.location.hostname.includes(process.env.REACT_APP_DEV_BASEURL)) {
+        env = 'DEV';
+    } else {
+        env = 'UNKNOWN'; // Fallback case
+    }
+
+
+
     const clientId = process.env.REACT_APP_DISCORD_CLIENTID;
     const clientSecret = process.env.REACT_APP_DISCORD_CLIENTSECRET;
-    const redirectUri = process.env.REACT_APP_DISCORD_CALLBACK;
-
+    const redirectUri = (env === "PROD" ? process.env.REACT_APP_PROD_DISCORD_CALLBACK : process.env.REACT_APP_DEV_DISCORD_CALLBACK);
+    
     const loginDiscordClick = () => {
 
         if (clientId) {
@@ -17,14 +32,25 @@ const Login = () => {
             const responseType = 'code';
             const authUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}`;
             window.location.href = authUrl;
-          }
+            }
 
-          else{
+            else{
             console.log("CLIENTID: ", process.env.REACT_APP_DISCORD_CLIENTID);
             console.log("CLIENTSECRET: ", process.env.REACT_APP_DISCORD_CLIENTSECRET);
             console.log("CALLBACK: ", process.env.REACT_APP_DISCORD_CALLBACK);
-          }
-        };
+        }
+    };
+
+    useEffect(() => {
+        // Clear all local storage and cookies
+        localStorage.clear();
+        const cookies = document.cookie.split("; ");
+        for (const cookie of cookies) {
+            const eqPos = cookie.indexOf("=");
+            const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+        }
+    }, []);
 
 
     return(
@@ -73,7 +99,7 @@ const Login = () => {
                 </div>
                 </section>
             </main>
-
+            <Analytics />
         </div>
     );
 };

@@ -5,6 +5,18 @@ import Cookies from 'js-cookie';
 
 class EFLOAuthServiceAgent  {
 
+    static GetActiveToken(){
+        const TokenKey = "eflo.auth";
+        const eflo_access_token = Cookies.get(TokenKey);
+    
+        if (!eflo_access_token) {
+            console.log("Token not found");
+            window.location.href = "/login";
+            return;
+        }
+
+        return eflo_access_token;
+    }
 
     static async GenerateAuthToken(params) {
          // Required parameters:
@@ -37,28 +49,18 @@ class EFLOAuthServiceAgent  {
     }
 
     
-    static async ValidateAuthToken(params) {
-        // Required parameters:
-        const requiredParams = ['eflo_access_token'];
-
-        // Validate params object
-        for (const param of requiredParams) {
-            if (!params.hasOwnProperty(param)) {
-                throw new Error(`Missing required parameter in Validate TOken: ${param}`);
-            }
-        }
-
+    static async ValidateAuthToken() {
+        
+        var token = EFLOAuthServiceAgent.GetActiveToken();
 
         const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
         const endpoint = "EFLOAuth/ValidateAuthToken";
 
         try {
-            console.log(`eflo_access_token : ${params.eflo_access_token}`);
-            console.log(`Validating Auth Token @ ${baseURL + endpoint}`);
 
-            const response = await axios.post(baseURL + endpoint, {}, {
+            const response = await axios.get(baseURL + endpoint , {
                 headers: {
-                    Authorization: `Bearer ${params.eflo_access_token}`
+                    Authorization: `Bearer ${token}`
                 }
             });
 
@@ -70,37 +72,46 @@ class EFLOAuthServiceAgent  {
            console.error('Error validating auth token:', error);
            throw error;
        }
-   }
-
-   static async GetActiveUser(params) {
-    // Required parameters:
-        const requiredParams = ['eflo_access_token'];
-
-    // Validate params object
-    for (const param of requiredParams) {
-        if (!params.hasOwnProperty(param)) {
-            throw new Error(`Missing required parameter in GetActiveUser: ${param}`);
-        }
     }
+
+    static async GetAllUsers(){
+        try {
+            
+            var token = EFLOAuthServiceAgent.GetActiveToken();
+        
+            const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
+            const endpoint = "User";
+        
+            const response = await axios.get(baseURL + endpoint, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+        
+        const member = response.data;
+        
+        return member;
+        } catch (error) {
+            console.error('Error getting active user:', error);
+            throw error;
+        }
+
+    }
+
+    static async GetActiveUser() {
+    
+    var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
 
     const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
    const endpoint = "User/ActiveUser";
 
    try {
-    console.log(`eflo_access_token : ${params.eflo_access_token}`);
-    console.log(`Getting Active User @ ${baseURL + endpoint}`);
-
-    
-    console.log("getting data");
 
     const response = await axios.post(baseURL + endpoint, {}, {
         headers: {
-            Authorization: `Bearer ${params.eflo_access_token}`
+            Authorization: `Bearer ${eflo_access_token}`
         }
     });
-
-    console.log("data returned from active user");
-    console.log(response);
 
    const member = response.data.eflo_member;
 
@@ -109,7 +120,7 @@ class EFLOAuthServiceAgent  {
        console.error('Error getting active user:', error);
        throw error;
    }
-}
+    }
 
 }
 

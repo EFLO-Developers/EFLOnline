@@ -21,11 +21,10 @@ class EFLOAuthController {
         $this->client = new Client();
     }
 
-    public function generateAuthToken($params) {
+    public function generateAuthToken($params, $closeConn = true) {
 
         try{
 
-        
             $requiredParams = ['DiscordAccessToken', 'DiscordRefreshToken', 'DiscordId', 'ExpirationTime'];
             foreach ($requiredParams as $param) {
                 if (!isset($params[$param])) {
@@ -55,14 +54,23 @@ class EFLOAuthController {
                     $member = json_decode($response->getBody(), true);
 
                     if ($member['user']['id'] == $discordId) {
+
+                        
+                        $nickname = $member['nick'] ?? $member["user"]["global_name"];
+
                         $userId = Uuid::uuid4()->toString();
-                        $stmt = $this->pdo->prepare("INSERT INTO User (UserId, DiscordId, Nick, CreateDate, UpdateDate, LastLoginDate, LastDiscordSync) VALUES (?, ?, ?, NOW(), NOW(), NOW(), NOW())");
-                        $stmt->execute([$userId, $discordId, $member['nick']]);
+                        $stmt = $this->pdo->prepare("INSERT INTO User (UserId, DiscordId, DiscordNick, ForumNick, RecruitedBy, AgencyName, LastLoginDate, CreateDate, UpdateDate, LastDiscordSync) 
+                                                            VALUES (?, ?, ?, NULL, NULL,NULL, NOW(), NOW(), NOW(), NOW())");
+                        $stmt->execute([
+                            $userId, 
+                            $discordId, 
+                            $nickname
+                        ]);
                     } else {
-                        return ['error' => 'Failed to validate given DiscordId'];
+                        return ['error' => 'Failed to validate given DiscordId' ];
                     }
                 } catch (Exception $e) {
-                    return ['error' => 'Failed to validate access token'];
+                    return ['error' => 'Failed to validate access token' . $e];
                 }
             } else {
                 $userId = $user['UserId'];
@@ -73,18 +81,24 @@ class EFLOAuthController {
 
             $tokenId = Uuid::uuid4()->toString();
             $stmt = $this->pdo->prepare("INSERT INTO AuthToken (TokenId, UserId, GrantDate, ExpireDate, DiscordAccessToken, DiscordRefreshToken) VALUES (?, ?, NOW(), DATE_ADD(NOW(), INTERVAL ? SECOND), ?, ?)");
-            $stmt->execute([$tokenId, $userId, $expirationTime, $discordAccessToken, $discordRefreshToken]);
+            $stmt->execute([
+                $tokenId, 
+                $userId, 
+                $expirationTime, 
+                $discordAccessToken, 
+                $discordRefreshToken]);
 
             return ['AuthTokenId' => $tokenId];    
         } catch (PDOException $e) {
             return ['error' => 'Failed to generate token'];
         } finally {
             // Close the connection
-            $this->pdo = null;
+            if($closeConn)
+                $this->pdo = null;
         }
     }
 
-    public function validateAuthToken($eflo_access_token) {
+    public function validateAuthToken($eflo_access_token, $closeConn = true) {
         try{
             if (!$eflo_access_token) {
                 return ['valid' => false, 'error' => 'Missing required parameters in api Validate TOken'];
@@ -144,7 +158,8 @@ class EFLOAuthController {
             return ['error' => 'Failed to validate token'];
         } finally {
             // Close the connection
-            $this->pdo = null;
+            if($closeConn)
+                $this->pdo = null;
         }
     }
 }

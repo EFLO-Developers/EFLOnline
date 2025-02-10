@@ -1,6 +1,7 @@
 import React, { useEffect, useState  } from 'react';
 import { useNavigate } from 'react-router-dom';
 import $ from 'jquery';
+import Analytics from '../../layout/analytics';
 
 const DiscordLanding = () => {
 
@@ -52,7 +53,7 @@ return(
                 </div>
             </section>
         </main>
-
+        <Analytics />
     </div>
 
 )};

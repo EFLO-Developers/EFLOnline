@@ -5,6 +5,7 @@ import MainTemplate from '../../layout/PageTemplates/Main/main';
 import EFLOAuthServiceAgent from '../../serviceAgents/EFLOAuthServiceAgent/EFLOAuthServiceAgent';
 import Cookies from 'js-cookie';
 import UserServiceAgent from '../../serviceAgents/UserServiceAgent';
+import Analytics from '../../layout/analytics';
 
 const SetupLanding = () => {
     const [member, setMember] = useState({
@@ -41,12 +42,15 @@ const SetupLanding = () => {
                 AgencyName: member.AgencyName !== '' ? member.AgencyName : null
             }
         };
-        console.log(eflo_member);
 
-        UserServiceAgent.UpdateUser(eflo_access_token, eflo_member).then(res => {        
+
+        UserServiceAgent.UpdateUser(eflo_member).then(res => {        
             //user was successfully updated
-            console.log("user saved successfully");
-            //navigate("/");
+            if(res){
+                console.log("user saved successfully");
+                navigate("/");
+            }
+
         }).catch(error => {
             console.log(error, "ERROR UPDATING USER");
         });
@@ -108,7 +112,7 @@ return(
                                 <div className="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
                                     <div className="card card-plain">
                                         <div className="card-header pb-0 text-left">
-                                        <h4 className="font-weight-bolder">One last thing...</h4>
+                                        <h4 className="font-weight-bolder">One last thing....</h4>
                                         <p className="mb-0">We just need a few more details to finish setting up your account.</p>
                                         </div>
                                         <div className="card-body pb-3">
@@ -160,7 +164,7 @@ return(
                     </div>
                 </section>
             </main>
-
+                <Analytics />
             </div>
 
 )};

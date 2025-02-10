@@ -5,6 +5,7 @@ import { routes } from '../../routes';
 import EFLOAuthServiceAgent from '../../serviceAgents/EFLOAuthServiceAgent/EFLOAuthServiceAgent';
 import { error } from 'jquery';
 import Cookies from 'js-cookie';
+import usePersistedState from '../../serviceAgents/usePersistedState';
 
 export default function TopNav(){
         
@@ -21,27 +22,16 @@ export default function TopNav(){
 
 
 
-    const [member, SetMember] = useState(null);
+    const [member, SetMember] = usePersistedState('ActiveUser', null);
+    const [userPlayers, SetUserPlayers] = usePersistedState('ActiveUserPlayers', null);
+    const [offPlayer, SetOffPlayer] = usePersistedState('ActiveOffPlayer', null);
+    const [defPlayer, SetDefPlayer] = usePersistedState('ActiveDefPlayer', null);
 
     useEffect(() => {
 
         if (member == null){
-            const TokenKey = "eflo.auth";
-            const eflo_access_token = Cookies.get(TokenKey);
 
-            if (!eflo_access_token) {
-                console.log("Token not found");
-                window.location.href = "/login";
-                return;
-            }
-        
-            const params = {
-                eflo_access_token
-            };
-
-            EFLOAuthServiceAgent.GetActiveUser(params).then(res => {
-                console.log("token validated");
-                console.log(res);
+            EFLOAuthServiceAgent.GetActiveUser().then(res => {
 
                 if(res != undefined)
                 {
@@ -53,12 +43,13 @@ export default function TopNav(){
                 }
                 else{                    
                     window.location.href = "/login";
+                    //alert("Redirect to login from top nav - active user not found from token");
                 }
             }).catch(error => {
                 console.log(error , 'Could not get user information');
             });
         }
-    });
+    }, []);
 
     
 
@@ -68,6 +59,12 @@ export default function TopNav(){
         //delete cookie with key
         const TokenKey = "eflo.auth";
         Cookies.remove(TokenKey);
+
+        SetMember(null);
+        SetOffPlayer(null);
+        SetDefPlayer(null);
+        SetUserPlayers(null);
+        
         window.location.href = "/login";
 
     };

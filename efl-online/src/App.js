@@ -9,6 +9,7 @@ import SoftUI from './assets/soft-ui/SoftUI';
 import logo from './logo.svg';
 import './App.css';
 import DiscordCallback from './auth/discord/callback';
+import { AlertProvider } from './context/AlertContext';
 
 
 function App() {
@@ -17,14 +18,12 @@ function App() {
   }, []);
   return (
 
-    
     <Router>
+      <AlertProvider>
+        <div className="App">
+              
+          <SoftUI />
 
-      <div className="App">
-            
-      <SoftUI />
-
-                
           {/* Load main page template content */}
           <Routes>
             
@@ -35,8 +34,8 @@ function App() {
             <Route path="/auth/discord/callback" element={<DiscordCallback />} ></Route>
           </Routes>
 
-      </div>
-    
+        </div>
+      </AlertProvider>
     </Router>
   );
 }

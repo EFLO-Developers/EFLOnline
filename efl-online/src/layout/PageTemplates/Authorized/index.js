@@ -7,33 +7,17 @@ import Cookies from 'js-cookie';
 const AuthorizedTemplate = ({children}) => {
 
   useEffect(() => {
-    
-
-    const TokenKey = "eflo.auth";
-    const eflo_access_token = Cookies.get(TokenKey);
-
-    if (!eflo_access_token) {
-      console.log("Token not found");
-      window.location.href = "/login";
-      return;
-    }
-
-    const params = {
-      eflo_access_token
-    };
-
-
-    EFLOAuthServiceAgent.ValidateAuthToken(params).then(res => {
-
+        
+    EFLOAuthServiceAgent.ValidateAuthToken().then(res => {
       //get discord member
-
 
     }).catch(error => {
         console.log("Token not found or valid");
         window.location = "/login";
+        //alert("Redirect to login from auth template - token not found or valid");
     });
-
-  });
+    
+  }, []);
 
     return(        
         <div>
