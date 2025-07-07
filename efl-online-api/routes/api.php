@@ -20,6 +20,7 @@ require_once __DIR__ . '/../controllers/UserController.php';
 require_once __DIR__ . '/../controllers/PlayerController.php';
 require_once __DIR__ . '/../controllers/LeagueController.php';
 require_once __DIR__ . '/../controllers/ApproverController.php';
+require_once __DIR__ . '/../controllers/FactsController.php';
 
 $requestUri = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
@@ -32,6 +33,7 @@ $userController = new UserController($pdo);
 $playerController = new PlayerController($pdo);
 $leagueController = new LeagueController($pdo);
 $approverController = new ApproverController($pdo);
+$factsController = new FactsController();
 
 
 $headers = getallheaders();
@@ -39,6 +41,20 @@ $eflo_access_token = isset($headers['Authorization']) ? str_replace('Bearer ', '
 
 switch ($requestUri) {
     
+
+    case '/Facts/Cat':
+        if ($requestMethod == 'GET') {
+            echo json_encode($factsController->GetCatFacts());
+        }
+        break;
+
+    case '/Facts/Snail':
+        if ($requestMethod == 'GET') {
+            echo json_encode($factsController->GetSnailFacts());
+        }
+        break;
+
+
 
     case '/EFLOAuth/GenerateAuthToken':
         if ($requestMethod == 'POST') {

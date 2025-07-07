@@ -101,7 +101,8 @@ const PointTaskMenu = (props) => {
                         // return true to enable
                         return date.getDay() === 6; // 6 is Saturday
                     }
-                ]
+                ],
+                onChange: handleDateChange
             });
         }
 
@@ -235,10 +236,18 @@ const PointTaskMenu = (props) => {
                 }));
             }
         }
-
         SetPendingPointTask(prevState => ({
             ...prevState,
             [id]: value
+        }));
+    };
+
+    
+    const handleDateChange = (selectedDates, dateStr, instance) => {
+
+        SetPendingPointTask(prevState => ({
+            ...prevState,
+            WeekEnding: dateStr
         }));
     };
 
@@ -251,13 +260,93 @@ const PointTaskMenu = (props) => {
                     const errorItem = res.find(item => item.error);
                     addAlert("danger", errorItem.error);
                 } else{
-                    window.location.reload();
+                    //window.location.reload();
                 }
 
             }).catch(error => {
                 addAlert("danger", `${error} : Could no save all pending tasks`);
             });
         }
+    };
+
+    const handleActivityCheckSubmit = () => {
+
+        var ac_pts = {
+            
+                    "PointTaskSubmissionId" : null,
+                    "UserId" : player.UserId,
+                    "PointTaskTypeId" : 11,
+                    "PlayerId" : null,
+                    "ClaimedPoints" : 3,
+                    "URL" : "",
+                    "Notes" : null,
+                    "WeekEnding" : nextSaturday
+                                                    
+        };
+
+
+        PlayerServiceAgent.UpsertPointTaskSubmission([ac_pts]).then(res => {
+            const errors = [];
+
+            // Check if any children of res have property error
+            Object.values(res).forEach(child => {
+                if (child && child.error) {
+                    errors.push(child.error);
+                }
+            });
+
+            if (errors.length > 0) {
+                // Handle the errors
+                addAlert("danger", `Could not Save Activity Check : ${errors.join(', ')} `);
+            } else{
+                window.location.reload();
+                console.log(res);
+            }
+
+        }).catch(error => {
+            console.log(error , 'Could not get player');
+            addAlert("danger", `${error} : Could not Save Activity Check`);
+        });        
+    };
+
+    const handleTrainingCampSubmit = () => {
+
+        var tc_pts = {
+            
+                    "PointTaskSubmissionId" : null,
+                    "UserId" : player.UserId,
+                    "PointTaskTypeId" : 14,
+                    "PlayerId" : null,
+                    "ClaimedPoints" : 15,
+                    "URL" : "",
+                    "Notes" : null,
+                    "WeekEnding" : nextSaturday
+                                                    
+        };
+
+
+        PlayerServiceAgent.UpsertPointTaskSubmission([tc_pts]).then(res => {
+            const errors = [];
+
+            // Check if any children of res have property error
+            Object.values(res).forEach(child => {
+                if (child && child.error) {
+                    errors.push(child.error);
+                }
+            });
+
+            if (errors.length > 0) {
+                // Handle the errors
+                addAlert("danger", `Could not Save Training Camp : ${errors.join(', ')} `);
+            } else{
+                window.location.reload();
+                console.log(res);
+            }
+
+        }).catch(error => {
+            console.log(error , 'Could not get player');
+            addAlert("danger", `${error} : Could not Save Training Camp`);
+        });        
     };
 
 return (
@@ -272,15 +361,15 @@ return (
                 <button type="button" className="btn btn-primary btn-lg w-100 mb-2 " data-bs-toggle="modal" data-bs-target="#modal_manual_pointtask" >                                        
                     Manual Point Task
                 </button>
-                <button type="button" className="btn btn-primary btn-lg w-100 mb-2 " data-bs-toggle="modal" data-bs-target="#modal_manual_pointtask"  >                                        
+                <button type="button" className="btn btn-primary btn-lg w-100 mb-2 " onClick={handleActivityCheckSubmit} >                                        
                     Activity Check
                 </button>
 
                 <h6 className="mt-2">SEASONAL</h6>
-                <button type="button" className="btn btn-primary btn-lg w-100 mb-2 " data-bs-toggle="modal" data-bs-target="#modal_manual_pointtask"  >                                        
+                <button type="button" className="btn btn-primary btn-lg w-100 mb-2 " onClick={handleTrainingCampSubmit} >                                        
                     Training Camp
                 </button>
-                <button type="button" className="btn btn-primary btn-lg w-100 mb-2 " data-bs-toggle="modal" data-bs-target="#modal_manual_pointtask"  >                                        
+                <button type="button" className="btn btn-primary btn-lg w-100 mb-2 d-none" data-bs-toggle="modal" data-bs-target="#modal_manual_pointtask"  >                                        
                     Giveaways
                 </button>
 
@@ -349,7 +438,7 @@ return (
                                         onfocus="focused(this)" onfocusout="defocused(this)" 
                                         id="WeekEnding"
                                         value={pendingPointTask.WeekEnding}
-                                        onChange={handleInputChange}  />
+                                         />
                                 </div>
                             </div>
 

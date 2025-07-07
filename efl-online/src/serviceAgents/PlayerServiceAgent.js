@@ -220,6 +220,7 @@ class PlayerServiceAgent  {
     //UPSERT Point Task
     static async UpsertPointTaskSubmission(pendingTasks){
         
+
         var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
     
         const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
@@ -231,6 +232,7 @@ class PlayerServiceAgent  {
                     "point_task_submission": task
                 };
                 
+
                 const response = await axios.post(baseURL + endpoint, task_submission, {
                     headers: {
                         'Authorization': `Bearer ${eflo_access_token}`
@@ -239,10 +241,10 @@ class PlayerServiceAgent  {
 
                 return response.data;
             }));
-
+            
             return responses;
         } catch (error) {
-            console.error('Error upserting point task submissions:', error);
+            console.log(`Error upserting point task submissions: ${error}`);
             throw error;
         }
     }

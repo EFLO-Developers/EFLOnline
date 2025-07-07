@@ -44,34 +44,31 @@ class EFLOAuthController {
             if (!$user) {
                 $endpoint = "https://discord.com/api/users/@me/guilds/{$_ENV['DISCORD_EFLSERVERID']}/member";
 
-                try {
-                    $response = $this->client->get($endpoint, [
-                        'headers' => [
-                            'Authorization' => "Bearer $discordAccessToken"
-                        ]
+                $response = $this->client->get($endpoint, [
+                    'headers' => [
+                        'Authorization' => "Bearer $discordAccessToken"
+                    ]
+                ]);
+
+                $member = json_decode($response->getBody(), true);
+
+                if ($member['user']['id'] == $discordId) {
+
+                    
+                    $nickname = $member['nick'] ?? $member["user"]["global_name"];
+
+                    $userId = Uuid::uuid4()->toString();
+                    $stmt = $this->pdo->prepare("INSERT INTO User (UserId, DiscordId, DiscordNick, ForumNick, RecruitedBy, AgencyName, LastLoginDate, CreateDate, UpdateDate, LastDiscordSync) 
+                                                        VALUES (?, ?, ?, NULL, NULL,NULL, NOW(), NOW(), NOW(), NOW())");
+                    $stmt->execute([
+                        $userId, 
+                        $discordId, 
+                        $nickname
                     ]);
-
-                    $member = json_decode($response->getBody(), true);
-
-                    if ($member['user']['id'] == $discordId) {
-
-                        
-                        $nickname = $member['nick'] ?? $member["user"]["global_name"];
-
-                        $userId = Uuid::uuid4()->toString();
-                        $stmt = $this->pdo->prepare("INSERT INTO User (UserId, DiscordId, DiscordNick, ForumNick, RecruitedBy, AgencyName, LastLoginDate, CreateDate, UpdateDate, LastDiscordSync) 
-                                                            VALUES (?, ?, ?, NULL, NULL,NULL, NOW(), NOW(), NOW(), NOW())");
-                        $stmt->execute([
-                            $userId, 
-                            $discordId, 
-                            $nickname
-                        ]);
-                    } else {
-                        return ['error' => 'Failed to validate given DiscordId' ];
-                    }
-                } catch (Exception $e) {
-                    return ['error' => 'Failed to validate access token' . $e];
+                } else {
+                    return ['error' => 'Failed to validate given DiscordId' ];
                 }
+                    
             } else {
                 $userId = $user['UserId'];
             }
@@ -90,7 +87,7 @@ class EFLOAuthController {
 
             return ['AuthTokenId' => $tokenId];    
         } catch (PDOException $e) {
-            return ['error' => 'Failed to generate token'];
+            return ['error' => 'Failed to generate token' . $e];
         } finally {
             // Close the connection
             if($closeConn)

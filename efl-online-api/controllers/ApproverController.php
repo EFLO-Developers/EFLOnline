@@ -29,6 +29,13 @@ class ApproverController {
         $this->userController = new UserController($pdo); // Initialize UserController
     }
 
+    private function convertToMySQLDateTime($isoDateTime) {
+        if ($isoDateTime) {
+            $dateTime = new DateTime($isoDateTime);
+            return $dateTime->format('Y-m-d H:i:s');
+        }
+        return null;
+    }
 
     //GetPendingPlayerUpdate
 
@@ -152,12 +159,17 @@ class ApproverController {
                 return ['error' => 'User not found'];
             }            
 
+            // Convert ISO 8601 datetime to MySQL datetime format
+            $approvedDate = $this->convertToMySQLDateTime($pointTaskSubmission['ApprovedDate']);
+            $rejectedDate = $this->convertToMySQLDateTime($pointTaskSubmission['RejectedDate']);
+
+
             //process the point task action            
             $stmt = $this->pdo->prepare("UPDATE PointTaskSubmission SET ApprovedDate = ?, RejectedDate = ?, RejectReason = ?, ApproverId = ? WHERE PointTaskSubmissionId = ?");
             
             $stmt->execute([            
-                $pointTaskSubmission['ApprovedDate'],
-                $pointTaskSubmission['RejectedDate'],
+                $approvedDate,
+                $rejectedDate,
                 $pointTaskSubmission['RejectReason'],
                 $user['eflo_member']['Id'],
                 $pointTaskSubmission['PointTaskSubmissionId']

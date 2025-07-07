@@ -154,7 +154,6 @@ class PlayerController {
                 $this->pdo = null;
         }
     }
-    
 
     public function UpsertPlayer($eflo_access_token, $player, $closeConn = true){
 

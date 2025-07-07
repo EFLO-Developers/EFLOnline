@@ -13,9 +13,18 @@ class Database {
 
     private function __construct($route) {
         $this->route = $route;
-        $host = 'srv1167.hstgr.io';
+
+
+        
+        $host = 'srv554.hstgr.io';
         $db = 'u948353728_EFLOnline';
         $user = 'u948353728_EFLODeveloper';
+        
+        
+        $host = '89.116.170.37';
+        $db = 'EFLOnline';
+        $user = 'EFLDeveloper';
+        
         $pass = 'TurnerShaka2025@';
         $charset = 'utf8mb4';
 
