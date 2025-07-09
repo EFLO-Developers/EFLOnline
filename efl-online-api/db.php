@@ -4,6 +4,9 @@
 require_once __DIR__ . '/vendor/autoload.php'; // Assuming you use Composer for UUID and Guzzle
 use Ramsey\Uuid\Uuid;
 
+// Load environment variables
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 class Database {
     private static $instance = null;
@@ -16,17 +19,11 @@ class Database {
 
 
         
-        $host = 'srv554.hstgr.io';
-        $db = 'u948353728_EFLOnline';
-        $user = 'u948353728_EFLODeveloper';
-        
-        
-        $host = '89.116.170.37';
-        $db = 'EFLOnline';
-        $user = 'EFLDeveloper';
-        
-        $pass = 'TurnerShaka2025@';
-        $charset = 'utf8mb4';
+        $host = $_ENV['DB_HOST'];
+        $db = $_ENV['DB_NAME'];
+        $user = $_ENV['DB_USER'];
+        $pass = $_ENV['DB_PASS'];
+        $charset = $_ENV['DB_CHARSET'];
 
         $this->connectionId = Uuid::uuid4()->toString();
 
