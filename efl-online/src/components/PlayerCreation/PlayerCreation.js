@@ -14,6 +14,7 @@ import usePersistedState from '../../serviceAgents/usePersistedState.js';
 
 import Alerts from '../Alerts/alerts';
 import { useAlert } from '../../context/AlertContext';
+import { all } from 'axios';
 
 // PlayerCreate component handles the creation of a new player
 export default function PlayerCreate() {
@@ -22,8 +23,19 @@ export default function PlayerCreate() {
     const { addAlert } = useAlert();
     // Loading state for spinner
     const [loading, SetLoading] = useState(true);
+
     // Archetypes available for selection
-    const [archetypes, SetArchetypes] = useState(null);
+    const [allArchetypes, setAllArchetypes] = useState(null);
+
+    // Archetypes available for selection
+    const [archetypes, setArchetypes] = useState(null);
+
+    
+    // Positions available for selection
+    const [positions, setPositions] = useState(null);
+    
+    // Currently selected position
+    const [selectedPosition, setSelectedPosition] = useState(null);
 
     // Persisted state for user players and user info
     const [userPlayers, SetUserPlayers] = usePersistedState('ActiveUserPlayers', null);
@@ -45,6 +57,9 @@ export default function PlayerCreate() {
         Weight : 220
     });
 
+
+
+
     // Fetch available archetypes, filtering out those already used by the user's players
     function GetAvailableArchetypes(){
         // Check if user already has 2 active players, redirect if so
@@ -60,17 +75,22 @@ export default function PlayerCreate() {
         PlayerServiceAgent.GetArchetypes().then(res => {
             if(res != undefined)
             {
-                const filteredArchetypes = res.filter(archetype => !player_unit_types.includes(archetype.UnitType));
-                SetArchetypes(filteredArchetypes);
+                var filteredArchetypes = res.filter(archetype => !player_unit_types.includes(archetype.UnitType));
+                setAllArchetypes(filteredArchetypes);
 
-                // Set default archetype if available
-                if (filteredArchetypes && filteredArchetypes.length > 0) {
-                    const firstArchetypeId = filteredArchetypes[0].ArchetypeId;
-                    SetNewPlayer((prevState) => ({
-                        ...prevState,
-                        ArchetypeId: firstArchetypeId
-                    }));
-                }
+                // Get all unique position properties from filtered archetypes and add them to the positions state object
+                const uniquePositions = Array.from(
+                    new Set(filteredArchetypes.map(archetype => archetype.Position))
+                ).map(positionName => {
+                    // Optionally, you can get the first archetype for each position if needed
+                    return {
+                        PositionName: positionName
+                    };
+                });
+                setPositions(uniquePositions);
+
+               GetArchetypesByPosition(uniquePositions[0].PositionName, filteredArchetypes);
+               setSelectedPosition(uniquePositions[0].PositionName);
             }
             else{
                 console.log('archetypes returned null response');
@@ -80,6 +100,30 @@ export default function PlayerCreate() {
         }).finally(() => {
             SetLoading(false);
         });
+    }
+
+    function GetArchetypesByPosition(position, availableArchetypes) {
+        // Fetch all archetypes and filter by position
+        if(availableArchetypes == null && allArchetypes != null) {
+            availableArchetypes = allArchetypes;
+        }
+
+
+        // Set default archetype if available, default archetype is the first one in the list that matches the first position in the list
+        if (availableArchetypes && availableArchetypes.length > 0 && position) {
+
+            var filteredArchetypes = availableArchetypes.filter(archetype => archetype.Position === position);
+            setArchetypes(filteredArchetypes);
+            console.log('archetypes set for position', position, filteredArchetypes);
+
+            const firstArchetypeForPosition = filteredArchetypes.find(archetype => archetype.Position === position);
+            if (firstArchetypeForPosition) {
+                SetNewPlayer((prevState) => ({
+                    ...prevState,
+                    ArchetypeId: firstArchetypeForPosition.ArchetypeId
+                }));
+            }
+        }
     }
 
     // On mount, fetch archetypes if not already loaded
@@ -167,6 +211,28 @@ export default function PlayerCreate() {
         }));
     };
 
+      // Handle input changes for the form fields
+    const handlePositionChange = (event) => {
+        const { id, value } = event.target;
+
+        // Set the selected position
+        setSelectedPosition(value);
+
+        //get archetypes for the selected position
+        GetArchetypesByPosition(value);
+
+        if(archetypes){
+            // Set the ArchetypeId to the first archetype for the selected position
+            const firstArchetypeForPosition = archetypes.find(archetype => archetype.Position === value);
+            if (firstArchetypeForPosition) {
+                SetNewPlayer(prevState => ({
+                    ...prevState,
+                    ArchetypeId: firstArchetypeForPosition.ArchetypeId
+                }));
+            }
+        }
+    };
+
     // Show loading spinner while loading
     if (loading) {
         return <div><MainTemplate><LoadingSpinner></LoadingSpinner></MainTemplate></div>;
@@ -177,7 +243,7 @@ export default function PlayerCreate() {
         <div>
             <div className="container-fluid py-4">
                 <div className="row">
-                    <div className="col-12 text-center">
+                    <div className="col-12 text-center ">
                         <h3 className="mt-5">Create a Player</h3>
                         <h5 className="text-secondary font-weight-normal">Start your journey.</h5>
                         <div className="multisteps-form mb-5">
@@ -197,96 +263,139 @@ export default function PlayerCreate() {
                             </div>
 
                             {/* form panels */}
-                            <div className="row ">
-                                <div className="col-6  m-auto">
-                                    <form className="multisteps-form__form" onSubmit={handleSubmit}  >
-                                        {/* single form panel */}
-                                        <div className="card multisteps-form__panel p-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
-                                            <div className="row text-center">
-                                                <div className="col-8 mx-auto">
-                                                    <h5 className="font-weight-normal">Let's start with the basic information</h5>
-                                                    <p>This information will define your player.</p>
-                                                </div>
-                                            </div>
-                                            <div className="multisteps-form__content">
-                                                <div className="row mt-3">
-                                                    <div className="col-4">
-                                                        <img style={{maxHeight: "100%", maxWidth: "100%"}} src="https://www.kindpng.com/picc/m/232-2322138_nfl-draft-minnesota-vikings-american-football-football-american.png" />
-                                                    </div>
-                                                    <div className="col-8 m-auto text-start p-6 pt-2 pb-2">
-                                                        {/* First Name */}
-                                                        <label>First Name</label>
-                                                        <input className="multisteps-form__input form-control mb-3" type="text" placeholder="" 
-                                                            id="FirstName"
-                                                            name="FirstName"
-                                                            value={newPlayer.FirstName}
-                                                            onChange={handleInputChange}/>
-                                                        {/* Last Name */}
-                                                        <label>Last Name</label>
-                                                        <label className="sub-label required">*Required</label>
-                                                        <input className="multisteps-form__input form-control mb-3" type="text" placeholder="" 
-                                                            id="LastName"
-                                                            name="LastName"
-                                                            value={newPlayer.LastName}
-                                                            onChange={handleInputChange}/>
-                                                        {/* Nickname */}
-                                                        <label>Nickname</label>
-                                                        <input className="multisteps-form__input form-control mb-3" type="text" placeholder="" 
-                                                            id="Nickname"
-                                                            name="Nickname"
-                                                            value={newPlayer.Nickname}
-                                                            onChange={handleInputChange}/>
-                                                        {/* Archetype */}
-                                                        <label>Archetype</label>
-                                                        <label className="sub-label required">*Required</label>
-                                                        <select className="form-select mb-3" placeholder="Archetype"
-                                                            id="ArchetypeId"
-                                                            name="ArchetypeId"
-                                                            value={newPlayer.ArchetypeId}
-                                                            onChange={handleInputChange}>
-                                                            {archetypes && archetypes.map((archetype) => (
-                                                                <option key={archetype.ArchetypeId} value={archetype.ArchetypeId}>
-                                                                    {archetype.Position} : {archetype.ArchetypeName}
-                                                                </option>
-                                                            ))}
-                                                        </select>
-                                                        {/* Jersey Number */}
-                                                        <label>Jersey Number</label>
-                                                        <input className="multisteps-form__input form-control mb-3" type="number" placeholder=""
-                                                            id="JerseyNumber"
-                                                            value={newPlayer.JerseyNumber}
-                                                            onChange={handleInputChange} />
-                                                        {/* Height */}
-                                                        <label>Height</label>
-                                                        <label className="sub-label required">*Required</label>
-                                                        <input className="multisteps-form__input form-control mb-3" type="number" placeholder="" 
-                                                            id="Height"
-                                                            value={newPlayer.Height}
-                                                            onChange={handleInputChange}/>
-                                                        {/* Weight */}
-                                                        <label>Weight</label>
-                                                        <label className="sub-label required">*Required</label>
-                                                        <input className="multisteps-form__input form-control mb-3" type="number" placeholder="" 
-                                                            id="Weight"
-                                                            value={newPlayer.Weight}
-                                                            onChange={handleInputChange}/>
-                                                        {/* Duplicate Weight input (possible bug, left for review) */}
-                                                        <label>Weight</label>
-                                                        <label className="sub-label required">*Required</label>
-                                                        <input className="multisteps-form__input form-control mb-3" type="text" placeholder="" 
-                                                            id="Weight"
-                                                            name="Weight"
-                                                            value={newPlayer.Weight}
-                                                            onChange={handleInputChange}/>
+                            <div className="row">
+                                    
+                                    <div className="col-6 ">
+                                        <form className="multisteps-form__form" onSubmit={handleSubmit}  >
+                                            {/* single form panel */}
+                                            <div className="card multisteps-form__panel p-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
+                                                <div className="row text-center">
+                                                    <div className="col-8 mx-auto">
+                                                        <h5 className="font-weight-normal">Let's start with the basic information</h5>
+                                                        <p>This information will define your player.</p>
                                                     </div>
                                                 </div>
-                                                <div className="button-row d-flex mt-4">
-                                                    <button className="btn bg-gradient-dark ms-auto mb-0 " type="submit" title="Create">Create</button>
+                                                <div className="multisteps-form__content">
+                                                    <div className="row mt-3">
+                                                        <div className="col-9 m-auto text-start p-2 pt-2 pb-2">
+                                                            {/* First Name */}
+                                                            <label>First Name</label>
+                                                            <input className="multisteps-form__input form-control mb-3" type="text" placeholder="" 
+                                                                id="FirstName"
+                                                                name="FirstName"
+                                                                value={newPlayer.FirstName}
+                                                                onChange={handleInputChange}/>
+                                                            {/* Last Name */}
+                                                            <label>Last Name</label>
+                                                            <label className="sub-label required">*Required</label>
+                                                            <input className="multisteps-form__input form-control mb-3" type="text" placeholder="" 
+                                                                id="LastName"
+                                                                name="LastName"
+                                                                value={newPlayer.LastName}
+                                                                onChange={handleInputChange}/>
+                                                            {/* Nickname */}
+                                                            <label>Nickname</label>
+                                                            <input className="multisteps-form__input form-control mb-3" type="text" placeholder="" 
+                                                                id="Nickname"
+                                                                name="Nickname"
+                                                                value={newPlayer.Nickname}
+                                                                onChange={handleInputChange}/>
+
+
+                                                            {/* Position */}
+                                                            <label>Position</label>
+                                                            <label className="sub-label required">*Required</label>
+                                                            <select className="form-select mb-3" placeholder="Position"
+                                                                id="Position"
+                                                                name="Position"
+                                                                value={selectedPosition || ''}
+                                                                onChange={handlePositionChange}>
+                                                                {positions && positions.map((pos) => (
+                                                                    <option key={pos.PositionName} value={pos.PositionName}>
+                                                                        {pos.PositionName}
+                                                                    </option>
+                                                                ))}
+                                                            </select>
+
+
+                                                            {/* Archetype */}
+                                                            <label>Archetype</label>
+                                                            <label className="sub-label required">*Required</label>
+                                                            <select className="form-select mb-3" placeholder="Archetype"
+                                                                id="ArchetypeId"
+                                                                name="ArchetypeId"
+                                                                value={newPlayer.ArchetypeId}
+                                                                onChange={handleInputChange}>
+                                                                {archetypes && archetypes.map((archetype) => (
+                                                                    <option key={archetype.ArchetypeId} value={archetype.ArchetypeId}>
+                                                                        {archetype.ArchetypeName}
+                                                                    </option>
+                                                                ))}
+                                                            </select>
+                                                            {/* Jersey Number */}
+                                                            <label>Jersey Number</label>
+                                                            <input className="multisteps-form__input form-control mb-3" type="number" placeholder=""
+                                                                id="JerseyNumber"
+                                                                value={newPlayer.JerseyNumber}
+                                                                onChange={handleInputChange} />
+                                                            {/* Height */}
+                                                            <label>Height</label>
+                                                            <label className="sub-label required">*Required</label>
+                                                            <input className="multisteps-form__input form-control mb-3" type="number" placeholder="" 
+                                                                id="Height"
+                                                                value={newPlayer.Height}
+                                                                onChange={handleInputChange}/>
+                                                            {/* Weight */}
+                                                            <label>Weight</label>
+                                                            <label className="sub-label required">*Required</label>
+                                                            <input className="multisteps-form__input form-control mb-3" type="number" placeholder="" 
+                                                                id="Weight"
+                                                                value={newPlayer.Weight}
+                                                                onChange={handleInputChange}/>
+                                                            {/* Duplicate Weight input (possible bug, left for review) */}
+                                                            <label>Weight</label>
+                                                            <label className="sub-label required">*Required</label>
+                                                            <input className="multisteps-form__input form-control mb-3" type="text" placeholder="" 
+                                                                id="Weight"
+                                                                name="Weight"
+                                                                value={newPlayer.Weight}
+                                                                onChange={handleInputChange}/>
+                                                        </div>
+                                                    </div>
+                                                    <div className="button-row d-flex mt-4">
+                                                        <button className="btn bg-gradient-dark ms-auto mb-0 " type="submit" title="Create">Create</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                        </form>
+                                    </div>
+
+                                    <div className="col-4 ">                                
+                                                <h5 className="card-title mb-3">{selectedPosition} Archetypes</h5>
+
+                                                 {archetypes && archetypes.map((archetype) => (
+                                                    <div className="card pt-4 pb-4 mb-4" style={archetype.ArchetypeId == newPlayer.ArchetypeId ? { backgroundColor: "rgb(117, 182, 142)", color: "white" } : {}}>
+                                                        <h6 key={archetype.ArchetypeId} value={archetype.ArchetypeId} style={archetype.ArchetypeId == newPlayer.ArchetypeId ? { color: "white" } : {}}>                   
+                                                            {archetype.ArchetypeName}
+                                                        </h6>
+                                                        <p className="card-text  text-sm" >
+                                                            <strong>Height:</strong> {archetype.MinHeight} - {archetype.MaxHeight} <br />
+                                                            <strong>Weight:</strong> {archetype.MinWeight} - {archetype.MaxWeight} <br />
+                                                            <strong>Jersey Number:</strong> {archetype.MinJerseyNumber} - {archetype.MaxJerseyNumber} <br />
+                                                        </p>
+                                                        
+                                                        <p className="card-text  text-sm">
+                                                            <strong>Stat Caps</strong> <br />
+                                                            <strong>Speed:</strong> 80 <br />
+                                                            <strong>Strength:</strong> 75 <br />
+                                                            <strong>Agility:</strong> 85 <br />
+                                                        </p>
+
+                                                    </div>
+                                                ))}
+
+
+                                    </div>
                             </div>
                         </div>
                     </div>
