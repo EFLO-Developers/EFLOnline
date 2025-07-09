@@ -775,13 +775,43 @@ class PlayerController {
         try {
             $stmt = $this->pdo->query("SELECT * FROM Archetype");
             $archetypes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $archetypes;
+
+
+            // Get archetype caps
+            $archetypeCaps = [];
+            foreach ($archetypes as $archetype) {
+                $archetypeCaps[] = $this->GetArchetypeCaps($archetype);
+            }
+
+            return $archetypeCaps;
         } catch (PDOException $e) {
             return ['error' => 'Failed to fetch archetypes' . $e];
         } finally {
             if ($closeConn)
                 $this->pdo = null;
         }
+    }
+
+    /**
+     * Get attribute caps for a given archetype.
+     *
+     * @param array $archetype The archetype data array.
+     * @return array The archetype data merged with its attribute caps.
+     */
+    public function GetArchetypeCaps($archetype){
+        $stmt = $this->pdo->prepare(" SELECT `Code`, `Name`, `MaxValue`
+                                    FROM ArchetypeAttributeCap ac
+                                    INNER JOIN Attribute att on ac.AttributeId = att.AttributeId 
+                                    WHERE ArchetypeId = ?");
+        $stmt->execute([$archetype['ArchetypeId']]);
+        $archetypeCaps = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+         return array_merge(
+            $archetype,
+            [
+                'StatCaps' => $archetypeCaps
+            ]
+        );
     }
 
     /**
