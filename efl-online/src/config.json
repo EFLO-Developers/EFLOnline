@@ -1,0 +1,12 @@
+{
+    "AuthType": {
+      "Type": "Discord",
+      "Properties": {
+        "clientId": "1326244369090478161",
+        "clientSecret": "Shn9KEdoq6AfMb0URjlcEl6msWAgyqwU",
+        "redirectUri": "http://localhost:3000/auth/discord/callback"
+      }
+    },
+
+    "EFLDiscordID" : 333828099001286656
+  }
