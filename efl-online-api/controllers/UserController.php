@@ -2,7 +2,7 @@
 //require_once __DIR__ . '/../models/User.php';
 //require_once __DIR__ . '/../models/AuthToken.php';
 
-require_once __DIR__ . '/../vendor/autoload.php'; // Assuming you use Composer for UUID and Guzzle
+require_once __DIR__ . '/../vendor/autoload.php'; // Requires Composer for dependency management (UUID, Guzzle, etc.)
 require_once __DIR__ . '/EFLOAuthController.php';
 
 use Dotenv\Dotenv;
@@ -19,6 +19,9 @@ class UserController {
     private $pdo;
     private $client;
     private $eflOAuthController;
+
+    // Fallback date for LastDiscordSync when not set
+    private const FALLBACK_LAST_DISCORD_SYNC = '2000-01-01';
 
     public function __construct($pdo) {
         $this->pdo = $pdo;
@@ -46,8 +49,7 @@ class UserController {
         } catch (PDOException $e) {
             return ['error' => 'Failed to fetch users'];
         } finally {
-            // Close the connection
-            $this->pdo = null;
+            // No need to close the connection here
         }
     }
 
@@ -82,19 +84,19 @@ class UserController {
         }
 
         $bearer = $token["DiscordAccessToken"];
+
+        if (empty($_ENV['DISCORD_EFLSERVERID'])) {
+            return ['error' => 'DISCORD_EFLSERVERID environment variable is not set'];
+        }
         $endpoint = "https://discord.com/api/users/@me/guilds/{$_ENV['DISCORD_EFLSERVERID']}/member";
 
         try {
 
             
             // Check if LastDiscordSync is older than 10 minutes from now
-            $lastSync = $user['LastDiscordSync'] ? new DateTime($user['LastDiscordSync']) : new DateTime('2000-01-01');
-
-            $now = new DateTime();
-            $interval = $now->getTimestamp() - $lastSync->getTimestamp();
-
+            // Use a fallback date if LastDiscordSync is not set
+            $lastSync = $user['LastDiscordSync'] ? new DateTime($user['LastDiscordSync']) : new DateTime(self::FALLBACK_LAST_DISCORD_SYNC);
             if ($interval > 600) { // 600 seconds = 10 minutes
-            
 
                 $response = $this->client->get($endpoint, [
                     'headers' => [
@@ -104,7 +106,7 @@ class UserController {
 
                 $member = json_decode($response->getBody(), true);
 
-                // Update LastDiscordSync column to current datetime
+                $nickname = $member['nick'] ?? ($member['user']['global_name'] ?? null);
                 $stmt = $this->pdo->prepare("UPDATE User SET LastDiscordSync = NOW() WHERE UserId = ?");
                 $stmt->execute([$user['UserId']]);
 
@@ -121,12 +123,10 @@ class UserController {
 
             }
 
-
-            
+            // Always fetch security groups, regardless of Discord sync
             $stmt = $this->pdo->prepare("SELECT sg.Name FROM SecurityGroup sg INNER JOIN SecurityGroupMembership sgm on sg.GroupId = sgm.GroupId WHERE (sgm.ExpireDate IS NULL OR sgm.ExpireDate > NOW()) AND sgm.UserId = ?");
             $stmt->execute([$token['UserId']]);
             $security_groups = $stmt->fetchAll(PDO::FETCH_COLUMN);
-            
 
             return [
                 'eflo_member' => [
@@ -140,12 +140,14 @@ class UserController {
 
                     ]
             ];
+            
         } catch (Exception $e) {
             return ['error' => 'Failed to validate auth token with Discord'];
         } finally {
             // Close the connection
-            if($closeConn)
-                $this->pdo = null;
+            // Optionally close the connection (removed to prevent issues with reused controller instances)
+            // if($closeConn)
+            //     $this->pdo = null;
         }
     }
 
@@ -190,8 +192,6 @@ class UserController {
                     'UpdateDate' => $user['UpdateDate']
                 ]
             ];
-
-
         } catch (PDOException $e) {
             return ['error' => 'Failed to fetch user'];
         } finally {
@@ -210,11 +210,20 @@ class UserController {
         }
 
         try {
+            // Sanitize and validate input
+            $forumNick = isset($efloMember['ForumNick']) ? filter_var($efloMember['ForumNick'], FILTER_SANITIZE_STRING) : null;
+            $recruitedBy = isset($efloMember['RecruitedBy']) ? filter_var($efloMember['RecruitedBy'], FILTER_SANITIZE_STRING) : null;
+            $agencyName = isset($efloMember['AgencyName']) ? filter_var($efloMember['AgencyName'], FILTER_SANITIZE_STRING) : null;
+
+            if ($forumNick === null || $recruitedBy === null || $agencyName === null) {
+                return ['error' => 'Invalid input data'];
+            }
+
             $stmt = $this->pdo->prepare("UPDATE User SET ForumNick = ?, RecruitedBy = ?, AgencyName = ?, UpdateDate = NOW() WHERE UserId = ?");
             $stmt->execute([
-                $efloMember['ForumNick'],
-                $efloMember['RecruitedBy'],
-                $efloMember['AgencyName'],
+                $forumNick,
+                $recruitedBy,
+                $agencyName,
                 $userId
             ]);
     
@@ -241,7 +250,6 @@ class UserController {
                     'UpdateDate' => $user['UpdateDate']
                 ]
             ];
-    
         } catch (PDOException $e) {
             return ['error' => 'Failed to update user'];
         } finally {
@@ -249,8 +257,6 @@ class UserController {
             $this->pdo = null;
         }
     }
-
-    //GetActiveUser
 
 }
 

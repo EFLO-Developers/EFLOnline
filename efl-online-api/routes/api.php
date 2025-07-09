@@ -1,6 +1,12 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+if (getenv('APP_DEBUG') === 'true') {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+} else {
+    error_reporting(0);
+    ini_set('display_errors', 0);
+}
+header("Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With");
 
 // Allow CORS from all origins
 header("Access-Control-Allow-Origin: *");
@@ -21,7 +27,7 @@ require_once __DIR__ . '/../controllers/PlayerController.php';
 require_once __DIR__ . '/../controllers/LeagueController.php';
 require_once __DIR__ . '/../controllers/ApproverController.php';
 require_once __DIR__ . '/../controllers/FactsController.php';
-
+$pdo = Database::getInstance()->getConnection();
 $requestUri = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
@@ -45,12 +51,14 @@ switch ($requestUri) {
     case '/Facts/Cat':
         if ($requestMethod == 'GET') {
             echo json_encode($factsController->GetCatFacts());
+            return;
         }
         break;
 
     case '/Facts/Snail':
         if ($requestMethod == 'GET') {
             echo json_encode($factsController->GetSnailFacts());
+            return;
         }
         break;
 
@@ -178,21 +186,18 @@ switch ($requestUri) {
         }
         break;
 
-        case '/PointTaskType':
-            if ($requestMethod == 'GET') {
-                echo json_encode($playerController->GetPointTaskTypes());
-            }
-            break;
+    case '/PointTaskType':
+        if ($requestMethod == 'GET') {
+            echo json_encode($playerController->GetPointTaskTypes());
+        }
+        break;
 
-            
-            case '/Team':
-                if ($requestMethod == 'GET') {
-                    echo json_encode($leagueController->GetTeams());
-                }
-                break;
+    case '/Team':
+        if ($requestMethod == 'GET') {
+            echo json_encode($leagueController->GetTeams());
+        }
+        break;
 
-                
-            
     case preg_match('/\/Team\/([a-f0-9\-]+)/', $requestUri, $matches) && $requestMethod === 'GET':
         $teamId = $matches[1];
         
@@ -224,10 +229,12 @@ switch ($requestUri) {
             $input = json_decode(file_get_contents('php://input'), true);
             echo json_encode($approverController->ProcessAttributeUpdate($eflo_access_token, $input));
         }
-        break;
-    
+        break;    
     default:
-        echo json_encode(['message' => 'Invalid route']);
+        echo json_encode([
+            'message' => 'Invalid route',
+            'requested_uri' => $requestUri
+        ]);
         break;
 }
 ?>

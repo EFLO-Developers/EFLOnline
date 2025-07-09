@@ -1,14 +1,17 @@
 <?php
-    class HelloController {
-        private $pdo;
+// HelloController provides a simple hello world API endpoint
 
-        public function __construct($pdo) {
-            $this->pdo = $pdo;
-        }
+class HelloController {
+    private $pdo;
 
-        public function helloWorld() {
-            return ['message' => 'HELLO WORLD'];
-        }
-
+    // Constructor to initialize PDO connection
+    public function __construct($pdo) {
+        $this->pdo = $pdo;
     }
+
+    // Returns a simple hello world message as an array
+    public function helloWorld() {
+        return ['message' => 'HELLO WORLD'];
+    }
+}
 ?>

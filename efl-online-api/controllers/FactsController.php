@@ -108,6 +108,8 @@ class FactsController {
 
         header('Content-Type: application/json');
         echo json_encode($catFacts);
+
+        exit; // Prevent any further output, including null;
     }
 
     public function GetSnailFacts() {
@@ -216,6 +218,7 @@ class FactsController {
 
         header('Content-Type: application/json');
         echo json_encode($snailFacts);
+        exit; // Prevent any further output, including null;
     }
 
 }
