@@ -94,6 +94,11 @@ class UserController {
 
             
             // Check if LastDiscordSync is older than 10 minutes from now
+            $lastSync = $user['LastDiscordSync'] ? new DateTime($user['LastDiscordSync']) : new DateTime('2000-01-01');
+
+            $now = new DateTime();
+            $interval = $now->getTimestamp() - $lastSync->getTimestamp();
+
             // Use a fallback date if LastDiscordSync is not set
             $lastSync = $user['LastDiscordSync'] ? new DateTime($user['LastDiscordSync']) : new DateTime(self::FALLBACK_LAST_DISCORD_SYNC);
             if ($interval > 600) { // 600 seconds = 10 minutes
