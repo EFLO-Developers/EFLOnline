@@ -1,53 +1,54 @@
-import React, { useEffect, useState  } from 'react';
 import axios from 'axios';
-import Cookies from 'js-cookie';
-import EFLOAuthServiceAgent from './EFLOAuthServiceAgent/EFLOAuthServiceAgent';
 
-class LeagueServiceAgent  {
-
-    
-    static async GetTeams(){
-        
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL        
+/**
+ * LeagueServiceAgent provides static methods for retrieving league and team data from the EFLO API.
+ * All methods are asynchronous and return Promises.
+ */
+class LeagueServiceAgent {
+    /**
+     * Retrieves all teams from the EFLO API.
+     * @returns {Promise<object>} The teams data.
+     */
+    static async GetTeams() {
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
         const endpoint = "Team";
         try {
-            
             const response = await axios.get(`${baseURL}${endpoint}`, {
                 headers: {
-                  'Cache-Control': 'no-cache',
-                  'Pragma': 'no-cache',
-                  'Expires': '0'
+                    'Cache-Control': 'no-cache',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
                 }
             });
             return response.data;
-    
-            } catch (error) {
-                console.error('Error getting teams:', error);
-                throw error;
-            }
+        } catch (error) {
+            console.error('Error getting teams:', error);
+            throw error;
+        }
     }
 
-    static async GetTeamDetails(teamId){
-        
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL        
+    /**
+     * Retrieves details for a specific team by teamId from the EFLO API.
+     * @param {string|number} teamId - The ID of the team to retrieve.
+     * @returns {Promise<object>} The team details data.
+     */
+    static async GetTeamDetails(teamId) {
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
         const endpoint = `Team/${teamId}`;
         try {
-            
             const response = await axios.get(`${baseURL}${endpoint}`, {
                 headers: {
-                  'Cache-Control': 'no-cache',
-                  'Pragma': 'no-cache',
-                  'Expires': '0'
+                    'Cache-Control': 'no-cache',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
                 }
             });
             return response.data;
-    
-            } catch (error) {
-                console.error('Error getting teams details:', error);
-                throw error;
-            }
+        } catch (error) {
+            console.error('Error getting team details:', error);
+            throw error;
+        }
     }
-
 }
 
 export default LeagueServiceAgent;

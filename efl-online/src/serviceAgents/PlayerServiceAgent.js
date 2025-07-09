@@ -1,83 +1,84 @@
-import React, { useEffect, useState  } from 'react';
 import axios from 'axios';
-import Cookies from 'js-cookie';
 import EFLOAuthServiceAgent from './EFLOAuthServiceAgent/EFLOAuthServiceAgent';
 
-class PlayerServiceAgent  {
-
-
-
-    static async GetArchetypes(){
-        
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL        
+/**
+ * PlayerServiceAgent provides static methods for player-related API calls.
+ * All methods are asynchronous and return Promises.
+ */
+class PlayerServiceAgent {
+    /**
+     * Gets all archetypes from the API.
+     * @returns {Promise<object>} Archetypes data.
+     */
+    static async GetArchetypes() {
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
         const endpoint = "Archetypes/AllArchetypes";
         try {
-
             const response = await axios.get(`${baseURL}${endpoint}`, {
                 headers: {
-                  'Cache-Control': 'no-cache',
-                  'Pragma': 'no-cache',
-                  'Expires': '0'
+                    'Cache-Control': 'no-cache',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
                 }
             });
             return response.data;
-    
-            } catch (error) {
-                console.error('Error getting archetypes:', error);
-                throw error;
-            }
+        } catch (error) {
+            console.error('Error getting archetypes:', error);
+            throw error;
+        }
     }
 
-    
-    static async GetPointTaskTypes(){
-        
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL        
+    /**
+     * Gets all point task types from the API.
+     * @returns {Promise<object>} Point task types data.
+     */
+    static async GetPointTaskTypes() {
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
         const endpoint = "PointTaskType";
         try {
-
             const response = await axios.get(`${baseURL}${endpoint}`, {
                 headers: {
-                  'Cache-Control': 'no-cache',
-                  'Pragma': 'no-cache',
-                  'Expires': '0'
+                    'Cache-Control': 'no-cache',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
                 }
             });
             return response.data;
-    
-            } catch (error) {
-                console.error('Error getting point task types:', error);
-                throw error;
-            }
+        } catch (error) {
+            console.error('Error getting point task types:', error);
+            throw error;
+        }
     }
 
-    static async GetAllPlayers(){
-        var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL        
+    /**
+     * Gets all players (admin only).
+     * @returns {Promise<object>} All players data.
+     */
+    static async GetAllPlayers() {
+        const eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
         const endpoint = "Player";
         try {
-
             const response = await axios.get(`${baseURL}${endpoint}`, {
                 headers: {
-                  'Authorization': `Bearer ${eflo_access_token}`,
+                    'Authorization': `Bearer ${eflo_access_token}`,
                 }
             });
             return response.data;
-    
-            } catch (error) {
-                console.error('Error getting all players:', error);
-                throw error;
-            }
-
+        } catch (error) {
+            console.error('Error getting all players:', error);
+            throw error;
+        }
     }
 
-    static async GetActivePlayers(){
-
-        var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
-
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
-        
+    /**
+     * Gets all active players.
+     * @returns {Promise<Array>} Active players data.
+     */
+    static async GetActivePlayers() {
+        const eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
         const endpoint = "Player/Active";
-
         try {
             const response = await axios.get(`${baseURL}${endpoint}`, {
                 headers: {
@@ -87,23 +88,22 @@ class PlayerServiceAgent  {
                     'Expires': '0'
                 }
             });
-
             const data = response.data;
             return Array.isArray(data) ? data : [data];
-    
-            } catch (error) {
-                console.error('Error getting Users active PLayers:', error);
-                throw error;
-            }
+        } catch (error) {
+            console.error('Error getting Users active Players:', error);
+            throw error;
+        }
     }
-    static async GetActiveUserPlayers(){
 
-        var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
-
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
-        
+    /**
+     * Gets all active players for the current user.
+     * @returns {Promise<Array>} Active user players data.
+     */
+    static async GetActiveUserPlayers() {
+        const eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
         const endpoint = "Player/ActiveUser";
-
         try {
             const response = await axios.get(`${baseURL}${endpoint}`, {
                 headers: {
@@ -113,24 +113,23 @@ class PlayerServiceAgent  {
                     'Expires': '0'
                 }
             });
-
             const data = response.data;
             return Array.isArray(data) ? data : [data];
-    
-            } catch (error) {
-                console.error('Error getting Users active PLayers:', error);
-                throw error;
-            }
+        } catch (error) {
+            console.error('Error getting Users active Players:', error);
+            throw error;
+        }
     }
 
-    static async GetAllUserPlayers(userId){
-
-        var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
-
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
-        
+    /**
+     * Gets all players for a specific user.
+     * @param {string|number} userId
+     * @returns {Promise<Array>} User's players data.
+     */
+    static async GetAllUserPlayers(userId) {
+        const eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
         const endpoint = `Player/UserPlayers/${userId}`;
-        console.log(endpoint);
         try {
             const response = await axios.get(`${baseURL}${endpoint}`, {
                 headers: {
@@ -140,163 +139,151 @@ class PlayerServiceAgent  {
                     'Expires': '0'
                 }
             });
-
             const data = response.data;
             return Array.isArray(data) ? data : [data];
-    
-            } catch (error) {
-                console.error('Error getting Users  PLayers:', error);
-                throw error;
-            }
+        } catch (error) {
+            console.error('Error getting Users Players:', error);
+            throw error;
+        }
     }
 
-    static async GetPlayer(playerId){
-        var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL        
+    /**
+     * Gets a player by playerId.
+     * @param {string|number} playerId
+     * @returns {Promise<object>} Player data.
+     */
+    static async GetPlayer(playerId) {
+        const eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
         const endpoint = `Player/${playerId}`;
         try {
-
             const response = await axios.get(`${baseURL}${endpoint}`, {
                 headers: {
-                  'Authorization': `Bearer ${eflo_access_token}`,
+                    'Authorization': `Bearer ${eflo_access_token}`,
                 }
             });
             return response.data;
-    
-            } catch (error) {
-                console.error('Error getting players:', error);
-                throw error;
-            }
+        } catch (error) {
+            console.error('Error getting player:', error);
+            throw error;
+        }
     }
 
-    static async UpsertPlayer(player){
-        
-        var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
-
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
-        
+    /**
+     * Upserts (creates or updates) a player.
+     * @param {object} player - Player object to upsert.
+     * @returns {Promise<object>} API response data.
+     */
+    static async UpsertPlayer(player) {
+        const eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
         const endpoint = `Player`;
         try {
-
             const response = await axios.post(baseURL + endpoint, player, {
                 headers: {
                     'Authorization': `Bearer ${eflo_access_token}`
                 }
             });
-            
             return response.data;
-    
-            } catch (error) {
-                console.error('Error upserting player:', error);
-                throw error;
-            }
-    }
-
-    static async RetirePlayer(playerId){
-        
-        var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
-
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
-        
-        const endpoint = `Player/Retire/${playerId}`;
-        try {
-
-            const response = await axios.post(baseURL + endpoint, null, {
-                headers: {
-                    'Authorization': `Bearer ${eflo_access_token}`
-                }
-            });
-            
-            return response.data;
-    
-            } catch (error) {
-                console.error('Error upserting player:', error);
-                throw error;
-            }
-    }
-
-
-
-    //UPSERT Point Task
-    static async UpsertPointTaskSubmission(pendingTasks){
-        
-
-        var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
-    
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
-        
-        const endpoint = `Player/PointTaskSubmission`;
-        try {
-            const responses = await Promise.all(pendingTasks.map(async (task) => {
-                const task_submission = {
-                    "point_task_submission": task
-                };
-                
-
-                const response = await axios.post(baseURL + endpoint, task_submission, {
-                    headers: {
-                        'Authorization': `Bearer ${eflo_access_token}`
-                    }
-                });
-
-                return response.data;
-            }));
-            
-            return responses;
-        } catch (error) {
-            console.log(`Error upserting point task submissions: ${error}`);
-            throw error;
-        }
-    }
-
-    static async DeletePointTaskSubmission(pointTaskSubmissionId){
-        var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
-    
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
-        
-        const endpoint = `Player/DeletePointTaskSubmission/${pointTaskSubmissionId}`;
-        try {
-
-            const response = await axios.delete(baseURL + endpoint, {
-                headers: {
-                    'Authorization': `Bearer ${eflo_access_token}`
-                }
-            });
-            
-            return response.data;
-
         } catch (error) {
             console.error('Error upserting player:', error);
             throw error;
         }
     }
 
-    //UPSERT AttributeUpdate
-    static async UpsertPlayerAttributeUpdates(pendingUpdates){
+    /**
+     * Retires a player by playerId.
+     * @param {string|number} playerId
+     * @returns {Promise<object>} API response data.
+     */
+    static async RetirePlayer(playerId) {
+        const eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
+        const endpoint = `Player/Retire/${playerId}`;
+        try {
+            const response = await axios.post(baseURL + endpoint, null, {
+                headers: {
+                    'Authorization': `Bearer ${eflo_access_token}`
+                }
+            });
+            return response.data;
+        } catch (error) {
+            console.error('Error retiring player:', error);
+            throw error;
+        }
+    }
 
+    /**
+     * Upserts (creates or updates) point task submissions for one or more tasks.
+     * @param {Array<object>} pendingTasks - Array of point task objects.
+     * @returns {Promise<Array<object>>} Array of API response data.
+     */
+    static async UpsertPointTaskSubmission(pendingTasks) {
+        const eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
+        const endpoint = `Player/PointTaskSubmission`;
+        try {
+            const responses = await Promise.all(pendingTasks.map(async (task) => {
+                const task_submission = {
+                    "point_task_submission": task
+                };
+                const response = await axios.post(baseURL + endpoint, task_submission, {
+                    headers: {
+                        'Authorization': `Bearer ${eflo_access_token}`
+                    }
+                });
+                return response.data;
+            }));
+            return responses;
+        } catch (error) {
+            console.error('Error upserting point task submissions:', error);
+            throw error;
+        }
+    }
 
-        //for each child "attribute_update in the pending updates array, send an api call with the individual attribute upate as teh apyload
+    /**
+     * Deletes a point task submission by its ID.
+     * @param {string|number} pointTaskSubmissionId
+     * @returns {Promise<object>} API response data.
+     */
+    static async DeletePointTaskSubmission(pointTaskSubmissionId) {
+        const eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
+        const endpoint = `Player/DeletePointTaskSubmission/${pointTaskSubmissionId}`;
+        try {
+            const response = await axios.delete(baseURL + endpoint, {
+                headers: {
+                    'Authorization': `Bearer ${eflo_access_token}`
+                }
+            });
+            return response.data;
+        } catch (error) {
+            console.error('Error deleting point task submission:', error);
+            throw error;
+        }
+    }
 
-        var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
-
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
-        
+    /**
+     * Upserts (creates or updates) attribute updates for one or more attributes.
+     * @param {Array<object>} pendingUpdates - Array of attribute update objects.
+     * @returns {Promise<Array<object>>} Array of API response data.
+     */
+    static async UpsertPlayerAttributeUpdates(pendingUpdates) {
+        const eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
         const endpoint = `Player/AttributeUpdate`;
         try {
             const responses = await Promise.all(pendingUpdates.map(async (update) => {
                 const attr_update = {
                     "attribute_update": update.attribute_update
                 };
-                
                 const response = await axios.post(baseURL + endpoint, attr_update, {
                     headers: {
                         'Authorization': `Bearer ${eflo_access_token}`
                     }
                 });
-
                 return response.data;
             }));
-
             return responses;
         } catch (error) {
             console.error('Error upserting player attribute updates:', error);
@@ -304,58 +291,54 @@ class PlayerServiceAgent  {
         }
     }
 
-    static async AssignToTeam(playerId, teamId){
-        var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
-
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
-        
+    /**
+     * Assigns a player to a team.
+     * @param {string|number} playerId
+     * @param {string|number} teamId
+     * @returns {Promise<object>} API response data.
+     */
+    static async AssignToTeam(playerId, teamId) {
+        const eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
         const endpoint = `Player/AssignTeam`;
-
-        var data = {
-            "playerId" : playerId,
-            "teamId" : teamId
-        }
-
+        const data = {
+            "playerId": playerId,
+            "teamId": teamId
+        };
         try {
-
             const response = await axios.post(baseURL + endpoint, data, {
                 headers: {
                     'Authorization': `Bearer ${eflo_access_token}`
                 }
             });
-            
             return response.data;
-    
-            } catch (error) {
-                console.error('Error assigning player to team:', error);
-                throw error;
-            }
+        } catch (error) {
+            console.error('Error assigning player to team:', error);
+            throw error;
+        }
     }
 
-    static async GetPlayerUpdateHistory(playerId){
-        var eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
-
-        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL
-        
+    /**
+     * Gets the update history for a player.
+     * @param {string|number} playerId
+     * @returns {Promise<object>} Player update history data.
+     */
+    static async GetPlayerUpdateHistory(playerId) {
+        const eflo_access_token = EFLOAuthServiceAgent.GetActiveToken();
+        const baseURL = process.env.REACT_APP_EFLO_API_BASEURL;
         const endpoint = `Player/PlayerUpdates/${playerId}`;
-
-        console.log(endpoint);
         try {
-
             const response = await axios.get(baseURL + endpoint, {
                 headers: {
                     'Authorization': `Bearer ${eflo_access_token}`
                 }
             });
-            
             return response.data;
-    
-            } catch (error) {
-                console.error('Error getting player update history:', error);
-                throw error;
-            }
+        } catch (error) {
+            console.error('Error getting player update history:', error);
+            throw error;
+        }
     }
-
 }
 
 export default PlayerServiceAgent;

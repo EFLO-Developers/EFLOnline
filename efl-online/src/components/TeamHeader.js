@@ -1,61 +1,66 @@
-import React, { useState, useEffect } from 'react';
-import AuthorizedTemplate from "../layout/PageTemplates/Authorized";
-import MainTemplate from "../layout/PageTemplates/Main/main";
-import Helmet from 'react-helmet';
-import PlayerServiceAgent from '../serviceAgents/PlayerServiceAgent';
-import Cookies from 'js-cookie';
-import usePersistedState from '../serviceAgents/usePersistedState';
+import React, { useState } from 'react';
 import LoadingSpinner from './LoadingSpinner/spinner';
-import LeagueServiceAgent from '../serviceAgents/LeagueServiceAgent';
-import bootstrap from 'bootstrap';
-import Alerts from './Alerts/alerts';
 import { useAlert } from '../context/AlertContext';
 
-const TeamHeader = (props) => {
-    
+/**
+ * TeamHeader displays a team's header card with logo, colors, and info.
+ * @param {object} props - expects props.Team (team object)
+ */
+const TeamHeader = ({ Team }) => {
     const { addAlert } = useAlert();
-    const [loading, SetLoading] = useState(true);
-    const [team, SetTeam] = useState(props.Team);
+    const [team] = useState(Team);
 
-    useEffect(() => {
-        
-    }, [team]);
-
-    const AssignGMToTeam = () => {
-
-        
+    // Placeholder for future GM assignment logic
+    const assignGMToTeam = () => {
+        // Implement GM assignment logic here
     };
 
+    // Placeholder for future input handling logic
     const handleInputChange = (e) => {
         const { id, value } = e.target;
-
-        
+        // Implement input handling logic here
     };
 
+    // Render loading spinner if no team data
+    if (!team) {
+        return <LoadingSpinner />;
+    }
 
+    // Main render
     return (
-        <div >
-            { team ? (
-            
-                <div className="card card-background player-header team-header">
-                    <div className="full-background"  
-                        style={{ backgroundImage: `linear-gradient(50deg, #${team.PrimaryColor}95 0%, #${team.SecondaryColor}85 100%)`, zIndex:'4' }}></div>
-                    <div className="profile-header-logo" 
-                        style={{backgroundImage: `url(/EFL_Logo/${team.LogoFileName})`}}></div>
-                        <div className="profile-header-logo bg-wave" ></div>
-                    <div className="card-body text-start p-3 pb-2 w-100 h-100">
-                        <p className="city" style={{color:'#fff'}}>{team.City}</p>
-                        <h2 className="mb-2" style={{color:'#fff'}}>{team.Name}</h2>
-                        {team.ConferenceName ? (<div className="badge bg-primary">{team.ConferenceName}</div>) : null}
-                        <br/>
-                        {team.DiscordNick || team.ForumNick ? (<div className="badge bg-primary">{team.DiscordNick ?? team.ForumNick}</div>) : null}
-                    </div>
-
+        <div>
+            <div className="card card-background player-header team-header">
+                {/* Team background gradient */}
+                <div
+                    className="full-background"
+                    style={{
+                        backgroundImage: `linear-gradient(50deg, #${team.PrimaryColor}95 0%, #${team.SecondaryColor}85 100%)`,
+                        zIndex: '4'
+                    }}
+                ></div>
+                {/* Team logo */}
+                <div
+                    className="profile-header-logo"
+                    style={{ backgroundImage: `url(/EFL_Logo/${team.LogoFileName})` }}
+                ></div>
+                <div className="profile-header-logo bg-wave"></div>
+                <div className="card-body text-start p-3 pb-2 w-100 h-100">
+                    {/* Team city and name */}
+                    <p className="city" style={{ color: '#fff' }}>{team.City}</p>
+                    <h2 className="mb-2" style={{ color: '#fff' }}>{team.Name}</h2>
+                    {/* Conference badge */}
+                    {team.ConferenceName ? (
+                        <div className="badge bg-primary">{team.ConferenceName}</div>
+                    ) : null}
+                    <br />
+                    {/* Discord or Forum Nick badge */}
+                    {(team.DiscordNick || team.ForumNick) ? (
+                        <div className="badge bg-primary">{team.DiscordNick ?? team.ForumNick}</div>
+                    ) : null}
                 </div>
-            ) : (
-                <LoadingSpinner />
-            )}
-
+            </div>
         </div>
-)};
+    );
+};
+
 export default TeamHeader;
