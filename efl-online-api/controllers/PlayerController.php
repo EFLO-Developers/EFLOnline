@@ -806,14 +806,12 @@ class PlayerController {
         $stmt->execute([$archetype['ArchetypeId']]);
         $archetypeCaps = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-         return [
-                'archetype' => array_merge(
-                    $archetype,
-                    [
-                        'StatCaps' => $archetypeCaps
-                    ]
-                )
-            ];
+         return array_merge(
+            $archetype,
+            [
+                'StatCaps' => $archetypeCaps
+            ]
+        );
     }
 
     /**

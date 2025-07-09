@@ -386,9 +386,12 @@ export default function PlayerCreate() {
                                                         
                                                         <p className="card-text  text-sm">
                                                             <strong>Stat Caps</strong> <br />
-                                                            <strong>Speed:</strong> 80 <br />
-                                                            <strong>Strength:</strong> 75 <br />
-                                                            <strong>Agility:</strong> 85 <br />
+
+                                                            {archetype.StatCaps && archetype.StatCaps.map((cap) => (
+                                                                <div key={cap.Code}>
+                                                                    <strong>{cap.Name}:</strong> {cap.MaxValue} <br />
+                                                                </div>
+                                                            ))}
                                                         </p>
 
                                                     </div>
