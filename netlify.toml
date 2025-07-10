@@ -1,5 +1,5 @@
 # netlify.toml
 [build]
   base = "efl-online"
-  publish = "efl-online/build"
+  publish = "build"
   command = "npm run build"
