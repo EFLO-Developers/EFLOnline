@@ -1,6 +1,6 @@
 am4internal_webpackJsonp(["ab45"], {
   lhmh: function(t, e, i) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     });

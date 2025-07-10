@@ -1,6 +1,6 @@
 am4internal_webpackJsonp(["cc1e"], {
   QJ7E: function(t, e, n) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     });
@@ -514,14 +514,14 @@ am4internal_webpackJsonp(["cc1e"], {
     var at, ut, st, ct, lt, ht = function(t, e) {
         t && nt.hasOwnProperty(t.type) ? nt[t.type](t, e) : et(t, e)
       },
-      pt = new _,
-      ft = new _,
+      pt = new _(),
+      ft = new _(),
       dt = {
         point: tt,
         lineStart: tt,
         lineEnd: tt,
         polygonStart: function() {
-          pt = new _, dt.lineStart = gt, dt.lineEnd = vt
+          pt = new _(), dt.lineStart = gt, dt.lineEnd = vt
         },
         polygonEnd: function() {
           var t = +pt;
@@ -557,7 +557,7 @@ am4internal_webpackJsonp(["cc1e"], {
       pt.add(R(c, s)), st = t, ct = o, lt = a
     }
     var bt, Pt, St, _t, Mt, xt, jt, wt, Ot, Lt, Ct, Et = function(t) {
-      return ft = new _, ht(t, dt), 2 * ft
+      return ft = new _(), ht(t, dt), 2 * ft
     };
 
     function It(t) {
@@ -596,7 +596,7 @@ am4internal_webpackJsonp(["cc1e"], {
       lineStart: Ft,
       lineEnd: Bt,
       polygonStart: function() {
-        At.point = Ht, At.lineStart = Wt, At.lineEnd = Zt, Ot = new _, dt.polygonStart()
+        At.point = Ht, At.lineStart = Wt, At.lineEnd = Zt, Ot = new _(), dt.polygonStart()
       },
       polygonEnd: function() {
         dt.polygonEnd(), At.point = kt, At.lineStart = Ft, At.lineEnd = Bt, pt < 0 ? (bt = -(St = 180), Pt = -(_t = 90)) : Ot > E ? _t = 90 : Ot < -E && (Pt = -90), Ct[0] = bt, Ct[1] = St
@@ -750,7 +750,7 @@ am4internal_webpackJsonp(["cc1e"], {
       ie.add(h * a), re.add(h * u), oe.add(h * s), Jt += l, te += l * (se + (se = i)), ee += l * (ce + (ce = r)), ne += l * (le + (le = o)), de(se, ce, le)
     }
     var Me = function(t) {
-        Ut = Jt = Kt = Qt = $t = te = ee = ne = 0, ie = new _, re = new _, oe = new _, ht(t, pe);
+        Ut = Jt = Kt = Qt = $t = te = ee = ne = 0, ie = new _(), re = new _(), oe = new _(), ht(t, pe);
         var e = +ie,
           n = +re,
           i = +oe,
@@ -949,7 +949,7 @@ am4internal_webpackJsonp(["cc1e"], {
           o = [X(n), -F(n), 0],
           a = 0,
           u = 0,
-          s = new _;
+          s = new _();
         1 === r ? i = D + E : -1 === r && (i = -D - E);
         for (var c = 0, l = t.length; c < l; ++c)
           if (p = (h = t[c]).length)
@@ -1326,7 +1326,7 @@ am4internal_webpackJsonp(["cc1e"], {
       Ke.add(R(U(a * a + u * u), s)), Qe = t, $e = n, tn = i
     }
     var un = function(t) {
-        return Ke = new _, ht(t, nn), +Ke
+        return Ke = new _(), ht(t, nn), +Ke
       },
       sn = [null, null],
       cn = {
@@ -1526,8 +1526,8 @@ am4internal_webpackJsonp(["cc1e"], {
       Cn = function(t) {
         return t
       },
-      En = new _,
-      In = new _,
+      En = new _(),
+      In = new _(),
       Tn = {
         point: tt,
         lineStart: tt,
@@ -1536,11 +1536,11 @@ am4internal_webpackJsonp(["cc1e"], {
           Tn.lineStart = Dn, Tn.lineEnd = zn
         },
         polygonEnd: function() {
-          Tn.lineStart = Tn.lineEnd = Tn.point = tt, En.add(A(In)), In = new _
+          Tn.lineStart = Tn.lineEnd = Tn.point = tt, En.add(A(In)), In = new _()
         },
         result: function() {
           var t = En / 2;
-          return En = new _, t
+          return En = new _(), t
         }
       };
 
@@ -1685,7 +1685,7 @@ am4internal_webpackJsonp(["cc1e"], {
       },
       result: tt
     };
-    var di, gi, vi, mi, yi, bi = new _,
+    var di, gi, vi, mi, yi, bi = new _(),
       Pi = {
         point: tt,
         lineStart: function() {
@@ -1702,7 +1702,7 @@ am4internal_webpackJsonp(["cc1e"], {
         },
         result: function() {
           var t = +bi;
-          return bi = new _, t
+          return bi = new _(), t
         }
       };
 
@@ -1777,7 +1777,7 @@ am4internal_webpackJsonp(["cc1e"], {
         }, o.projection = function(e) {
           return arguments.length ? (n = null == e ? (t = null, Cn) : (t = e).stream, o) : t
         }, o.context = function(t) {
-          return arguments.length ? (i = null == t ? (e = null, new xi) : new fi(e = t), "function" != typeof r && i.pointRadius(r), o) : e
+          return arguments.length ? (i = null == t ? (e = null, new xi()) : new fi(e = t), "function" != typeof r && i.pointRadius(r), o) : e
         }, o.pointRadius = function(t) {
           return arguments.length ? (r = "function" == typeof t ? t : (i.pointRadius(+t), +t), o) : r
         }, o.projection(t).context(e)
@@ -1790,7 +1790,7 @@ am4internal_webpackJsonp(["cc1e"], {
 
     function Li(t) {
       return function(e) {
-        var n = new Ci;
+        var n = new Ci();
         for (var i in t) n[i] = t[i];
         return n.stream = e, n
       }
@@ -2547,7 +2547,7 @@ am4internal_webpackJsonp(["cc1e"], {
           return e.className = "MapSeries", e.isMeasured = !1, e.nonScalingStroke = !0, e.dataFields.value = "value", e.ignoreBounds = !1, e.tooltip && (e.tooltip.showInViewport = !0), e.applyTheme(), e
         }
         return Object(c.c)(e, t), e.prototype.createDataItem = function() {
-          return new Or
+          return new Or()
         }, e.prototype.checkInclude = function(t, e, n) {
           if (t) {
             if (0 == t.length) return !1;
@@ -2871,7 +2871,7 @@ am4internal_webpackJsonp(["cc1e"], {
       function e() {
         var e = t.call(this) || this;
         e.className = "MapPolygon", e.polygon = e.createChild(Tr.a), e.polygon.shouldClone = !1, e.polygon.applyOnClones = !0, e.setPropertyValue("precision", .5);
-        var n = new p.a;
+        var n = new p.a();
         return e.fill = n.getFor("secondaryButton"), e.stroke = n.getFor("secondaryButtonStroke"), e.strokeOpacity = 1, e.tooltipPosition = "pointer", e.nonScalingStroke = !0, e.applyTheme(), e
       }
       return Object(c.c)(e, t), e.prototype.getFeature = function() {
@@ -3081,7 +3081,7 @@ am4internal_webpackJsonp(["cc1e"], {
           return e.calculateVisualCenter = !1, e.className = "MapPolygonSeries", e.dataFields.multiPolygon = "multiPolygon", e.dataFields.polygon = "polygon", e.dataFields.geoPolygon = "geoPolygon", e.dataFields.multiGeoPolygon = "multiGeoPolygon", e.setPropertyValue("sortPolygonsBy", "area"), e.setPropertyValue("sortPolygonsReversed", !1), e.applyTheme(), e
         }
         return Object(c.c)(e, t), e.prototype.createDataItem = function() {
-          return new Jr
+          return new Jr()
         }, e.prototype.processIncExc = function() {
           this.mapPolygons.clear(), t.prototype.processIncExc.call(this)
         }, e.prototype.validateData = function() {
@@ -3151,7 +3151,7 @@ am4internal_webpackJsonp(["cc1e"], {
         }, Object.defineProperty(e.prototype, "mapPolygons", {
           get: function() {
             if (!this._mapPolygons) {
-              var t = new qr,
+              var t = new qr(),
                 e = new Xr.e(t);
               this._disposers.push(new Xr.c(e)), this._disposers.push(e.template), e.template.focusable = !0, e.events.on("inserted", this.handleObjectAdded, this, !1), this._mapPolygons = e, this._mapObjects = e
             }
@@ -3353,15 +3353,15 @@ am4internal_webpackJsonp(["cc1e"], {
       no = function(t) {
         function e() {
           var e = t.call(this) || this;
-          e._chart = new h.d, e.className = "SmallMap", e.align = "left", e.valign = "bottom", e.percentHeight = 20, e.percentWidth = 20, e.margin(5, 5, 5, 5);
-          var n = new p.a;
+          e._chart = new h.d(), e.className = "SmallMap", e.align = "left", e.valign = "bottom", e.percentHeight = 20, e.percentWidth = 20, e.margin(5, 5, 5, 5);
+          var n = new p.a();
           e.background.fillOpacity = .9, e.background.fill = n.getFor("background"), e.events.on("hit", e.moveToPosition, e, !1), e.events.on("maxsizechanged", e.updateMapSize, e, !1), e.seriesContainer = e.createChild(Cr.a), e.seriesContainer.shouldClone = !1;
           var i = e.createChild(to.a);
           return i.shouldClone = !1, i.stroke = n.getFor("alternativeBackground"), i.strokeWidth = 1, i.strokeOpacity = .5, i.fill = Object(eo.c)(), i.verticalCenter = "middle", i.horizontalCenter = "middle", i.isMeasured = !1, i.visible = !1, e.rectangle = i, e._disposers.push(e._chart), e.applyTheme(), e
         }
         return Object(c.c)(e, t), Object.defineProperty(e.prototype, "series", {
           get: function() {
-            return this._series || (this._series = new Xr.b, this._series.events.on("inserted", this.handleSeriesAdded, this, !1), this._series.events.on("removed", this.handleSeriesRemoved, this, !1)), this._series
+            return this._series || (this._series = new Xr.b(), this._series.events.on("inserted", this.handleSeriesAdded, this, !1), this._series.events.on("removed", this.handleSeriesRemoved, this, !1)), this._series
           },
           enumerable: !0,
           configurable: !0
@@ -3561,7 +3561,7 @@ am4internal_webpackJsonp(["cc1e"], {
           return e.className = "MapImageSeries", e.dataFields.multiPoint = "multiPoint", e.dataFields.point = "point", e.dataFields.geoPoint = "geoPoint", e.dataFields.multiGeoPoint = "multiGeoPoint", e.ignoreBounds = !0, e.applyTheme(), e
         }
         return Object(c.c)(e, t), e.prototype.createDataItem = function() {
-          return new lo
+          return new lo()
         }, e.prototype.validateData = function() {
           var e = this;
           if (this.data.length > 0 && 0 == this._parseDataFrom && this.mapImages.clear(), this.useGeodata && (this.useGeodata || this.geodata)) {
@@ -3602,7 +3602,7 @@ am4internal_webpackJsonp(["cc1e"], {
         }, Object.defineProperty(e.prototype, "mapImages", {
           get: function() {
             if (!this._mapImages) {
-              var t = new Ir,
+              var t = new Ir(),
                 e = new Xr.e(t);
               this._disposers.push(new Xr.c(e)), this._disposers.push(e.template), e.template.focusable = !0, e.events.on("inserted", this.handleObjectAdded, this, !1), this._mapImages = e, this._mapObjects = e
             }
@@ -3645,11 +3645,11 @@ am4internal_webpackJsonp(["cc1e"], {
         function e() {
           var e = t.call(this) || this;
           e._imageListeners = {}, e.className = "MapLine", e.createLine(), e.line.stroke = Object(eo.c)(), e.line.parent = e, e.strokeOpacity = 1, e.setPropertyValue("precision", .1);
-          var n = new p.a;
+          var n = new p.a();
           return e.stroke = n.getFor("grid"), e.shortestDistance = !0, e.applyTheme(), e
         }
         return Object(c.c)(e, t), e.prototype.createLine = function() {
-          this.line = new fo.a
+          this.line = new fo.a()
         }, e.prototype.positionToPoint = function(t) {
           return this.shortestDistance ? this.series.chart.projection.positionToPoint(this.multiGeoLine, t) : this.line ? this.line.positionToPoint(t) : {
             x: 0,
@@ -3780,7 +3780,7 @@ am4internal_webpackJsonp(["cc1e"], {
           configurable: !0
         }), Object.defineProperty(e.prototype, "lineObjects", {
           get: function() {
-            return this._lineObjects || (this._lineObjects = new Xr.e(new co), this._lineObjects.events.on("inserted", this.handleLineObjectAdded, this, !1), this._disposers.push(new Xr.c(this._lineObjects)), this._disposers.push(this._lineObjects.template)), this._lineObjects
+            return this._lineObjects || (this._lineObjects = new Xr.e(new co()), this._lineObjects.events.on("inserted", this.handleLineObjectAdded, this, !1), this._disposers.push(new Xr.c(this._lineObjects)), this._disposers.push(this._lineObjects.template)), this._lineObjects
           },
           enumerable: !0,
           configurable: !0
@@ -3904,7 +3904,7 @@ am4internal_webpackJsonp(["cc1e"], {
           return e.className = "MapLineSeries", e.dataFields.multiLine = "multiLine", e.dataFields.line = "line", e.dataFields.geoLine = "geoLine", e.dataFields.multiGeoLine = "multiGeoLine", e.ignoreBounds = !0, e.applyTheme(), e
         }
         return Object(c.c)(e, t), e.prototype.createDataItem = function() {
-          return new mo
+          return new mo()
         }, e.prototype.validateData = function() {
           if (this.useGeodata || this.geodata) {
             var e = this.chart.geodata;
@@ -3948,7 +3948,7 @@ am4internal_webpackJsonp(["cc1e"], {
           enumerable: !0,
           configurable: !0
         }), e.prototype.createLine = function() {
-          return new vo
+          return new vo()
         }, e.prototype.validate = function() {
           this.dataItems.each(function(t) {
             Yr.used(t.mapLine)
@@ -3997,7 +3997,7 @@ am4internal_webpackJsonp(["cc1e"], {
           return e.className = "GraticuleSeries", e.longitudeStep = 10, e.latitudeStep = 10, e.north = 90, e.south = -90, e.east = -180, e.west = 180, e.fitExtent = !0, e.singleSprite = !0, e.events.disableType("geoBoundsChanged"), e.mapLines.template.line.strokeOpacity = .08, e.ignoreBounds = !1, e.hiddenInLegend = !0, e.applyTheme(), e
         }
         return Object(c.c)(e, t), e.prototype.createDataItem = function() {
-          return new Po
+          return new Po()
         }, e.prototype.validateData = function() {
           var e = this;
           t.prototype.validateData.call(this), this.mapLines.clear();
@@ -4021,7 +4021,7 @@ am4internal_webpackJsonp(["cc1e"], {
             }
           }
         }, e.prototype.createLine = function() {
-          return new bo
+          return new bo()
         }, Object.defineProperty(e.prototype, "latitudeStep", {
           get: function() {
             return this.getPropertyValue("latitudeStep")
@@ -4075,7 +4075,7 @@ am4internal_webpackJsonp(["cc1e"], {
           e.scaleRatio = 1, e.zoomDuration = 1e3, e.zoomEasing = ro.cubicOut, e.minZoomLevel = 1, e.maxZoomLevel = 32, e._prevZoomGeoPoint = {
             latitude: 0,
             longitude: 0
-          }, e.className = "MapChart", e.projection = new Qr, e.setPropertyValue("deltaLatitude", 0), e.setPropertyValue("deltaLongitude", 0), e.setPropertyValue("deltaGamma", 0), e.maxPanOut = .7, e.homeZoomLevel = 1, e.zoomStep = 2, e.layout = "absolute", e.centerMapOnZoomOut = !0, e.padding(0, 0, 0, 0), Yr.used(e.backgroundSeries), e.minWidth = 10, e.minHeight = 10, e.events.once("inited", e.handleAllInited, e, !1);
+          }, e.className = "MapChart", e.projection = new Qr(), e.setPropertyValue("deltaLatitude", 0), e.setPropertyValue("deltaLongitude", 0), e.setPropertyValue("deltaGamma", 0), e.maxPanOut = .7, e.homeZoomLevel = 1, e.zoomStep = 2, e.layout = "absolute", e.centerMapOnZoomOut = !0, e.padding(0, 0, 0, 0), Yr.used(e.backgroundSeries), e.minWidth = 10, e.minHeight = 10, e.events.once("inited", e.handleAllInited, e, !1);
           var n = e.seriesContainer;
           n.visible = !1, n.inert = !0, n.resizable = !0, n.events.on("transformed", e.handleMapTransform, e, !1), n.events.on("doublehit", e.handleDoubleHit, e, !1), n.events.on("dragged", e.handleDrag, e, !1), n.zIndex = 0, n.dragWhileResize = !0, n.adapter.add("scale", function(t, n) {
             return v.fitToRange(t, e.minZoomLevel, e.maxZoomLevel)
@@ -4468,7 +4468,7 @@ am4internal_webpackJsonp(["cc1e"], {
         }, Object.defineProperty(e.prototype, "smallMap", {
           get: function() {
             if (!this._smallMap) {
-              var t = new no;
+              var t = new no();
               this.smallMap = t
             }
             return this._smallMap
@@ -4488,7 +4488,7 @@ am4internal_webpackJsonp(["cc1e"], {
           enumerable: !0,
           configurable: !0
         }), e.prototype.createSeries = function() {
-          return new Lr
+          return new Lr()
         }, Object.defineProperty(e.prototype, "deltaLongitude", {
           get: function() {
             return this.getPropertyValue("deltaLongitude")
@@ -4602,11 +4602,11 @@ am4internal_webpackJsonp(["cc1e"], {
           get: function() {
             var t = this;
             if (!this._backgroundSeries) {
-              var e = new Kr;
+              var e = new Kr();
               e.parent = this.seriesContainer, e.chart = this, e.hiddenInLegend = !0, e.mapPolygons.template.focusable = !1, e.addDisposer(new h.b(function() {
                 t._backgroundSeries = void 0
               })), this._disposers.push(e);
-              var n = (new p.a).getFor("background"),
+              var n = (new p.a()).getFor("background"),
                 i = e.mapPolygons.template.polygon;
               i.stroke = n, i.fill = n, i.fillOpacity = 0, i.strokeOpacity = 0, e.mapPolygons.create(), this._backgroundSeries = e
             }
@@ -4634,7 +4634,7 @@ am4internal_webpackJsonp(["cc1e"], {
           return e.className = "MapSpline", e.applyTheme(), e
         }
         return Object(c.c)(e, t), e.prototype.createLine = function() {
-          this.line = new jo.a, this.line.tensionX = .8, this.line.tensionY = .8
+          this.line = new jo.a(), this.line.tensionX = .8, this.line.tensionY = .8
         }, Object.defineProperty(e.prototype, "shortestDistance", {
           get: function() {
             return !1
@@ -4652,7 +4652,7 @@ am4internal_webpackJsonp(["cc1e"], {
           return e.className = "MapArc", e.applyTheme(), e
         }
         return Object(c.c)(e, t), e.prototype.createLine = function() {
-          this.line = new Oo.a
+          this.line = new Oo.a()
         }, Object.defineProperty(e.prototype, "shortestDistance", {
           get: function() {
             return !1
@@ -4676,9 +4676,9 @@ am4internal_webpackJsonp(["cc1e"], {
           return e.className = "MapSplineSeries", e.applyTheme(), e
         }
         return Object(c.c)(e, t), e.prototype.createDataItem = function() {
-          return new Co
+          return new Co()
         }, e.prototype.createLine = function() {
-          return new wo
+          return new wo()
         }, e
       }(yo);
     d.c.registeredClasses.MapSplineSeries = Eo, d.c.registeredClasses.MapSplineSeriesDataItem = Co;
@@ -4695,9 +4695,9 @@ am4internal_webpackJsonp(["cc1e"], {
           return e.className = "MapArcSeries", e.applyTheme(), e
         }
         return Object(c.c)(e, t), e.prototype.createDataItem = function() {
-          return new Io
+          return new Io()
         }, e.prototype.createLine = function() {
-          return new Lo
+          return new Lo()
         }, e
       }(yo);
     d.c.registeredClasses.MapArcSeries = To, d.c.registeredClasses.MapArcSeriesDataItem = Io;
@@ -4706,8 +4706,8 @@ am4internal_webpackJsonp(["cc1e"], {
       No = function(t) {
         function e() {
           var e = t.call(this) || this;
-          e._chart = new h.d, e.className = "ZoomControl", e.align = "right", e.valign = "bottom", e.layout = "vertical", e.padding(5, 5, 5, 5);
-          var n = new p.a,
+          e._chart = new h.d(), e.className = "ZoomControl", e.align = "right", e.valign = "bottom", e.layout = "vertical", e.padding(5, 5, 5, 5);
+          var n = new p.a(),
             i = e.createChild(Do.a);
           i.shouldClone = !1, i.label.text = "+", e.plusButton = i;
           var r = e.createChild(Cr.a);
@@ -4778,7 +4778,7 @@ am4internal_webpackJsonp(["cc1e"], {
           enumerable: !0,
           configurable: !0
         }), e.prototype.createBackground = function() {
-          return new Go.a
+          return new Go.a()
         }, e
       }(Cr.a);
     d.c.registeredClasses.ZoomControl = No;
@@ -5987,7 +5987,7 @@ am4internal_webpackJsonp(["cc1e"], {
     d.c.registeredClasses.EqualEarth = qu, window.am4maps = a
   },
   QaCB: function(t, e, n) {
-    "use strict";
+    
 
     function i(t, e) {
       for (var n = 0; n < e.length; n++) {
@@ -6061,7 +6061,7 @@ am4internal_webpackJsonp(["cc1e"], {
     }
   },
   "o+vr": function(t, e, n) {
-    "use strict";
+    
     var i = n("QaCB");
 
     function r(t, e, n) {

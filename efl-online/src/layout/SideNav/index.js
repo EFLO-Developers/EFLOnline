@@ -256,7 +256,7 @@ export default function SideNav(){
                     <div className="docs-info">
                         <h6 className="text-white up mb-0">Need help?</h6>
                         <p className="text-xs font-weight-bold">Message our admins</p>
-                        <a href="https://discord.com/channels/333828099001286656/687385979010678794" target="_blank" className="btn btn-white btn-sm w-100 mb-0">#eflo-help</a>
+                        <a href="https://discord.com/channels/333828099001286656/687385979010678794" target="_blank" className="btn btn-white btn-sm w-100 mb-0" rel="noreferrer">#eflo-help</a>
                     </div>
                     </div>
                 </div>
