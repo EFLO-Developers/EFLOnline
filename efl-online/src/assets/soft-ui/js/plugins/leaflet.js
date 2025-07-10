@@ -5,7 +5,7 @@
 ! function(t, e) {
   "object" == typeof exports && "undefined" != typeof module ? e(exports) : "function" == typeof define && define.amd ? define(["exports"], e) : e((t = "undefined" != typeof globalThis ? globalThis : t || self).leaflet = {})
 }(this, function(t) {
-  "use strict";
+  
 
   function l(t) {
     for (var e, i, n = 1, o = arguments.length; n < o; n++)
@@ -13,7 +13,7 @@
     return t
   }
   var R = Object.create || function(t) {
-    return N.prototype = t, new N
+    return N.prototype = t, new N()
   };
 
   function N() {}
@@ -99,7 +99,7 @@
   var X = 0;
 
   function J(t) {
-    var e = +new Date,
+    var e = +new Date(),
       i = Math.max(0, 16 - (e - X));
     return X = e + i, window.setTimeout(t, i)
   }
@@ -155,7 +155,7 @@
       var s = t.includes;
       if ("undefined" != typeof L && L && L.Mixin) {
         s = d(s) ? s : [s];
-        for (var r = 0; r < s.length; r++) s[r] === L.Mixin.Events && console.warn("Deprecated include of L.Mixin.Events: this property will be removed in future releases, please inherit from L.Evented instead.", (new Error).stack)
+        for (var r = 0; r < s.length; r++) s[r] === L.Mixin.Events && console.warn("Deprecated include of L.Mixin.Events: this property will be removed in future releases, please inherit from L.Evented instead.", (new Error()).stack)
       }
       l.apply(null, [o].concat(t.includes))
     }
@@ -677,7 +677,7 @@
     o = "OTransition" in _t,
     Tt = 0 === navigator.platform.indexOf("Win"),
     Mt = pt && "transition" in _t,
-    zt = "WebKitCSSMatrix" in window && "m11" in new window.WebKitCSSMatrix && !vt,
+    zt = "WebKitCSSMatrix" in window && "m11" in new window.WebKitCSSMatrix() && !vt,
     _t = "MozPerspective" in _t,
     Ct = !window.L_DISABLE_3D && (Mt || zt || _t) && !o && !Lt,
     Zt = "undefined" != typeof orientation || y("mobile"),
@@ -1104,7 +1104,7 @@
     },
     Fe = it.extend({
       run: function(t, e, i, n) {
-        this.stop(), this._el = t, this._inProgress = !0, this._duration = i || .25, this._easeOutPower = 1 / Math.max(n || .5, .2), this._startPos = Pe(t), this._offset = e.subtract(this._startPos), this._startTime = +new Date, this.fire("start"), this._animate()
+        this.stop(), this._el = t, this._inProgress = !0, this._duration = i || .25, this._easeOutPower = 1 / Math.max(n || .5, .2), this._startPos = Pe(t), this._offset = e.subtract(this._startPos), this._startTime = +new Date(), this.fire("start"), this._animate()
       },
       stop: function() {
         this._inProgress && (this._step(!0), this._complete())
@@ -1113,7 +1113,7 @@
         this._animId = x(this._animate, this), this._step()
       },
       _step: function(t) {
-        var e = +new Date - this._startTime,
+        var e = +new Date() - this._startTime,
           i = 1e3 * this._duration;
         e < i ? this._runFrame(this._easeOut(e / i), t) : (this._runFrame(1), this._complete())
       },
@@ -1211,7 +1211,7 @@
       },
       panBy: function(t, e) {
         var i;
-        return e = e || {}, (t = m(t).round()).x || t.y ? (!0 === e.animate || this.getSize().contains(t) ? (this._panAnim || (this._panAnim = new Fe, this._panAnim.on({
+        return e = e || {}, (t = m(t).round()).x || t.y ? (!0 === e.animate || this.getSize().contains(t) ? (this._panAnim || (this._panAnim = new Fe(), this._panAnim.on({
           step: this._onPanTransitionStep,
           end: this._onPanTransitionEnd
         }, this)), e.noMoveStart || this.fire("movestart"), !1 !== e.animate ? (M(this._mapPane, "leaflet-pan-anim"), i = this._getMapPanePos().subtract(t).round(), this._panAnim.run(this._mapPane, i, e.duration || .25, e.easeLinearity)) : (this._rawPanBy(t), this.fire("move").fire("moveend"))) : this._resetView(this.unproject(this.project(this.getCenter()).add(t)), this.getZoom()), this) : this.fire("moveend")
@@ -1919,7 +1919,7 @@
     Ge = (A.mergeOptions({
       zoomControl: !0
     }), A.addInitHook(function() {
-      this.options.zoomControl && (this.zoomControl = new qe, this.addControl(this.zoomControl))
+      this.options.zoomControl && (this.zoomControl = new qe(), this.addControl(this.zoomControl))
     }), B.extend({
       options: {
         position: "bottomleft",
@@ -2006,7 +2006,7 @@
     n = (A.mergeOptions({
       attributionControl: !0
     }), A.addInitHook(function() {
-      this.options.attributionControl && (new Ke).addTo(this)
+      this.options.attributionControl && (new Ke()).addTo(this)
     }), B.Layers = Ve, B.Zoom = qe, B.Scale = Ge, B.Attribution = Ke, Ue.layers = function(t, e, i) {
       return new Ve(t, e, i)
     }, Ue.zoom = function(t) {
@@ -2417,7 +2417,7 @@
         return this.invoke("bringToBack")
       },
       getBounds: function() {
-        var t, e = new s;
+        var t, e = new s();
         for (t in this._layers) {
           var i = this._layers[t];
           e.extend(i.getBounds ? i.getBounds() : i.getLatLng())
@@ -2542,7 +2542,7 @@
     }),
     mi = o.extend({
       options: {
-        icon: new _i,
+        icon: new _i(),
         interactive: !0,
         keyboard: !0,
         title: "",
@@ -2824,7 +2824,7 @@
       return e = e || this._defaultShape(), t = w(t), e.push(t), this._bounds.extend(t), this.redraw()
     },
     _setLatLngs: function(t) {
-      this._bounds = new s, this._latlngs = this._convertLatLngs(t)
+      this._bounds = new s(), this._latlngs = this._convertLatLngs(t)
     },
     _defaultShape: function() {
       return I(this._latlngs) ? this._latlngs : this._latlngs[0]
@@ -2834,7 +2834,7 @@
       return e
     },
     _project: function() {
-      var t = new f;
+      var t = new f();
       this._rings = [], this._projectLatlngs(this._latlngs, this._rings, t), this._bounds.isValid() && t.isValid() && (this._rawPxBounds = t, this._updateBounds())
     },
     _updateBounds: function() {
@@ -3641,7 +3641,7 @@
     _updateOpacity: function() {
       if (this._map && !b.ielt9) {
         C(this._container, this.options.opacity);
-        var t, e = +new Date,
+        var t, e = +new Date(),
           i = !1,
           n = !1;
         for (t in this._tiles) {
@@ -3847,7 +3847,7 @@
         coords: t
       });
       var n = this._tileCoordsToKey(t);
-      (i = this._tiles[n]) && (i.loaded = +new Date, this._map._fadeAnimated ? (C(i.el, 0), r(this._fadeFrame), this._fadeFrame = x(this._updateOpacity, this)) : (i.active = !0, this._pruneTiles()), e || (M(i.el, "leaflet-tile-loaded"), this.fire("tileload", {
+      (i = this._tiles[n]) && (i.loaded = +new Date(), this._map._fadeAnimated ? (C(i.el, 0), r(this._fadeFrame), this._fadeFrame = x(this._updateOpacity, this)) : (i.active = !0, this._pruneTiles()), e || (M(i.el, "leaflet-tile-loaded"), this.fire("tileload", {
         tile: i.el,
         coords: t
       })), this._noTilesToLoad() && (this._loading = !1, this.fire("load"), b.ielt9 || !this._map._fadeAnimated ? x(this._pruneTiles, this) : setTimeout(a(this._pruneTiles, this), 250)))
@@ -4107,7 +4107,7 @@
       },
       _extendRedrawBounds: function(t) {
         var e;
-        t._pxBounds && (e = (t.options.weight || 0) + 1, this._redrawBounds = this._redrawBounds || new f, this._redrawBounds.extend(t._pxBounds.min.subtract([e, e])), this._redrawBounds.extend(t._pxBounds.max.add([e, e])))
+        t._pxBounds && (e = (t.options.weight || 0) + 1, this._redrawBounds = this._redrawBounds || new f(), this._redrawBounds.extend(t._pxBounds.min.subtract([e, e])), this._redrawBounds.extend(t._pxBounds.max.add([e, e])))
       },
       _redraw: function() {
         this._redrawRequest = null, this._redrawBounds && (this._redrawBounds.min._floor(), this._redrawBounds.max._ceil()), this._clear(), this._draw(), this._redrawBounds = null
@@ -4419,7 +4419,7 @@
       },
       _onDrag: function(t) {
         var e, i;
-        this._map.options.inertia && (e = this._lastTime = +new Date, i = this._lastPos = this._draggable._absPos || this._draggable._newPos, this._positions.push(i), this._times.push(e), this._prunePositions(e)), this._map.fire("move", t).fire("drag", t)
+        this._map.options.inertia && (e = this._lastTime = +new Date(), i = this._lastPos = this._draggable._absPos || this._draggable._newPos, this._positions.push(i), this._times.push(e), this._prunePositions(e)), this._map.fire("move", t).fire("drag", t)
       },
       _prunePositions: function(t) {
         for (; 1 < this._positions.length && 50 < t - this._times[0];) this._positions.shift(), this._times.shift()
@@ -4450,7 +4450,7 @@
         var e, i, n, o, s = this._map,
           r = s.options,
           a = !r.inertia || t.noInertia || this._times.length < 2;
-        s.fire("dragend", t), !a && (this._prunePositions(+new Date), t = this._lastPos.subtract(this._positions[0]), a = (this._lastTime - this._times[0]) / 1e3, e = r.easeLinearity, a = (t = t.multiplyBy(e / a)).distanceTo([0, 0]), i = Math.min(r.inertiaMaxSpeed, a), t = t.multiplyBy(i / a), n = i / (r.inertiaDeceleration * e), (o = t.multiplyBy(-n / 2).round()).x || o.y) ? (o = s._limitOffset(o, s.options.maxBounds), x(function() {
+        s.fire("dragend", t), !a && (this._prunePositions(+new Date()), t = this._lastPos.subtract(this._positions[0]), a = (this._lastTime - this._times[0]) / 1e3, e = r.easeLinearity, a = (t = t.multiplyBy(e / a)).distanceTo([0, 0]), i = Math.min(r.inertiaMaxSpeed, a), t = t.multiplyBy(i / a), n = i / (r.inertiaDeceleration * e), (o = t.multiplyBy(-n / 2).round()).x || o.y) ? (o = s._limitOffset(o, s.options.maxBounds), x(function() {
           s.panBy(o, {
             duration: n,
             easeLinearity: e,
@@ -4550,7 +4550,7 @@
       _onWheelScroll: function(t) {
         var e = He(t),
           i = this._map.options.wheelDebounceTime,
-          e = (this._delta += e, this._lastMousePos = this._map.mouseEventToContainerPoint(t), this._startTime || (this._startTime = +new Date), Math.max(i - (+new Date - this._startTime), 0));
+          e = (this._delta += e, this._lastMousePos = this._map.mouseEventToContainerPoint(t), this._startTime || (this._startTime = +new Date()), Math.max(i - (+new Date() - this._startTime), 0));
         clearTimeout(this._timer), this._timer = setTimeout(a(this._performZoom, this), e), Re(t)
       },
       _performZoom: function() {

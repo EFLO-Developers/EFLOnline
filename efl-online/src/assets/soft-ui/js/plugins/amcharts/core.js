@@ -57,7 +57,7 @@
       "0471": "canvg",
       "076f": "pdfmake",
       bf3e: "xlsx"
-    } [t] || t) + ".js";
+    }[t] || t) + ".js";
     var s = setTimeout(l, 12e4);
 
     function l() {
@@ -86,7 +86,7 @@
   }, n(n.s = "Nv8/")
 }({
   "+APs": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("Wqjq").codeAt;
     r({
@@ -99,7 +99,7 @@
     })
   },
   "+K/x": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -184,7 +184,7 @@
     a.c.registeredClasses.CategoryAxisBreak = o
   },
   "+Pwd": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("tNpr"),
       a = i("9XRO"),
@@ -203,7 +203,7 @@
     })
   },
   "+Z4/": function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("ojxk").indexOf,
       a = r.aTypedArray;
@@ -212,7 +212,7 @@
     })
   },
   "+qIf": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return u
     }), i.d(e, "a", function() {
@@ -241,7 +241,7 @@
       }(n.b),
       h = function() {
         function t() {
-          this.events = new a.a, this._dictionary = {}
+          this.events = new a.a(), this._dictionary = {}
         }
         return t.prototype.hasKey = function(t) {
           return o.hasKey(this._dictionary, t)
@@ -383,7 +383,7 @@
       }(h)
   },
   "+s7l": function(t, e, i) {
-    "use strict";
+    
     var r = i("9XRO"),
       n = i("exNg"),
       a = i("tHyI"),
@@ -417,7 +417,7 @@
     })
   },
   "/9XX": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return u
     }), e.a = function(t) {
@@ -457,7 +457,7 @@
     }
   },
   "/IEW": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -507,7 +507,7 @@
     })
   },
   "/XmW": function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("X/sl").forEach,
       a = r.aTypedArray;
@@ -516,7 +516,7 @@
     })
   },
   "/arR": function(t, e, i) {
-    "use strict";
+    
     var r = i("3weC");
     t.exports = function() {
       var t = r(this),
@@ -525,7 +525,7 @@
     }
   },
   "/e9j": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return s
     });
@@ -536,7 +536,7 @@
       s = function(t) {
         function e() {
           var e = t.call(this) || this;
-          return e.className = "LinearGradientModifier", e.gradient = new n.a, e.applyTheme(), e
+          return e.className = "LinearGradientModifier", e.gradient = new n.a(), e.applyTheme(), e
         }
         return Object(r.c)(e, t), e.prototype.copyFrom = function(e) {
           t.prototype.copyFrom.call(this, e), this.gradient = e.gradient.clone()
@@ -545,7 +545,7 @@
     o.c.registeredClasses.LinearGradientModifier = s
   },
   "/fwt": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("3sMl"),
       a = i("hqo8"),
@@ -598,7 +598,7 @@
     i("6WsA")("search")
   },
   "09Lt": function(t, e, i) {
-    "use strict";
+    
     var r = i("Kg2n"),
       n = i("8+rI"),
       a = i("Ox5T"),
@@ -628,7 +628,7 @@
     }
   },
   "0FpR": function(t, e, i) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     }), e.linear = a, e.quadIn = o, e.quadOut = s, e.quadInOut = l, e.polyIn = u, e.polyOut = h, e.polyInOut = c, e.polyIn3 = p, e.polyOut3 = d, e.polyInOut3 = f, e.expIn = g, e.expOut = m, e.expInOut = y, e.sinIn = v, e.sinOut = b, e.sinInOut = x, e.cubicIn = _, e.cubicOut = P, e.cubicInOut = w, e.circleIn = O, e.circleOut = T, e.circleInOut = S, e.bounceIn = R, e.bounceOut = L, e.bounceInOut = N, e.elasticIn = H, e.elasticOut = Y, e.elasticInOut = z;
@@ -774,7 +774,7 @@
     })
   },
   "0Mwj": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return S
     }), i.d(e, "a", function() {
@@ -870,10 +870,10 @@
           this.updateYAxis(t.target)
         }, e.prototype.processXAxis = function(t) {
           var e = t.newValue;
-          e.chart = this, e.renderer || (e.renderer = new this._axisRendererX, e.renderer.observe(["opposite", "inside", "inversed", "minGridDistance"], this.handleXAxisChange, this, !1)), e.axisLetter = "X", e.events.on("startendchanged", this.handleXAxisRangeChange, this, !1), e.dataProvider = this, this.updateXAxis(e.renderer), this.processAxis(e)
+          e.chart = this, e.renderer || (e.renderer = new this._axisRendererX(), e.renderer.observe(["opposite", "inside", "inversed", "minGridDistance"], this.handleXAxisChange, this, !1)), e.axisLetter = "X", e.events.on("startendchanged", this.handleXAxisRangeChange, this, !1), e.dataProvider = this, this.updateXAxis(e.renderer), this.processAxis(e)
         }, e.prototype.processYAxis = function(t) {
           var e = t.newValue;
-          e.chart = this, e.renderer || (e.renderer = new this._axisRendererY, e.renderer.observe(["opposite", "inside", "inversed", "minGridDistance"], this.handleYAxisChange, this, !1)), e.axisLetter = "Y", e.events.on("startendchanged", this.handleYAxisRangeChange, this, !1), e.dataProvider = this, this.updateYAxis(e.renderer), this.processAxis(e)
+          e.chart = this, e.renderer || (e.renderer = new this._axisRendererY(), e.renderer.observe(["opposite", "inside", "inversed", "minGridDistance"], this.handleYAxisChange, this, !1)), e.axisLetter = "Y", e.events.on("startendchanged", this.handleYAxisRangeChange, this, !1), e.dataProvider = this, this.updateYAxis(e.renderer), this.processAxis(e)
         }, e.prototype.handleXAxisRangeChange = function() {
           var t = this.getCommonAxisRange(this.xAxes);
           this.scrollbarX && this.zoomAxes(this.xAxes, t, !0), this.toggleZoomOutButton(), this.updateScrollbar(this.scrollbarX, t)
@@ -953,7 +953,7 @@
           })), t.prototype.handleSeriesRemoved.call(this, e)
         }, Object.defineProperty(e.prototype, "xAxes", {
           get: function() {
-            return this._xAxes || (this._xAxes = new o.b, this._xAxes.events.on("inserted", this.processXAxis, this, !1), this._xAxes.events.on("removed", this.handleAxisRemoval, this, !1), this._disposers.push(new o.c(this._xAxes, !1))), this._xAxes
+            return this._xAxes || (this._xAxes = new o.b(), this._xAxes.events.on("inserted", this.processXAxis, this, !1), this._xAxes.events.on("removed", this.handleAxisRemoval, this, !1), this._disposers.push(new o.c(this._xAxes, !1))), this._xAxes
           },
           enumerable: !0,
           configurable: !0
@@ -962,7 +962,7 @@
           this.dataUsers.removeValue(e), e.autoDispose && e.dispose()
         }, Object.defineProperty(e.prototype, "yAxes", {
           get: function() {
-            return this._yAxes || (this._yAxes = new o.b, this._yAxes.events.on("inserted", this.processYAxis, this, !1), this._yAxes.events.on("removed", this.handleAxisRemoval, this, !1), this._disposers.push(new o.c(this._yAxes, !1))), this._yAxes
+            return this._yAxes || (this._yAxes = new o.b(), this._yAxes.events.on("inserted", this.processYAxis, this, !1), this._yAxes.events.on("removed", this.handleAxisRemoval, this, !1), this._disposers.push(new o.c(this._yAxes, !1))), this._yAxes
           },
           enumerable: !0,
           configurable: !0
@@ -1470,7 +1470,7 @@
         }, e.prototype.configOrder = function(e, i) {
           return e == i ? 0 : "scrollbarX" == e ? 1 : "scrollbarX" == i ? -1 : "scrollbarY" == e ? 1 : "scrollbarY" == i ? -1 : "cursor" == e ? 1 : "cursor" == i ? -1 : "series" == e ? 1 : "series" == i ? -1 : t.prototype.configOrder.call(this, e, i)
         }, e.prototype.createSeries = function() {
-          return new d.a
+          return new d.a()
         }, Object.defineProperty(e.prototype, "zoomOutButton", {
           get: function() {
             return this._zoomOutButton
@@ -1556,7 +1556,7 @@
     })
   },
   "0PyG": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return l
     });
@@ -1658,7 +1658,7 @@
     })
   },
   "1DgP": function(t, e, i) {
-    "use strict";
+    
     var r = function(t, e) {
       var i, r = 1;
 
@@ -2118,7 +2118,7 @@
     }
 
     function W(t, e, i) {
-      var r = new U;
+      var r = new U();
       return r.restart(t, e, i), r
     }
 
@@ -2177,7 +2177,7 @@
           n = 1 - Math.pow(r, 1 / 300),
           a = 0,
           o = .6,
-          s = new Map,
+          s = new Map(),
           l = W(c),
           u = S("tick", "end"),
           h = function() {
@@ -2426,7 +2426,7 @@
     i("6WsA")("toPrimitive")
   },
   "1Fjw": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return f
     });
@@ -2531,7 +2531,7 @@
     o.c.registeredClasses.Cursor = f
   },
   "1M4z": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("4Wbs");
     r({
@@ -2543,7 +2543,7 @@
     })
   },
   "1ayE": function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("X/sl").some,
       a = r.aTypedArray;
@@ -2567,7 +2567,7 @@
     })
   },
   "1qam": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -2621,7 +2621,7 @@
       }(n.a)
   },
   "1t1Z": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("qK31"),
       a = i("swFJ");
@@ -2646,7 +2646,7 @@
     }
   },
   "1yyj": function(t, e, i) {
-    "use strict";
+    
     e.c = function(t, e) {
       var i = !1,
         r = Date.now();
@@ -2893,7 +2893,7 @@
     }
   },
   "2I/e": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return g
     }), i.d(e, "a", function() {
@@ -2921,7 +2921,7 @@
       m = function(t) {
         function e() {
           var e = t.call(this) || this;
-          e.className = "SerialChart", e.colors = new u.a, e._usesData = !1;
+          e.className = "SerialChart", e.colors = new u.a(), e._usesData = !1;
           var i = e.chartContainer.createChild(o.a);
           i.shouldClone = !1, i.width = Object(l.c)(100), i.height = Object(l.c)(100), i.isMeasured = !1, i.layout = "none", i.zIndex = 2, e.seriesContainer = i;
           var r = e.chartContainer.createChild(o.a);
@@ -2975,7 +2975,7 @@
             }), t.dataFields.name = "name", t.data = e
           }
         }, e.prototype.createSeries = function() {
-          return new s.a
+          return new s.a()
         }, Object.defineProperty(e.prototype, "colors", {
           get: function() {
             return this.getPropertyValue("colors")
@@ -3005,7 +3005,7 @@
     h.c.registeredClasses.SerialChart = m
   },
   "2K9G": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("6aQQ"),
       a = i("7X7h"),
@@ -3029,7 +3029,7 @@
     })
   },
   "2MCn": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("6aQQ"),
       a = i("WShl");
@@ -3048,7 +3048,7 @@
     })
   },
   "2OXf": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return y
     });
@@ -3070,7 +3070,7 @@
         function e() {
           var e = t.call(this) || this;
           e.className = "HeatLegend", e.markerContainer = e.createChild(n.a), e.markerContainer.shouldClone = !1, e.markerCount = 1;
-          var i = new m.a;
+          var i = new m.a();
           return i.minHeight = 20, i.minWidth = 20, i.interactionsEnabled = !1, i.fillOpacity = 1, i.cornerRadius(0, 0, 0, 0), e.markerContainer.minHeight = 20, e.markerContainer.minWidth = 20, e.orientation = "horizontal", e.markers = new l.e(i), e._disposers.push(new l.c(e.markers)), e._disposers.push(e.markers.template), e.applyTheme(), e
         }
         return Object(r.c)(e, t), e.prototype.getMinFromRules = function(t) {
@@ -3104,9 +3104,9 @@
           for (var p = Object(s.e)(this.getMinFromRules("stroke")), d = Object(s.e)(this.getMaxFromRules("stroke")), m = 0; m < this.markerCount; m++) {
             var y = this.markers.getIndex(m);
             if (y || ((y = this.markers.create()).parent = this.markerContainer, y.height = Object(u.c)(100), y.width = Object(u.c)(100)), 1 == this.markerCount) {
-              var v = new a.a;
+              var v = new a.a();
               if (this.reverseOrder ? (v.addColor(r, l), v.addColor(i, o)) : (v.addColor(i, o), v.addColor(r, l)), "vertical" == this.orientation && (v.rotation = -90), y.fill = v, f.hasValue(p) && f.hasValue(d)) {
-                var b = new a.a;
+                var b = new a.a();
                 this.reverseOrder ? (b.addColor(d, c), b.addColor(p, h)) : (b.addColor(p, h), b.addColor(d, c)), "vertical" == this.orientation && (b.rotation = -90), y.stroke = b
               }
             } else {
@@ -3180,7 +3180,7 @@
             this.setPropertyValue("orientation", t, !0);
             var e = this.markerContainer,
               i = this.valueAxis;
-            "horizontal" == t ? (f.hasValue(this.width) || (this.width = 200), this.height = void 0, i.width = Object(u.c)(100), i.height = void 0, i.tooltip.pointerOrientation = "vertical", this.layout = "vertical", e.width = Object(u.c)(100), e.height = void 0, i.renderer instanceof c.a || (i.renderer = new c.a)) : (f.hasValue(this.height) || (this.height = 200), this.width = void 0, this.layout = "horizontal", e.width = void 0, e.height = Object(u.c)(100), i.height = Object(u.c)(100), i.width = void 0, i.tooltip.pointerOrientation = "horizontal", i.renderer instanceof p.a || (i.renderer = new p.a), i.renderer.inside = !0, i.renderer.labels.template.inside = !0, this.markerContainer.reverseOrder = !0);
+            "horizontal" == t ? (f.hasValue(this.width) || (this.width = 200), this.height = void 0, i.width = Object(u.c)(100), i.height = void 0, i.tooltip.pointerOrientation = "vertical", this.layout = "vertical", e.width = Object(u.c)(100), e.height = void 0, i.renderer instanceof c.a || (i.renderer = new c.a())) : (f.hasValue(this.height) || (this.height = 200), this.width = void 0, this.layout = "horizontal", e.width = void 0, e.height = Object(u.c)(100), i.height = Object(u.c)(100), i.width = void 0, i.tooltip.pointerOrientation = "horizontal", i.renderer instanceof p.a || (i.renderer = new p.a()), i.renderer.inside = !0, i.renderer.labels.template.inside = !0, this.markerContainer.reverseOrder = !0);
             var r = i.renderer;
             r.grid.template.disabled = !0, r.axisFills.template.disabled = !0, r.baseGrid.disabled = !0, r.labels.template.padding(2, 3, 2, 3), r.minHeight = void 0, r.minWidth = void 0, this.markerContainer.layout = t
           },
@@ -3238,7 +3238,7 @@
     }), t.exports = r.inspectSource
   },
   "2gKx": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -3346,7 +3346,7 @@
     }
   },
   "3/51": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return l
     });
@@ -3414,7 +3414,7 @@
     a.c.registeredClasses.GradientModifier = l
   },
   "32Y2": function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = r.aTypedArray,
       a = r.exportTypedArrayMethod,
@@ -3424,7 +3424,7 @@
     })
   },
   "36nV": function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("NSJ1"),
       a = r.aTypedArrayConstructor;
@@ -3434,7 +3434,7 @@
     }, n)
   },
   "39+r": function(t, e, i) {
-    "use strict";
+    
     var r = i("7X7h"),
       n = i("Y8n3"),
       a = i("tHyI"),
@@ -3452,7 +3452,7 @@
     }
   },
   "3Cxr": function(t, e, i) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     }), e.order = function(t, e) {
@@ -3488,7 +3488,7 @@
     }
   },
   "3XS/": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("rhk+").start;
     r({
@@ -3502,7 +3502,7 @@
     })
   },
   "3Z2E": function(t, e, i) {
-    "use strict";
+    
     var r = i("NZ9V"),
       n = i("3weC"),
       a = i("7X7h"),
@@ -3594,7 +3594,7 @@
     })
   },
   "3mR7": function(t, e, i) {
-    "use strict";
+    
     var r = i("3sMl"),
       n = i("vfdp"),
       a = i("EjSS"),
@@ -3686,7 +3686,7 @@
     }
   },
   "4DCw": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return l
     });
@@ -3759,7 +3759,7 @@
       }(n.a)
   },
   "4Wbs": function(t, e, i) {
-    "use strict";
+    
     var r = i("/arR"),
       n = i("mte+"),
       a = RegExp.prototype.exec,
@@ -3812,7 +3812,7 @@
     })
   },
   "58Sn": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return c
     }), i.d(e, "e", function() {
@@ -4017,7 +4017,7 @@
       }(g)
   },
   "5FpK": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("saPf");
     r({
@@ -4038,7 +4038,7 @@
     } : i
   },
   "5hgO": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("UjlR"),
       a = i("7X7h"),
@@ -4096,7 +4096,7 @@
     })
   },
   "5vid": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return _
     }), i.d(e, "a", function() {
@@ -4154,7 +4154,7 @@
           configurable: !0
         }), Object.defineProperty(e.prototype, "rangesColumns", {
           get: function() {
-            return this._rangesColumns || (this._rangesColumns = new l.a), this._rangesColumns
+            return this._rangesColumns || (this._rangesColumns = new l.a()), this._rangesColumns
           },
           enumerable: !0,
           configurable: !0
@@ -4176,7 +4176,7 @@
         }), e.prototype.applyInternalDefaults = function() {
           t.prototype.applyInternalDefaults.call(this), b.hasValue(this.readerTitle) || (this.readerTitle = this.language.translate("Column Series"))
         }, e.prototype.createDataItem = function() {
-          return new _
+          return new _()
         }, e.prototype.validate = function() {
           var i = this;
           if (this.group.node.removeAttribute("fill"), this.chart && this.xAxis && this.yAxis) {
@@ -4339,7 +4339,7 @@
           enumerable: !0,
           configurable: !0
         }), e.prototype.createColumnTemplate = function() {
-          return new p.a
+          return new p.a()
         }, Object.defineProperty(e.prototype, "clustered", {
           get: function() {
             return this.getPropertyValue("clustered")
@@ -4441,7 +4441,7 @@
     c.c.registeredClasses.ColumnSeries = P, c.c.registeredClasses.ColumnSeriesDataItem = _
   },
   "5xph": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -4470,7 +4470,7 @@
     a.c.registeredClasses.AxisBullet = o
   },
   "6Ah2": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("X/sl").filter,
       a = i("ugpH"),
@@ -4525,7 +4525,7 @@
     }
   },
   "7XB+": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return p
     });
@@ -4554,7 +4554,7 @@
           configurable: !0
         }), e.prototype.format = function(t, e) {
           var i, r;
-          if (this.language || (this.sprite ? this.language = this.sprite.language : this.language = new n.a), void 0 !== e && "" !== e || (e = this._dateFormat), r = h.isString(t) ? this.parse(t) : u.anyToDate(t), h.isObject(e)) try {
+          if (this.language || (this.sprite ? this.language = this.sprite.language : this.language = new n.a()), void 0 !== e && "" !== e || (e = this._dateFormat), r = h.isString(t) ? this.parse(t) : u.anyToDate(t), h.isObject(e)) try {
             return this.intlLocales ? new Intl.DateTimeFormat(this.intlLocales, e).format(r) : new Intl.DateTimeFormat(void 0, e).format(r)
           } catch (t) {
             return "Invalid"
@@ -4768,7 +4768,7 @@
           if (h.hasValue(e) || (e = this.inputDateFormat), t instanceof Date) return t;
           if ("number" == typeof t) return new Date(t);
           var i;
-          "string" != typeof t && (t = t.toString()), this.language || (this.sprite ? this.language = this.sprite.language : this.language = new n.a);
+          "string" != typeof t && (t = t.toString()), this.language || (this.sprite ? this.language = this.sprite.language : this.language = new n.a());
           var r = "";
           e = (e = u.cleanFormat(e)).substr(0, t.length);
           for (var a = this.parseFormat(e), o = {
@@ -4944,7 +4944,7 @@
             }
             if (o.year1 > -1) {
               g = parseInt(f[o.year1]);
-              g = 10 * Math.floor((new Date).getFullYear() / 10) + g, s.year = g
+              g = 10 * Math.floor((new Date()).getFullYear() / 10) + g, s.year = g
             }
             if (o.monthLong > -1 && (s.month = this.resolveMonth(f[o.monthLong])), o.monthShort > -1 && (s.month = this.resolveShortMonth(f[o.monthShort])), o.month > -1 && (s.month = parseInt(f[o.month]) - 1), o.week > -1 && -1 === o.day && (s.month = 0, s.day = u.getDayFromWeek(parseInt(f[o.week]), s.year, 1, this.utc)), o.day > -1 && (s.day = parseInt(f[o.day])), o.yearDay > -1 && (s.month = 0, s.day = parseInt(f[o.yearDay])), o.hourBase0 > -1 && (s.hour = parseInt(f[o.hourBase0])), o.hourBase1 > -1 && (s.hour = parseInt(f[o.hourBase1]) - 1), o.hour12Base0 > -1) 11 == (g = parseInt(f[o.hour12Base0])) && (g = 0), o.am > -1 && !this.isAm(f[o.am]) && (g += 12), s.hour = g;
             if (o.hour12Base1 > -1) 12 == (g = parseInt(f[o.hour12Base1])) && (g = 0), o.am > -1 && !this.isAm(f[o.am]) && (g += 12), s.hour = g;
@@ -4965,7 +4965,7 @@
                 _ = v[3],
                 P = 60 * parseInt(x) + parseInt(_);
               "+" == b && (P *= -1);
-              var w = P - (new Date).getTimezoneOffset();
+              var w = P - (new Date()).getTimezoneOffset();
               s.offset = w
             }
             o.iso > -1 && ("Z" != f[o.iso + 7] && "z" != f[o.iso + 7] || (s.utc = !0), s.year = h.toNumber(f[o.iso + 0]), s.month = h.toNumber(f[o.iso + 1]) - 1, s.day = h.toNumber(f[o.iso + 2]), s.hour = h.toNumber(f[o.iso + 3]), s.minute = h.toNumber(f[o.iso + 4]), s.second = h.toNumber(f[o.iso + 5]), s.millisecond = h.toNumber(f[o.iso + 6])), i = s.utc ? new Date(Date.UTC(s.year, s.month, s.day, s.hour, s.minute, s.second, s.millisecond)) : new Date(s.year, s.month, s.day, s.hour, s.minute + s.offset, s.second, s.millisecond)
@@ -5100,7 +5100,7 @@
     }
   },
   "7gIX": function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("Nfo5"),
       a = i("6aQQ"),
@@ -5130,7 +5130,7 @@
     }
   },
   "85D4": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -5160,7 +5160,7 @@
     a.c.registeredClasses.DesaturateFilter = o
   },
   "8Cf/": function(t, e, i) {
-    "use strict";
+    
     var r = i("z3p0"),
       n = i("3weC"),
       a = i("6aQQ"),
@@ -5184,7 +5184,7 @@
     })
   },
   "8EhG": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return l
     });
@@ -5197,7 +5197,7 @@
         function e(e) {
           var i = t.call(this) || this;
           i.axis = e, i.element = i.paper.add("path"), i.className = "AxisFill", i.isMeasured = !1, i.location = 0, i.above = !1;
-          var r = new o.a;
+          var r = new o.a();
           return i.fill = r.getFor("alternativeBackground"), i.fillOpacity = 0, i.applyTheme(), i
         }
         return Object(r.c)(e, t), e.prototype.setDisabled = function(e) {
@@ -5250,7 +5250,7 @@
     a.c.registeredClasses.AxisFill = l
   },
   "8ZqG": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     }), e.c = s, e.d = l, e.b = u, e.e = function(t) {
@@ -5366,7 +5366,7 @@
     }
   },
   "8xQt": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("HgTb");
     r({
@@ -5435,7 +5435,7 @@
     }
   },
   "9ZsQ": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -5470,7 +5470,7 @@
     a.c.registeredClasses.DateAxisBreak = o
   },
   "9bPn": function(t, e, i) {
-    "use strict";
+    
     i("HMf+")("WeakSet", function(t) {
       return function() {
         return t(this, arguments.length ? arguments[0] : void 0)
@@ -5508,7 +5508,7 @@
     })
   },
   A6AV: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return h
     });
@@ -5819,7 +5819,7 @@
       }(n.b)
   },
   AAkI: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return w
     }), i.d(e, "a", function() {
@@ -5967,7 +5967,7 @@
         }), Object.defineProperty(e.prototype, "contents", {
           get: function() {
             if (!this._contents) {
-              var t = new o.a;
+              var t = new o.a();
               this.addSprite(t), t.isMeasured = !1, this._contents = t;
               var e = this.component;
               if (e) {
@@ -6015,13 +6015,13 @@
     var O = function(t) {
       function e() {
         var i = t.call(this) || this;
-        if (i._gridCount = 10, i._series = new p.b, i.autoDispose = !0, i._axisItemCount = 0, i.constructor === e) throw new Error("'Axis' cannot be instantiated directly. Please use a specific axis type.");
+        if (i._gridCount = 10, i._series = new p.b(), i.autoDispose = !0, i._axisItemCount = 0, i.constructor === e) throw new Error("'Axis' cannot be instantiated directly. Please use a specific axis type.");
         i.hideTooltipWhileZooming = !0, i.minWidth = 1e-4, i.minHeight = 1e-4, i.className = "Axis", i.shouldClone = !1, i.setPropertyValue("cursorTooltipEnabled", !0), i.toggleZoomOutButton = !0, i.zoomable = !0;
-        var r = new g.a;
-        i.title = new u.a, i.title.shouldClone = !1, i._disposers.push(i.title), i.setPropertyValue("startLocation", 0), i.setPropertyValue("endLocation", 1), i._dataItemsIterator = new m.ListIterator(i.dataItems, function() {
+        var r = new g.a();
+        i.title = new u.a(), i.title.shouldClone = !1, i._disposers.push(i.title), i.setPropertyValue("startLocation", 0), i.setPropertyValue("endLocation", 1), i._dataItemsIterator = new m.ListIterator(i.dataItems, function() {
           return i.dataItems.create()
         }), i._dataItemsIterator.createNewItems = !0;
-        var n = new h.a;
+        var n = new h.a();
         i._disposers.push(n), n.label.padding(5, 10, 5, 10), n.background.pointerLength = 5, n.fitPointerToBounds = !0, n.background.filters.clear(), n.virtualParent = i;
         var a = n.background;
         return a.cornerRadius = 0, a.fill = r.getFor("alternativeBackground"), a.stroke = a.fill, a.strokeWidth = 1, a.fillOpacity = 1, n.label.fill = r.getFor("alternativeText"), i.tooltip = n, i.readerHidden = !0, i.events.on("rangechangestarted", function() {
@@ -6037,7 +6037,7 @@
       return Object(n.c)(e, t), e.prototype.fillRule = function(t, e) {
         _.isNumber(e) || (e = t.index), e / 2 == Math.round(e / 2) ? (t.axisFill.__disabled = !0, t.axisFill.opacity = 0) : (t.axisFill.opacity = 1, t.axisFill.__disabled = !1)
       }, e.prototype.createDataItem = function() {
-        return new w
+        return new w()
       }, e.prototype.invalidateLayout = function() {
         t.prototype.invalidateLayout.call(this), m.each(this.series.iterator(), function(t) {
           t.invalidateLayout()
@@ -6200,10 +6200,10 @@
         enumerable: !0,
         configurable: !0
       }), e.prototype.createAxisBreak = function() {
-        return new l.a
+        return new l.a()
       }, Object.defineProperty(e.prototype, "series", {
         get: function() {
-          return this._series || (this._series = new p.b), this._series
+          return this._series || (this._series = new p.b()), this._series
         },
         enumerable: !0,
         configurable: !0
@@ -6371,7 +6371,7 @@
     })
   },
   AC2I: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return v
     }), i.d(e, "a", function() {
@@ -6487,7 +6487,7 @@
       b = function(t) {
         function e() {
           var e = t.call(this) || this;
-          e.className = "PercentSeries", e._addAllDataItems = !1, e.colors = new c.a, e.colors.step = 1, e.isMeasured = !0, e.calculatePercent = !0;
+          e.className = "PercentSeries", e._addAllDataItems = !1, e.colors = new c.a(), e.colors.step = 1, e.isMeasured = !0, e.calculatePercent = !0;
           var i = e.createChild(h.a);
           i.shouldClone = !1, i.isMeasured = !1, e.slicesContainer = i;
           var r = e.createChild(h.a);
@@ -6496,11 +6496,11 @@
           return n.shouldClone = !1, n.isMeasured = !1, n.layout = "none", e.labelsContainer = n, e.alignLabels = !1, e.bulletsContainer.toFront(), e.skipFocusThreshold = 50, e.defaultState.transitionEasing = f.sinOut, e.itemReaderText = "{category}: {value.percent.formatNumber('#.#')}%", e.applyTheme(), e
         }
         return Object(r.c)(e, t), e.prototype.createSlice = function() {
-          return new a.a
+          return new a.a()
         }, e.prototype.createTick = function() {
-          return new l.a
+          return new l.a()
         }, e.prototype.createLabel = function() {
-          return new o.a
+          return new o.a()
         }, Object.defineProperty(e.prototype, "slices", {
           get: function() {
             if (!this._slices) {
@@ -6532,7 +6532,7 @@
           enumerable: !0,
           configurable: !0
         }), e.prototype.createDataItem = function() {
-          return new v
+          return new v()
         }, e.prototype.initSlice = function(t) {}, e.prototype.initLabel = function(t) {
           t.text = "{category}: {value.percent.formatNumber('#.0')}%", t.isMeasured = !1, t.padding(5, 5, 5, 5)
         }, e.prototype.initTick = function(t) {}, e.prototype.validateDataItems = function() {
@@ -6661,7 +6661,7 @@
     }
   },
   AaJ4: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return u
     });
@@ -6675,7 +6675,7 @@
         function e() {
           var e = t.call(this) || this;
           e.className = "Grid", e.element = e.paper.add("path"), e.location = .5, e.isMeasured = !1, e.above = !1;
-          var i = new s.a;
+          var i = new s.a();
           return e.stroke = i.getFor("grid"), e.pixelPerfect = !0, e.strokeOpacity = .15, e.fill = Object(o.c)(), e.applyTheme(), e
         }
         return Object(r.c)(e, t), Object.defineProperty(e.prototype, "location", {
@@ -6731,7 +6731,7 @@
     }
   },
   BEgH: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return h
     });
@@ -6746,10 +6746,10 @@
         function e() {
           var e = t.call(this) || this;
           e.className = "ZoomOutButton", e.padding(9, 9, 9, 9), e.showSystemTooltip = !0;
-          var i = new s.a,
+          var i = new s.a(),
             r = e.background;
           r.cornerRadius(20, 20, 20, 20), r.fill = i.getFor("primaryButton"), r.stroke = i.getFor("primaryButtonStroke"), r.strokeOpacity = 0, r.states.getKey("hover").properties.fill = i.getFor("primaryButtonHover"), r.states.getKey("down").properties.fill = i.getFor("primaryButtonActive");
-          var n = new a.a;
+          var n = new a.a();
           n.element = e.paper.add("path");
           var o = l.moveTo({
             x: 0,
@@ -6767,7 +6767,7 @@
     o.c.registeredClasses.ZoomOutButton = h
   },
   BKHV: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("saPf");
     r({
@@ -6781,7 +6781,7 @@
     })
   },
   BmDP: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return s
     });
@@ -6792,7 +6792,7 @@
       s = function(t) {
         function e() {
           var e = t.call(this) || this;
-          return e._label = new a.d, e._slice = new a.d, e.className = "PieTick", e.element = e.paper.add("polyline"), e._disposers.push(e._label), e._disposers.push(e._slice), e.applyTheme(), e
+          return e._label = new a.d(), e._slice = new a.d(), e.className = "PieTick", e.element = e.paper.add("polyline"), e._disposers.push(e._label), e._disposers.push(e._slice), e.applyTheme(), e
         }
         return Object(r.c)(e, t), e.prototype.draw = function() {
           t.prototype.draw.call(this);
@@ -6838,7 +6838,7 @@
     o.c.registeredClasses.PieTick = s
   },
   C6Lh: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return _
     });
@@ -6863,12 +6863,12 @@
       _ = function(t) {
         function e() {
           var e = t.call(this) || this;
-          e._chart = new s.d, e.className = "XYChartScrollbar";
-          var i = new p.a;
+          e._chart = new s.d(), e.className = "XYChartScrollbar";
+          var i = new p.a();
           e.padding(0, 0, 0, 0);
           var r = e.createChild(l.a);
           if (r.shouldClone = !1, r.margin(0, 0, 0, 0), r.padding(0, 0, 0, 0), r.interactionsEnabled = !1, e._scrollbarChart = r, !y.isIE()) {
-            var n = new d.a;
+            var n = new d.a();
             n.filterUnits = "userSpaceOnUse", r.plotContainer.filters.push(n)
           }
           e._disposers.push(e._scrollbarChart), e.minHeight = 60, e.minWidth = 60;
@@ -6883,7 +6883,7 @@
         }
         return Object(r.c)(e, t), Object.defineProperty(e.prototype, "series", {
           get: function() {
-            return this._series || (this._series = new o.b, this._disposers.push(this._series.events.on("inserted", this.handleSeriesAdded, this, !1)), this._disposers.push(this._series.events.on("removed", this.handleSeriesRemoved, this, !1))), this._series
+            return this._series || (this._series = new o.b(), this._disposers.push(this._series.events.on("inserted", this.handleSeriesAdded, this, !1)), this._disposers.push(this._series.events.on("removed", this.handleSeriesRemoved, this, !1))), this._series
           },
           enumerable: !0,
           configurable: !0
@@ -6900,7 +6900,7 @@
             }), i.events.on("beforedisposed", function() {
               e.series.removeValue(i)
             });
-            var o = new p.a,
+            var o = new p.a(),
               s = i.clone();
             if ((x.a.onlyShowOnViewport || x.a.queue) && this.addDisposer(this.chart.events.on("removedfromqueue", function() {
                 r.invalidateData()
@@ -7043,7 +7043,7 @@
     c.c.registeredClasses.XYChartScrollbar = _
   },
   C6dT: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return _
     });
@@ -7068,7 +7068,7 @@
       _ = function(t) {
         function e() {
           var e = t.call(this) || this;
-          return e._childrenByLayout = [], e._childrenDisposers = new l.a, e.hasFocused = !1, e.setStateOnSprites = [], e.layoutInvalid = !1, e._absoluteWidth = 0, e._absoluteHeight = 0, e._shouldBeReady = [], e._tapToActivate = !1, e.tapTimeout = 3e3, e.className = "Container", e._element = e.paper.addGroup("g"), e.group.add(e.element), e.setPropertyValue("pixelPerfect", !1), e.setPropertyValue("layout", "absolute"), e.setPropertyValue("fixedWidthGrid", !1), e.setPropertyValue("verticalCenter", "none"), e.setPropertyValue("horizontalCenter", "none"), e._positionPrecision = 4, e._disposers.push(new l.b(e._childrenDisposers)), e.children.events.on("inserted", e.handleChildAdded, e), e.children.events.on("removed", e.handleChildRemoved, e), e.applyTheme(), e
+          return e._childrenByLayout = [], e._childrenDisposers = new l.a(), e.hasFocused = !1, e.setStateOnSprites = [], e.layoutInvalid = !1, e._absoluteWidth = 0, e._absoluteHeight = 0, e._shouldBeReady = [], e._tapToActivate = !1, e.tapTimeout = 3e3, e.className = "Container", e._element = e.paper.addGroup("g"), e.group.add(e.element), e.setPropertyValue("pixelPerfect", !1), e.setPropertyValue("layout", "absolute"), e.setPropertyValue("fixedWidthGrid", !1), e.setPropertyValue("verticalCenter", "none"), e.setPropertyValue("horizontalCenter", "none"), e._positionPrecision = 4, e._disposers.push(new l.b(e._childrenDisposers)), e.children.events.on("inserted", e.handleChildAdded, e), e.children.events.on("removed", e.handleChildRemoved, e), e.applyTheme(), e
         }
         return Object(r.c)(e, t), e.prototype.handleChildAdded = function(t) {
           this.processChild(t.newValue)
@@ -7102,7 +7102,7 @@
           }), this.invalidateLayout()
         }, Object.defineProperty(e.prototype, "children", {
           get: function() {
-            return this._children || (this._children = new o.b), this._children
+            return this._children || (this._children = new o.b()), this._children
           },
           enumerable: !0,
           configurable: !0
@@ -7171,7 +7171,7 @@
             }), this._background && this.group.addToBack(this._background.group), this.invalidateLayout())
           }
         }, e.prototype.createChild = function(t) {
-          var e = new t;
+          var e = new t();
           return e.parent = this, e
         }, e.prototype.removeChildren = function() {
           for (; this.children.length > 0;) {
@@ -7197,10 +7197,10 @@
             t.handleGlobalScale()
           })
         }, e.prototype.createBackground = function() {
-          return new h.a
+          return new h.a()
         }, e.prototype.processBackground = function() {
           var t = this._background;
-          t && (t.isMeasured = !1, this._background.fill = (new d.a).getFor("background"), t.parent = this, t.isMeasured = !1, this.children.removeValue(t), this._disposers.push(t), this.group.addToBack(this._background.group))
+          t && (t.isMeasured = !1, this._background.fill = (new d.a()).getFor("background"), t.parent = this, t.isMeasured = !1, this.children.removeValue(t), this._disposers.push(t), this.group.addToBack(this._background.group))
         }, e.prototype.validateLayout = function() {
           var t = this;
           p.c.removeFromInvalidLayouts(this), this.layoutInvalid = !1, this._availableWidth = this.innerWidth, this._availableHeight = this.innerHeight;
@@ -7627,7 +7627,7 @@
     p.c.registeredClasses.Container = _
   },
   C84C: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -7662,7 +7662,7 @@
     t.exports = {}
   },
   CTEm: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return d
     });
@@ -7685,7 +7685,7 @@
           t.prototype.dispose.call(this), this.language && this.language.dispose()
         }, Object.defineProperty(e.prototype, "language", {
           get: function() {
-            return this._language || (this.sprite ? this._language = this.sprite.language : this._language = new n.a), this._language
+            return this._language || (this.sprite ? this._language = this.sprite.language : this._language = new n.a()), this._language
           },
           set: function(t) {
             this._language = t
@@ -8003,7 +8003,7 @@
     })
   },
   CnhP: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return u
     });
@@ -8107,7 +8107,7 @@
     } : o
   },
   CuFa: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return c
     });
@@ -8122,7 +8122,7 @@
       c = function(t) {
         function e() {
           var e = t.call(this) || this;
-          return e._stops = new a.b, e.element = e.paper.addGroup("radialGradient"), e.id = "gradient-" + s.c.getUniqueId(), e.element.attr({
+          return e._stops = new a.b(), e.element = e.paper.addGroup("radialGradient"), e.id = "gradient-" + s.c.getUniqueId(), e.element.attr({
             id: e.id
           }), e._disposers.push(e.element), e.applyTheme(), e
         }
@@ -8221,7 +8221,7 @@
     s.c.registeredClasses.RadialGradient = c
   },
   D3TA: function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("X/sl").map,
       a = i("Nfo5"),
@@ -8234,7 +8234,7 @@
     })
   },
   "DA7/": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -8270,7 +8270,7 @@
     })
   },
   DG6Q: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return u
     });
@@ -8316,7 +8316,7 @@
     o.c.registeredClasses.Column = u
   },
   DHte: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return c
     });
@@ -8440,7 +8440,7 @@
     t.exports = "\t\n\v\f\r                　\u2028\u2029\ufeff"
   },
   DUzp: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("vfdp"),
       a = i("mtbW"),
@@ -8454,7 +8454,7 @@
     }), o("ArrayBuffer")
   },
   DXFp: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return l
     }), i.d(e, "a", function() {
@@ -8490,7 +8490,7 @@
             }), t.data = e, t.dataFields.name = "category"
           }
         }, e.prototype.createSeries = function() {
-          return new a.a
+          return new a.a()
         }, e.prototype.setLegend = function(e) {
           t.prototype.setLegend.call(this, e), e && (e.labels.template.text = "{category}", e.valueLabels.template.text = "{value.percent.formatNumber('#.0')}%", e.itemContainers.template.events.on("over", function(t) {
             var e = t.target.dataItem.dataContext;
@@ -8514,7 +8514,7 @@
     })
   },
   Djm3: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("saPf");
     r({
@@ -8528,7 +8528,7 @@
     })
   },
   DziZ: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return h
     });
@@ -8689,7 +8689,7 @@
     }
   },
   EVp9: function(t, e, i) {
-    "use strict";
+    
     var r = {}.propertyIsEnumerable,
       n = Object.getOwnPropertyDescriptor,
       a = n && !r.call({
@@ -8701,7 +8701,7 @@
     } : r
   },
   Ecdy: function(t, e, i) {
-    "use strict";
+    
     i("yBTm");
     var r = i("0sYB"),
       n = i("1wCr"),
@@ -8900,7 +8900,7 @@
     }, {
       fetch: function(t) {
         var e, i, r, n = [t];
-        return arguments.length > 1 && (e = arguments[1], m(e) && (i = e.body, "URLSearchParams" === f(i) && ((r = e.headers ? new w(e.headers) : new w).has("content-type") || r.set("content-type", "application/x-www-form-urlencoded;charset=UTF-8"), e = y(e, {
+        return arguments.length > 1 && (e = arguments[1], m(e) && (i = e.body, "URLSearchParams" === f(i) && ((r = e.headers ? new w(e.headers) : new w()).has("content-type") || r.set("content-type", "application/x-www-form-urlencoded;charset=UTF-8"), e = y(e, {
           body: v(0, String(i)),
           headers: v(0, r)
         }))), n.push(e)), P.apply(this, n)
@@ -8911,7 +8911,7 @@
     }
   },
   EjGA: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return f
     });
@@ -8943,7 +8943,7 @@
             }
             this.dispatchImmediately("parseended"), p.hasValue(this.data) && this.dispatchImmediately("done", {
               data: this.data
-            }), this.lastLoad = new Date
+            }), this.lastLoad = new Date()
           } else {
             if (this.events.isEnabled("parseerror")) {
               var r = {
@@ -8976,7 +8976,7 @@
           configurable: !0
         }), Object.defineProperty(e.prototype, "parser", {
           get: function() {
-            return this._parser || (this._parser = new a.a), this.adapter.apply("parser", this._parser)
+            return this._parser || (this._parser = new a.a()), this.adapter.apply("parser", this._parser)
           },
           set: function(t) {
             this._parser = t
@@ -9035,7 +9035,7 @@
           configurable: !0
         }), Object.defineProperty(e.prototype, "language", {
           get: function() {
-            return this._language ? this._language : this.component ? (this._language = this.component.language, this._language) : (this.language = new u.a, this.language)
+            return this._language ? this._language : this.component ? (this._language = this.component.language, this._language) : (this.language = new u.a(), this.language)
           },
           set: function(t) {
             this._language = t
@@ -9044,7 +9044,7 @@
           configurable: !0
         }), Object.defineProperty(e.prototype, "dateFormatter", {
           get: function() {
-            return this._dateFormatter ? this._dateFormatter : this.component ? (this._dateFormatter = this.component.dateFormatter, this._dateFormatter) : (this.dateFormatter = new h.a, this.dateFormatter)
+            return this._dateFormatter ? this._dateFormatter : this.component ? (this._dateFormatter = this.component.dateFormatter, this._dateFormatter) : (this.dateFormatter = new h.a(), this.dateFormatter)
           },
           set: function(t) {
             this._dateFormatter = t
@@ -9053,7 +9053,7 @@
           configurable: !0
         }), e.prototype.timestampUrl = function(t) {
           var e = {};
-          return e[(new Date).getTime().toString()] = "", this.addUrlParams(t, e)
+          return e[(new Date()).getTime().toString()] = "", this.addUrlParams(t, e)
         }, e.prototype.dispose = function() {
           t.prototype.dispose.call(this), this._reloadTimeout && clearTimeout(this._reloadTimeout), p.hasValue(this._reloadDisposer) && (this._reloadDisposer.dispose(), this._reloadDisposer = void 0)
         }, e.prototype.load = function() {
@@ -9093,7 +9093,7 @@
     })
   },
   "F/ei": function(t, e, i) {
-    "use strict";
+    
     var r = i("WeDP").IteratorPrototype,
       n = i("QzDi"),
       a = i("Pm8L"),
@@ -9110,7 +9110,7 @@
     }
   },
   FBxm: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("saPf");
     r({
@@ -9124,7 +9124,7 @@
     })
   },
   FE89: function(t, e, i) {
-    "use strict";
+    
     var r = i("NZ9V"),
       n = i("3weC"),
       a = i("tHyI"),
@@ -9153,7 +9153,7 @@
     })
   },
   FL8s: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("7dku").left,
       a = i("xlUI"),
@@ -9176,7 +9176,7 @@
     i("0FA2")("flat")
   },
   Fhpb: function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("39+r"),
       a = r.aTypedArray;
@@ -9185,7 +9185,7 @@
     })
   },
   FzPm: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return u
     });
@@ -9245,7 +9245,7 @@
     })
   },
   GAaQ: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return V
     });
@@ -9349,7 +9349,7 @@
     var V = function(t) {
       function e(e) {
         var i = t.call(this) || this;
-        return i.adapter = new o.a(i), i._formatOptions = new h.a, i._extraSprites = [], i._validateSprites = [], i.dataFieldsOrder = [], i._dynamicDataFields = !0, i._removedObjects = new u.b, i._hiddenObjects = [], i._objectsAlreadyHidden = !1, i._filePrefix = "amCharts", i.useWebFonts = !0, i.useRetina = !0, i.useSimplifiedExport = !0, i.timeoutDelay = 2e3, i._exportRunning = !1, i._prevHasData = !1, i._container = e, i.className = "Export", i._formatOptions.setKey("png", {}), i._formatOptions.setKey("jpg", {
+        return i.adapter = new o.a(i), i._formatOptions = new h.a(), i._extraSprites = [], i._validateSprites = [], i.dataFieldsOrder = [], i._dynamicDataFields = !0, i._removedObjects = new u.b(), i._hiddenObjects = [], i._objectsAlreadyHidden = !1, i._filePrefix = "amCharts", i.useWebFonts = !0, i.useRetina = !0, i.useSimplifiedExport = !0, i.timeoutDelay = 2e3, i._exportRunning = !1, i._prevHasData = !1, i._container = e, i.className = "Export", i._formatOptions.setKey("png", {}), i._formatOptions.setKey("jpg", {
           quality: .8
         }), i._formatOptions.setKey("gif", {}), i._formatOptions.setKey("svg", {}), i._formatOptions.setKey("pdf", {
           fontSize: 14,
@@ -9553,7 +9553,7 @@
                               case 4:
                                 return [4, function(t) {
                                   return new Promise(function(e, i) {
-                                    var r = new FileReader;
+                                    var r = new FileReader();
                                     r.onload = function(t) {
                                       e(r.result)
                                     }, r.onerror = function(t) {
@@ -9872,7 +9872,7 @@
               }, o.removeAttribute("crossorigin"), o.src = "", o.src = e
             } else a(new Error('Loading image "' + t + '" failed'))
           }
-          o = e && i ? new Image(e, i) : new Image, r && o.setAttribute("crossOrigin", r), o.onload = function() {
+          o = e && i ? new Image(e, i) : new Image(), r && o.setAttribute("crossOrigin", r), o.onload = function() {
             n(o)
           }, o.onabort = s, o.onerror = s, o.src = t
         })
@@ -9915,7 +9915,7 @@
           options: e
         }).data
       }, e.prototype.serializeElement = function(t) {
-        return (new XMLSerializer).serializeToString(t)
+        return (new XMLSerializer()).serializeToString(t)
       }, e.prototype.getPDF = function(t, e) {
         return Object(n.b)(this, void 0, void 0, function() {
           function i(t) {
@@ -10077,7 +10077,7 @@
           LEGAL: [612, 1008],
           LETTER: [612, 792],
           TABLOID: [792, 1224]
-        } [t];
+        }[t];
         return n[0] -= r[0] + r[2], n[1] -= r[1] + r[3] + i, n
       }, e.prototype.getExcel = function(t, e) {
         return Object(n.b)(this, void 0, void 0, function() {
@@ -10375,7 +10375,7 @@
               visibility: "hidden",
               opacity: "0",
               clipPath: "polygon(0px 0px,0px 0px,0px 0px,0px 0px);"
-            }), i && document && document.title && (o = document.title, document.title = i), (s = new Image).src = t, s.style.maxWidth = "100%", s.style.display = "block", s.style.position = "relative", s.style.visibility = "visible", s.style.opacity = "1", s.style.clipPath = "none", document.body.appendChild(s), this.setTimeout(function() {
+            }), i && document && document.title && (o = document.title, document.title = i), (s = new Image()).src = t, s.style.maxWidth = "100%", s.style.display = "block", s.style.position = "relative", s.style.visibility = "visible", s.style.opacity = "1", s.style.clipPath = "none", document.body.appendChild(s), this.setTimeout(function() {
               window.print()
             }, 50), /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream && e.delay < 1e3 ? e.delay = 1e3 : e.delay < 100 && (e.delay = 100), this.setTimeout(function() {
               document.body.removeChild(s), a.dispose(), o && (document.title = document.title), document.documentElement.scrollTop = document.body.scrollTop = r
@@ -10386,7 +10386,7 @@
         return Object(n.b)(this, void 0, void 0, function() {
           var r, a;
           return Object(n.d)(this, function(n) {
-            return (r = document.createElement("iframe")).style.visibility = "hidden", document.body.appendChild(r), r.contentWindow.document.open(), r.contentWindow.document.close(), (a = new Image).src = t, a.style.maxWidth = "100%", a.style.height = "auto", i && (r.contentWindow.document.title = i), r.contentWindow.document.body.appendChild(a), r.load = function() {
+            return (r = document.createElement("iframe")).style.visibility = "hidden", document.body.appendChild(r), r.contentWindow.document.open(), r.contentWindow.document.close(), (a = new Image()).src = t, a.style.maxWidth = "100%", a.style.height = "auto", i && (r.contentWindow.document.title = i), r.contentWindow.document.body.appendChild(a), r.load = function() {
               r.contentWindow.document.body.appendChild(a)
             }, this.setTimeout(function() {
               try {
@@ -10479,7 +10479,7 @@
         this._prevHasData != t && (this._prevHasData = t, this.menu && this.menu.invalidate())
       }, Object.defineProperty(e.prototype, "dateFormatter", {
         get: function() {
-          return this._dateFormatter || (this._dateFormatter = new c.a, this._dateFormatter.language = this.language), this.adapter.apply("dateFormatter", {
+          return this._dateFormatter || (this._dateFormatter = new c.a(), this._dateFormatter.language = this.language), this.adapter.apply("dateFormatter", {
             dateFormatter: this._dateFormatter
           }).dateFormatter
         },
@@ -10501,7 +10501,7 @@
         configurable: !0
       }), Object.defineProperty(e.prototype, "dateFields", {
         get: function() {
-          return this._dateFields || (this._dateFields = new u.b), this.adapter.apply("dateFields", {
+          return this._dateFields || (this._dateFields = new u.b()), this.adapter.apply("dateFields", {
             dateFields: this._dateFields
           }).dateFields
         },
@@ -10512,7 +10512,7 @@
         configurable: !0
       }), Object.defineProperty(e.prototype, "numberFormatter", {
         get: function() {
-          return this._numberFormatter || (this._numberFormatter = new d.a, this._numberFormatter.language = this.language), this.adapter.apply("numberFormatter", {
+          return this._numberFormatter || (this._numberFormatter = new d.a(), this._numberFormatter.language = this.language), this.adapter.apply("numberFormatter", {
             numberFormatter: this._numberFormatter
           }).numberFormatter
         },
@@ -10534,7 +10534,7 @@
         configurable: !0
       }), Object.defineProperty(e.prototype, "numberFields", {
         get: function() {
-          return this._numberFields || (this._numberFields = new u.b), this.adapter.apply("numberFields", {
+          return this._numberFields || (this._numberFields = new u.b()), this.adapter.apply("numberFields", {
             numberFields: this._numberFields
           }).numberFields
         },
@@ -10545,7 +10545,7 @@
         configurable: !0
       }), Object.defineProperty(e.prototype, "durationFormatter", {
         get: function() {
-          return this._durationFormatter || (this._durationFormatter = new p.a, this._durationFormatter.language = this.language), this.adapter.apply("durationFormatter", {
+          return this._durationFormatter || (this._durationFormatter = new p.a(), this._durationFormatter.language = this.language), this.adapter.apply("durationFormatter", {
             durationFormatter: this._durationFormatter
           }).durationFormatter
         },
@@ -10567,7 +10567,7 @@
         configurable: !0
       }), Object.defineProperty(e.prototype, "durationFields", {
         get: function() {
-          return this._durationFields || (this._durationFields = new u.b), this.adapter.apply("durationFields", {
+          return this._durationFields || (this._durationFields = new u.b()), this.adapter.apply("durationFields", {
             durationFields: this._durationFields
           }).durationFields
         },
@@ -10687,7 +10687,7 @@
         this._timeoutTimeout && (this.removeDispose(this._timeoutTimeout), this._timeoutTimeout = null), this.hideModal()
       }, Object.defineProperty(e.prototype, "language", {
         get: function() {
-          return this._language || (this._language = new f.a), this._language
+          return this._language || (this._language = new f.a()), this._language
         },
         set: function(t) {
           this._language = t
@@ -10696,7 +10696,7 @@
         configurable: !0
       }), Object.defineProperty(e.prototype, "modal", {
         get: function() {
-          return this._modal || (this._modal = new l.a, this._modal.adapter.add("classPrefix", function(t) {
+          return this._modal || (this._modal = new l.a(), this._modal.adapter.add("classPrefix", function(t) {
             return t = v.a.classNamePrefix + t
           })), this._modal
         },
@@ -10813,7 +10813,7 @@
     }(g.a)
   },
   Gg2j: function(t, e, i) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     }), i.d(e, "PI", function() {
@@ -11096,7 +11096,7 @@
     }
   },
   Gkqv: function(t, e, i) {
-    "use strict";
+    
     i("1M4z");
     var r = i("0sYB"),
       n = i("Kg2n"),
@@ -11122,7 +11122,7 @@
     })
   },
   Gmkj: function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("X/sl").findIndex,
       a = r.aTypedArray;
@@ -11131,7 +11131,7 @@
     })
   },
   GtDR: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return s
     });
@@ -11202,7 +11202,7 @@
     })
   },
   HDh7: function(t, e, i) {
-    "use strict";
+    
     var r = i("UsNi"),
       n = i("W8Sc"),
       a = i("vMqJ"),
@@ -11267,7 +11267,7 @@
       d = null;
     var f = function() {
       function t(t, e) {
-        this._disposed = !1, this._sensor = (null === d && (d = "undefined" != typeof ResizeObserver ? new c : new p), d), this._element = t, this._sensor.addTarget(t, e)
+        this._disposed = !1, this._sensor = (null === d && (d = "undefined" != typeof ResizeObserver ? new c() : new p()), d), this._element = t, this._sensor.addTarget(t, e)
       }
       return t.prototype.isDisposed = function() {
         return this._disposed
@@ -11335,7 +11335,7 @@
           configurable: !0
         }), Object.defineProperty(t.prototype, "modal", {
           get: function() {
-            return u.hasValue(this._modal) || (this._modal = new n.a, this._modal.container = this.SVGContainer, this._disposers.push(this._modal)), this._modal
+            return u.hasValue(this._modal) || (this._modal = new n.a(), this._modal.container = this.SVGContainer, this._disposers.push(this._modal)), this._modal
           },
           enumerable: !0,
           configurable: !0
@@ -11348,7 +11348,7 @@
         }, Object.defineProperty(t.prototype, "popups", {
           get: function() {
             if (!u.hasValue(this._popups)) {
-              var t = new r.a;
+              var t = new r.a();
               t.container = this.SVGContainer, this._popups = new a.e(t), this._disposers.push(new a.c(this._popups)), this._disposers.push(this._popups.template)
             }
             return this._popups
@@ -11395,7 +11395,7 @@
       }()
   },
   "HMf+": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("vfdp"),
       a = i("EjSS"),
@@ -11431,10 +11431,10 @@
           })
         };
       if (a(t, "function" != typeof v || !(m || b.forEach && !c(function() {
-          (new v).entries().next()
+          (new v()).entries().next()
         })))) x = i.getConstructor(e, t, g, y), s.REQUIRED = !0;
       else if (a(t, !0)) {
-        var w = new x,
+        var w = new x(),
           O = w[y](m ? {} : -0, 1) != w,
           T = c(function() {
             w.has(1)
@@ -11443,12 +11443,12 @@
             new v(t)
           }),
           C = !m && c(function() {
-            for (var t = new v, e = 5; e--;) t[y](e, e);
+            for (var t = new v(), e = 5; e--;) t[y](e, e);
             return !t.has(-0)
           });
         S || ((x = e(function(e, i) {
           u(e, x, t);
-          var r = f(new v, e, x);
+          var r = f(new v(), e, x);
           return void 0 != i && l(i, r[y], r, g), r
         })).prototype = b, b.constructor = x), (T || C) && (P("delete"), P("has"), g && P("get")), (C || O) && P(y), m && b.clear && delete b.clear
       }
@@ -11459,7 +11459,7 @@
     }
   },
   HZlQ: function(t, e, i) {
-    "use strict";
+    
     var r = i("3sMl"),
       n = i("6aQQ"),
       a = i("kcMx"),
@@ -11516,7 +11516,7 @@
     })
   },
   HgTb: function(t, e, i) {
-    "use strict";
+    
     var r = i("X/sl").forEach,
       n = i("xlUI"),
       a = i("J+FZ"),
@@ -11585,7 +11585,7 @@
     }
   },
   IN7q: function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("7dku").left,
       a = r.aTypedArray;
@@ -11594,7 +11594,7 @@
     })
   },
   ISWh: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return v
     });
@@ -11617,9 +11617,9 @@
         function e() {
           var e = t.call(this) || this;
           e._previousStart = 0, e._previousEnd = 1, e._prevStart = 0, e._prevEnd = 1, e._isBusy = !1, e._skipRangeEvents = !1, e.updateWhileMoving = !0, e.className = "Scrollbar", e.minHeight = 12, e.minWidth = 12, e.animationDuration = 0, e.animationEasing = g.cubicOut, e.margin(10, 10, 10, 10);
-          var i = new p.a,
+          var i = new p.a(),
             r = e.background;
-          return r.cornerRadius(10, 10, 10, 10), r.fill = i.getFor("fill"), r.fillOpacity = .5, e.showSystemTooltip = !0, e.startGrip = new a.a, e.endGrip = new a.a, e.events.on("transformed", e.updateThumb, e, !1), e.start = 0, e.end = 1, e.role = "scrollbar", e.thumb.role = "slider", e.thumb.readerLive = "polite", e.startGrip.role = "slider", e.endGrip.role = "slider", e.events.once("inited", function() {
+          return r.cornerRadius(10, 10, 10, 10), r.fill = i.getFor("fill"), r.fillOpacity = .5, e.showSystemTooltip = !0, e.startGrip = new a.a(), e.endGrip = new a.a(), e.events.on("transformed", e.updateThumb, e, !1), e.start = 0, e.end = 1, e.role = "scrollbar", e.thumb.role = "slider", e.thumb.readerLive = "polite", e.startGrip.role = "slider", e.endGrip.role = "slider", e.events.once("inited", function() {
             e._previousStart = void 0, e.dispatchRangeChange()
           }, void 0, !1), e.hideGrips = !1, e.orientation = "horizontal", e.setSVGAttribute({
             "aria-valuemin": "0"
@@ -11820,7 +11820,7 @@
         }, Object.defineProperty(e.prototype, "thumb", {
           get: function() {
             if (!this._thumb) {
-              var t = new o.a;
+              var t = new o.a();
               t.background.cornerRadius(10, 10, 10, 10), t.padding(0, 0, 0, 0), this.thumb = t
             }
             return this._thumb
@@ -11860,7 +11860,7 @@
             this._start = 1 - (o + a) / n, this._end = 1 - o / n, this.updateThumb()
           }
         }, e.prototype.createBackground = function() {
-          return new u.a
+          return new u.a()
         }, Object.defineProperty(e.prototype, "hideGrips", {
           get: function() {
             return this._hideGrips
@@ -11900,7 +11900,7 @@
     h.c.registeredClasses.Scrollbar = v
   },
   IbQD: function(t, e, i) {
-    "use strict";
+    
     var r = i("HMf+"),
       n = i("JZFm");
     t.exports = r("Set", function(t) {
@@ -11910,7 +11910,7 @@
     }, n)
   },
   IbTV: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return c
     });
@@ -12007,7 +12007,7 @@
     a.c.registeredClasses.AxisLabelCircular = c
   },
   Ibl2: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("rhk+").end;
     r({
@@ -12021,7 +12021,7 @@
     })
   },
   Inf5: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return d
     });
@@ -12199,7 +12199,7 @@
     }
   },
   Iz1H: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return r
     });
@@ -12272,7 +12272,7 @@
     t.exports = "function" == typeof a && /native code/.test(n(a))
   },
   JNIx: function(t, e, i) {
-    "use strict";
+    
     e.a = {
       _decimalSeparator: ".",
       _thousandSeparator: ",",
@@ -12478,7 +12478,7 @@
     }
   },
   JZFm: function(t, e, i) {
-    "use strict";
+    
     var r = i("8+rI").f,
       n = i("QzDi"),
       a = i("/vWR"),
@@ -12601,7 +12601,7 @@
     }
   },
   Jdjl: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("Kg2n"),
       a = i("o3G/"),
@@ -12666,7 +12666,7 @@
     e.f = Object.getOwnPropertySymbols
   },
   KWPb: function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("ojxk").includes,
       a = r.aTypedArray;
@@ -12675,7 +12675,7 @@
     })
   },
   KWTK: function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("vjgd"),
       a = r.aTypedArray;
@@ -12689,7 +12689,7 @@
     }
   },
   KknQ: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return y
     }), i.d(e, "a", function() {
@@ -12737,7 +12737,7 @@
       v = function(t) {
         function e() {
           var e = t.call(this) || this;
-          return e._gapBreaks = !1, e.gridIntervals = new a.b, e.groupIntervals = new a.b, e.dateFormats = new o.a, e.periodChangeDateFormats = new o.a, e._baseIntervalReal = {
+          return e._gapBreaks = !1, e.gridIntervals = new a.b(), e.groupIntervals = new a.b(), e.dateFormats = new o.a(), e.periodChangeDateFormats = new o.a(), e._baseIntervalReal = {
             timeUnit: "day",
             count: 1
           }, e._prevSeriesTime = {}, e._minDifference = {}, e._firstWeekDay = 1, e.groupMin = {}, e.groupMax = {}, e.className = "DateAxis", e.setPropertyValue("markUnitChange", !0), e.snapTooltip = !0, e.tooltipPosition = "pointer", e.setPropertyValue("groupData", !1), e.groupCount = 200, e.events.on("parentset", e.getDFFormatter, e, !1), e.gridIntervals.pushAll([{
@@ -12913,9 +12913,9 @@
         }, e.prototype.applyInternalDefaults = function() {
           t.prototype.applyInternalDefaults.call(this), this.dateFormats.hasKey("millisecond") || this.dateFormats.setKey("millisecond", this.language.translate("_date_millisecond")), this.dateFormats.hasKey("second") || this.dateFormats.setKey("second", this.language.translate("_date_second")), this.dateFormats.hasKey("minute") || this.dateFormats.setKey("minute", this.language.translate("_date_minute")), this.dateFormats.hasKey("hour") || this.dateFormats.setKey("hour", this.language.translate("_date_hour")), this.dateFormats.hasKey("day") || this.dateFormats.setKey("day", this.language.translate("_date_day")), this.dateFormats.hasKey("week") || this.dateFormats.setKey("week", this.language.translate("_date_day")), this.dateFormats.hasKey("month") || this.dateFormats.setKey("month", this.language.translate("_date_month")), this.dateFormats.hasKey("year") || this.dateFormats.setKey("year", this.language.translate("_date_year")), this.periodChangeDateFormats.hasKey("millisecond") || this.periodChangeDateFormats.setKey("millisecond", this.language.translate("_date_millisecond")), this.periodChangeDateFormats.hasKey("second") || this.periodChangeDateFormats.setKey("second", this.language.translate("_date_second")), this.periodChangeDateFormats.hasKey("minute") || this.periodChangeDateFormats.setKey("minute", this.language.translate("_date_minute")), this.periodChangeDateFormats.hasKey("hour") || this.periodChangeDateFormats.setKey("hour", this.language.translate("_date_day")), this.periodChangeDateFormats.hasKey("day") || this.periodChangeDateFormats.setKey("day", this.language.translate("_date_day")), this.periodChangeDateFormats.hasKey("week") || this.periodChangeDateFormats.setKey("week", this.language.translate("_date_day")), this.periodChangeDateFormats.hasKey("month") || this.periodChangeDateFormats.setKey("month", this.language.translate("_date_month") + " " + this.language.translate("_date_year"))
         }, e.prototype.createDataItem = function() {
-          return new y
+          return new y()
         }, e.prototype.createAxisBreak = function() {
-          return new s.a
+          return new s.a()
         }, e.prototype.validateDataItems = function() {
           var e = this.start,
             i = this.end,
@@ -13596,7 +13596,7 @@
     i("YRD/")("Array")
   },
   L0in: function(t, e, i) {
-    "use strict";
+    
     var r = i("Wqjq").charAt;
     t.exports = function(t, e, i) {
       return e + (i ? r(t, e).length : 1)
@@ -13657,7 +13657,7 @@
     })
   },
   L91H: function(t, e, i) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     }), i.d(e, "timeUnitDurations", function() {
@@ -13840,11 +13840,11 @@
     }
 
     function s() {
-      return new Date
+      return new Date()
     }
   },
   LBDG: function(t, e, i) {
-    "use strict";
+    
     e.b = function() {
       return /apple/i.test(navigator.vendor)
     }, e.a = function() {
@@ -13863,7 +13863,7 @@
     })
   },
   LPN9: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("X/sl").every,
       a = i("xlUI"),
@@ -13930,7 +13930,7 @@
     })
   },
   MC1b: function(t, e, i) {
-    "use strict";
+    
     var r, n, a, o, s = i("0sYB"),
       l = i("lnCe"),
       u = i("vfdp"),
@@ -14096,7 +14096,7 @@
         return this.then(void 0, t)
       }
     }), n = function() {
-      var t = new r,
+      var t = new r(),
         e = E(t);
       this.promise = t, this.resolve = it(nt, t, e), this.reject = it(rt, t, e)
     }, I.f = Y = function(t) {
@@ -14179,7 +14179,7 @@
     })
   },
   MIZb: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return s
     });
@@ -14235,7 +14235,7 @@
     })
   },
   MXvJ: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return l
     });
@@ -14311,7 +14311,7 @@
     a.c.registeredClasses.Polyarc = l
   },
   MZQ8: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -14381,7 +14381,7 @@
     }
   },
   Meme: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return y
     });
@@ -14402,7 +14402,7 @@
       y = function(t) {
         function e() {
           var e = t.call(this) || this;
-          e._chart = new a.d, e.className = "AxisRenderer", e.minGridDistance = 50, e.inside = !1, e.inversed = !1, e.tooltipLocation = .5, e.fullWidthTooltip = !1, e.cellStartLocation = 0, e.cellEndLocation = 1, e.minLabelPosition = 0, e.maxLabelPosition = 1, e.shouldClone = !1;
+          e._chart = new a.d(), e.className = "AxisRenderer", e.minGridDistance = 50, e.inside = !1, e.inversed = !1, e.tooltipLocation = .5, e.fullWidthTooltip = !1, e.cellStartLocation = 0, e.cellEndLocation = 1, e.minLabelPosition = 0, e.maxLabelPosition = 1, e.shouldClone = !1;
           var i = e.createChild(n.a);
           i.shouldClone = !1, i.layout = "none", i.virtualParent = e, i.width = Object(f.c)(100), i.height = Object(f.c)(100), e.gridContainer = i, i.events.on("maxsizechanged", function() {
             e.inited && e.invalidateAxisItems()
@@ -14517,7 +14517,7 @@
           enumerable: !0,
           configurable: !0
         }), e.prototype.createGrid = function() {
-          return new u.a
+          return new u.a()
         }, Object.defineProperty(e.prototype, "ticks", {
           get: function() {
             if (!this._ticks) {
@@ -14529,7 +14529,7 @@
           enumerable: !0,
           configurable: !0
         }), e.prototype.createTick = function() {
-          return new c.a
+          return new c.a()
         }, Object.defineProperty(e.prototype, "labels", {
           get: function() {
             if (!this._labels) {
@@ -14541,7 +14541,7 @@
           enumerable: !0,
           configurable: !0
         }), e.prototype.createLabel = function() {
-          return new h.a
+          return new h.a()
         }, Object.defineProperty(e.prototype, "inside", {
           get: function() {
             return this.getPropertyValue("inside")
@@ -14682,11 +14682,11 @@
     }
   },
   MipW: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return c
     }), e.b = function() {
-      null == r && (r = new c);
+      null == r && (r = new c());
       return r
     };
     var r, n = i("m4/l"),
@@ -14791,7 +14791,7 @@
     l.c.registeredClasses.TextFormatter = c
   },
   MlsF: function(t, e, i) {
-    "use strict";
+    
     e.b = function(t) {
       switch (t) {
         case 0:
@@ -14806,7 +14806,7 @@
     }
   },
   Mpxm: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return l
     }), i.d(e, "b", function() {
@@ -14849,7 +14849,7 @@
             parser: null,
             type: t
           }).parser;
-          return e || ("csv" == t || "text/csv" == t || "application/vnd.ms-excel" == t ? new r.a : "json" == t || "application/json" == t ? new n.a : void 0)
+          return e || ("csv" == t || "text/csv" == t || "application/vnd.ms-excel" == t ? new r.a() : "json" == t || "application/json" == t ? new n.a() : void 0)
         }, t.prototype.getParserByData = function(t, e) {
           var i = this.adapter.apply("getParserByData", {
             parser: null,
@@ -14864,10 +14864,10 @@
           return i
         }, t
       }(),
-      u = new l
+      u = new l()
   },
   Mr4Y: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return d
     });
@@ -14962,7 +14962,7 @@
           if (t.prototype.setFill.call(this, e), (!p.isObject(e) || "r" in e) && (e = Object(l.e)(e)), e instanceof l.a) i = e.hex;
           else if (e instanceof h.a || e instanceof u.a) i = e.stops.getIndex(0).color.hex;
           else {
-            var r = new c.a;
+            var r = new c.a();
             r.lightness = -.2, this.sideBack.filters.push(r);
             var n = r.clone();
             n.lightness = -.4, this.sideLeft.filters.push(n);
@@ -14980,7 +14980,7 @@
       }(n.a)
   },
   Mtpk: function(t, e, i) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     }), e.isNaN = n, e.getType = a, e.getDefault = function(t, e) {
@@ -15082,7 +15082,7 @@
     }
   },
   "ND2/": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return l
     });
@@ -15137,7 +15137,7 @@
       }(n.a)
   },
   "NI+5": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("3sMl"),
       a = i("hqo8"),
@@ -15160,7 +15160,7 @@
     })
   },
   NK3S: function(t, e, i) {
-    "use strict";
+    
     var r = i("3weC"),
       n = i("EErT");
     t.exports = function(t) {
@@ -15169,7 +15169,7 @@
     }
   },
   NKcy: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("UjlR"),
       a = i("7X7h"),
@@ -15188,7 +15188,7 @@
     })
   },
   NNEa: function(t, e, i) {
-    "use strict";
+    
     var r = i("/vWR"),
       n = i("Tl3C").getWeakData,
       a = i("3weC"),
@@ -15204,7 +15204,7 @@
       g = u.findIndex,
       m = 0,
       y = function(t) {
-        return t.frozen || (t.frozen = new v)
+        return t.frozen || (t.frozen = new v())
       },
       v = function() {
         this.entries = []
@@ -15305,13 +15305,13 @@
     }) || !n(function() {
       new l(-1)
     }) || !a(function(t) {
-      new l, new l(null), new l(1.5), new l(t)
+      new l(), new l(null), new l(1.5), new l(t)
     }, !0) || n(function() {
       return 1 !== new l(new s(2), 1, void 0).length
     })
   },
   NWlt: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("saPf");
     r({
@@ -15325,7 +15325,7 @@
     })
   },
   NZ9V: function(t, e, i) {
-    "use strict";
+    
     i("1M4z");
     var r = i("z3p0"),
       n = i("6aQQ"),
@@ -15344,7 +15344,7 @@
       }),
       h = "$0" === "a".replace(/./, "$0"),
       c = a("replace"),
-      p = !!/./ [c] && "" === /./ [c]("a", "$0"),
+      p = !!/./[c] && "" === /./[c]("a", "$0"),
       d = !n(function() {
         var t = /(?:)/,
           e = t.exec;
@@ -15360,20 +15360,20 @@
           var e = {};
           return e[f] = function() {
             return 7
-          }, 7 != "" [t](e)
+          }, 7 != ""[t](e)
         }),
         m = g && !n(function() {
           var e = !1,
             i = /a/;
           return "split" === t && ((i = {}).constructor = {}, i.constructor[l] = function() {
             return i
-          }, i.flags = "", i[f] = /./ [f]), i.exec = function() {
+          }, i.flags = "", i[f] = /./[f]), i.exec = function() {
             return e = !0, null
           }, i[f](""), !e
         });
       if (!g || !m || "replace" === t && (!u || !h || p) || "split" === t && !d) {
-        var y = /./ [f],
-          v = i(f, "" [t], function(t, e, i, r, n) {
+        var y = /./[f],
+          v = i(f, ""[t], function(t, e, i, r, n) {
             return e.exec === o ? g && !n ? {
               done: !0,
               value: y.call(e, i, r)
@@ -15408,7 +15408,7 @@
     }
   },
   "Nv8/": function(t, e, i) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     });
@@ -15917,7 +15917,7 @@
         function e() {
           var e = t.call(this) || this;
           e.className = "Preloader", e.width = Object(Q.c)(100), e.height = Object(Q.c)(100);
-          var i = new q.a,
+          var i = new q.a(),
             r = e.createChild(b.a);
           r.shouldClone = !1;
           var n = r.createChild(Z.a);
@@ -15938,7 +15938,7 @@
               t && !t.isFinished() ? t.events.once("animationended", function() {
                 e.__disabled = !0
               }) : e.__disabled = !0
-            }), this.interactionsEnabled = !1, this.setPropertyValue("progress", 0)) : t > 0 && (this.delay ? this._started ? this._started + this.delay <= (new Date).getTime() && (this.__disabled = !1, this.show(), this.interactionsEnabled = !0) : this._started = (new Date).getTime() : (this.__disabled = !1, this.show(), this.interactionsEnabled = !0))
+            }), this.interactionsEnabled = !1, this.setPropertyValue("progress", 0)) : t > 0 && (this.delay ? this._started ? this._started + this.delay <= (new Date()).getTime() && (this.__disabled = !1, this.show(), this.interactionsEnabled = !0) : this._started = (new Date()).getTime() : (this.__disabled = !1, this.show(), this.interactionsEnabled = !0))
           },
           enumerable: !0,
           configurable: !0
@@ -15962,7 +15962,7 @@
         function e() {
           var e = t.call(this) || this;
           e.className = "CloseButton", e.padding(8, 8, 8, 8), e.showSystemTooltip = !0, e.width = 30, e.height = 30;
-          var i = new q.a;
+          var i = new q.a();
           e.cursorOverStyle = it.a.pointer;
           var r = e.background;
           r.cornerRadius(20, 20, 20, 20);
@@ -15973,7 +15973,7 @@
           o.properties.strokeWidth = 3, o.properties.fill = n;
           var s = r.states.getKey("down");
           s.properties.stroke = a, s.properties.fill = n;
-          var l = new _.a;
+          var l = new _.a();
           return l.element = e.paper.add("path"), l.stroke = r.stroke, e.icon = l, e.applyTheme(), e
         }
         return Object(F.c)(e, t), e.prototype.validate = function() {
@@ -16003,11 +16003,11 @@
       function e() {
         var e = t.call(this) || this;
         e.className = "SwitchButton", e.tooltipY = 0, e.layout = "horizontal", e.contentAlign = "center", e.contentValign = "middle", e.padding(8, 16, 8, 16), e.setStateOnChildren = !0, e.states.create("active");
-        var i = new q.a,
-          r = new N.a;
+        var i = new q.a(),
+          r = new N.a();
         r.fillOpacity = .3, r.states.create("active").properties.fillOpacity = 1, r.isActive = !0, e.leftLabel = r;
-        var n = new V.a,
-          a = new A.a;
+        var n = new V.a(),
+          a = new A.a();
         n.contentValign = "none", n.padding(0, 0, 0, 0), a.radius = 10, n.icon = a, n.icon.valign = "middle", n.label = void 0;
         var o = Object(Q.c)(100);
         n.background.cornerRadius(o, o, o, o), n.width = 3.5 * a.radius, n.height = 2.1 * a.radius, n.marginLeft = 8, n.marginRight = 8, n.togglable = !0, a.dx = .7 * -a.radius, a.fill = i.getFor("primaryButton"), a.states.create("hover").properties.fill = i.getFor("primaryButtonHover");
@@ -16015,7 +16015,7 @@
         s.properties.fill = i.getFor("primaryButtonActive"), s.properties.dx = .7 * a.radius, e.switchButton = n, e.events.on("toggled", function() {
           e.leftLabel.isActive = !e.isActive, e.rightLabel.isActive = e.isActive
         });
-        var l = new N.a;
+        var l = new N.a();
         return l.fillOpacity = .3, l.states.create("active").properties.fillOpacity = 1, e.rightLabel = l, e.role = "button", e.focusable = !0, l.valign = "middle", r.valign = "middle", n.valign = "middle", e.applyTheme(), e
       }
       return Object(F.c)(e, t), Object.defineProperty(e.prototype, "leftLabel", {
@@ -16100,12 +16100,12 @@
         function e() {
           var e = t.call(this) || this;
           e.className = "PlayButton", e.padding(12, 12, 12, 12), e.showSystemTooltip = !0;
-          var i = new q.a,
+          var i = new q.a(),
             r = e.background;
           r.cornerRadius(25, 25, 25, 25), r.fill = i.getFor("primaryButton"), r.stroke = i.getFor("primaryButtonStroke"), r.strokeOpacity = 0, r.states.getKey("hover").properties.fill = i.getFor("primaryButtonHover"), r.states.getKey("down").properties.fill = i.getFor("primaryButtonActive");
-          var n = new ct.a;
+          var n = new ct.a();
           n.direction = "right", n.width = 9, n.height = 11, n.marginLeft = 1, n.marginRight = 1, n.horizontalCenter = "middle", n.verticalCenter = "middle", n.stroke = i.getFor("primaryButtonText"), n.fill = n.stroke, e.icon = n;
-          var a = new at.a;
+          var a = new at.a();
           a.width = 11, a.height = 11, a.horizontalCenter = "middle", a.verticalCenter = "middle", a.cornerRadius(0, 0, 0, 0), a.stroke = i.getFor("primaryButtonText"), a.fill = n.stroke, e.togglable = !0;
           var o = e.states.create("active");
           return o.transitionDuration = 0, o.properties.icon = a, e.defaultState.transitionDuration = 0, e.applyTheme(), e
@@ -16141,7 +16141,7 @@
       Bt = function(t) {
         function e() {
           var e = t.call(this) || this;
-          return e.className = "RadialGradientModifier", e.gradient = new Nt.a, e.applyTheme(), e
+          return e.className = "RadialGradientModifier", e.gradient = new Nt.a(), e.applyTheme(), e
         }
         return Object(F.c)(e, t), e.prototype.copyFrom = function(e) {
           t.prototype.copyFrom.call(this, e), this.gradient = e.gradient.clone()
@@ -16216,7 +16216,7 @@
         function e() {
           var e = t.call(this) || this;
           return e.className = "FocusFilter", e.feFlood = e.paper.add("feFlood"), e.feFlood.attr({
-            "flood-color": (new q.a).getFor("primaryButtonHover"),
+            "flood-color": (new q.a()).getFor("primaryButtonHover"),
             result: "base"
           }), e.filterPrimitives.push(e.feFlood), e.feMorphology = e.paper.add("feMorphology"), e.feMorphology.attr({
             result: "bigger",
@@ -16317,8 +16317,8 @@
           var i = .3;
           e.opacity = .3, e.defaultState.properties.opacity = .4, e.url = "https://www.amcharts.com/", e.urlTarget = "_blank", e.showSystemTooltip = !0, e.readerTitle = "Chart created using amCharts library", e.width = 66, e.height = 21, e.background.opacity = 0;
           var r = Object(ie.c)("#474758");
-          "#ffffff" == (new q.a).getFor("background").alternative.hex && (r = Object(ie.c)("#ffffff"));
-          var n = new Rt.a;
+          "#ffffff" == (new q.a()).getFor("background").alternative.hex && (r = Object(ie.c)("#ffffff"));
+          var n = new Rt.a();
           n.addColor(r), n.addColor(r, 1, .75), n.addColor(Object(ie.c)("#3cabff"), 1, .755), n.rotation = -10;
           var a = n,
             o = e.createChild(K.a);
@@ -16368,9 +16368,9 @@
               y: 15
             }]
           ], s.strokeWidth = 6 * i, s.tensionX = .75, s.tensionY = 1, s.stroke = a, e._disposers.push(s);
-          var l = new Gt.a;
+          var l = new Gt.a();
           e.filters.push(l);
-          var u = new Gt.a;
+          var u = new Gt.a();
           u.saturation = 1;
           var h = e.states.create("hover");
           return h.properties.opacity = 1, h.filters.push(u), e.applyTheme(), e
@@ -16386,14 +16386,14 @@
         i.innerHTML = "";
         var n = new Ft.a(i),
           a = new At.a(n.SVGContainer, "svg-" + (Ft.b.length - 1)),
-          o = new b.a;
+          o = new b.a();
         o.htmlContainer = i, o.svgContainer = n, o.width = Object(Q.c)(100), o.height = Object(Q.c)(100), o.background.fillOpacity = 0, o.paper = a, a.append(o.group), r && E.x(function() {
           o.moveHtmlContainer(t)
         }), o.relativeWidth = 1, o.relativeHeight = 1, n.container = o;
         var s = o.createChild(e);
         s.topParent = o;
         var l = s.uid;
-        O.c.invalidSprites[l] = [], O.c.invalidDatas[l] = [], O.c.invalidPositions[l] = [], O.c.invalidLayouts[l] = [], o.baseId = l, s.isBaseSprite = !0, s.focusFilter = new Zt, O.c.baseSprites.push(s), O.c.baseSpritesByUid[l] = s, s.maskRectangle = {
+        O.c.invalidSprites[l] = [], O.c.invalidDatas[l] = [], O.c.invalidPositions[l] = [], O.c.invalidLayouts[l] = [], o.baseId = l, s.isBaseSprite = !0, s.focusFilter = new Zt(), O.c.baseSprites.push(s), O.c.baseSpritesByUid[l] = s, s.maskRectangle = {
           x: 0,
           y: 0,
           width: Math.max(n.width || 0, 0),
@@ -16414,7 +16414,7 @@
           null !== u && clearTimeout(u), Pe.remove(O.c.baseSprites, s), O.c.baseSpritesByUid[s.uid] = void 0
         })), s.addDisposer(o);
         var c = o.createChild(b.a);
-        c.topParent = o, c.width = Object(Q.c)(100), c.height = Object(Q.c)(100), c.isMeasured = !1, o.tooltipContainer = c, s.tooltip = new ut.a, s.tooltip.hide(0), s.tooltip.setBounds({
+        c.topParent = o, c.width = Object(Q.c)(100), c.height = Object(Q.c)(100), c.isMeasured = !1, o.tooltipContainer = c, s.tooltip = new ut.a(), s.tooltip.hide(0), s.tooltip.setBounds({
           x: 0,
           y: 0,
           width: c.maxWidth,
@@ -16427,7 +16427,7 @@
             height: c.maxHeight
           })
         }, void 0, !1);
-        var p = new J;
+        var p = new J();
         if (p.events.on("inited", function() {
             p.__disabled = !0
           }, void 0, !1), o.preloader = p, s instanceof b.a && !s.hasLicense()) {
@@ -16575,13 +16575,13 @@
     i("6WsA")("replace")
   },
   OVUc: function(t, e, i) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     }), e.load = function(t, e, i) {
       return new Promise(function(a, o) {
         var s = r.hasValue(i) && "blob" == i.responseType,
-          l = new XMLHttpRequest;
+          l = new XMLHttpRequest();
         if (l.onload = function() {
             if (200 === l.status) {
               var t, i = void 0;
@@ -16634,7 +16634,7 @@
 
     function n(t) {
       return new Promise(function(e, i) {
-        var r = new FileReader;
+        var r = new FileReader();
         r.onload = function(t) {
           e(r.result)
         }, r.onerror = function(t) {
@@ -16644,7 +16644,7 @@
     }
   },
   OXm9: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return g
     });
@@ -16812,8 +16812,8 @@
           var h = Math.abs(l - s);
           i.x = s, i.height = 0, i.width = h, r.x = s, r.height = 0, r.width = h, n.width = h, n.height = Math.abs(o.y - a.y), n.x = s, n.y = o.y
         }, e.prototype.createBreakSprites = function(t) {
-          t.startLine = new a.a, t.endLine = new a.a;
-          var e = new o.a;
+          t.startLine = new a.a(), t.endLine = new a.a();
+          var e = new o.a();
           e.setWavedSides(!0, !1, !0, !1), t.fillShape = e
         }, e.prototype.positionToCoordinate = function(t) {
           var e = this.axis,
@@ -16850,7 +16850,7 @@
     })
   },
   Oe1l: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -16859,7 +16859,7 @@
       a = i("hJ5i"),
       o = function() {
         function t(t, e) {
-          this._disposed = !1, this.directionX = 0, this.directionY = 0, this.interaction = t, this.keyboardEvent = e, this._startedOn = (new Date).getTime(), Object(r.b)().processDragStart(t), n.b.animations.push(this), this.update()
+          this._disposed = !1, this.directionX = 0, this.directionY = 0, this.interaction = t, this.keyboardEvent = e, this._startedOn = (new Date()).getTime(), Object(r.b)().processDragStart(t), n.b.animations.push(this), this.update()
         }
         return t.prototype.update = function() {
           var t = this.interaction,
@@ -16871,7 +16871,7 @@
               y: 0
             };
           this.keyboardEvent.shiftKey ? (e *= .5, i = 1) : this.keyboardEvent.ctrlKey && (e *= 2);
-          var o = (new Date).getTime() - this._startedOn,
+          var o = (new Date()).getTime() - this._startedOn,
             s = o - n;
           if (i > 0 && s > 0) {
             var l = o / n;
@@ -16889,7 +16889,7 @@
       }()
   },
   OhoW: function(t, e, i) {
-    "use strict";
+    
     var r = i("NZ9V"),
       n = i("AzDz"),
       a = i("3weC"),
@@ -16961,7 +16961,7 @@
     }
   },
   "Oz+B": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("6aQQ"),
       a = i("mtbW"),
@@ -16999,7 +16999,7 @@
     })
   },
   "P/bD": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return h
     });
@@ -17080,7 +17080,7 @@
       }(n.b)
   },
   "P7v+": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return s
     }), e.b = function() {
@@ -17119,7 +17119,7 @@
       l = null
   },
   PGhV: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("saPf");
     r({
@@ -17133,7 +17133,7 @@
     })
   },
   PTiM: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return h
     });
@@ -17232,7 +17232,7 @@
     }
   },
   PoRT: function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("X/sl").every,
       a = r.aTypedArray;
@@ -17241,7 +17241,7 @@
     })
   },
   Puh1: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return p
     }), i.d(e, "a", function() {
@@ -17282,15 +17282,15 @@
           return e.className = "PieSeries", e.alignLabels = !0, e.layout = "none", e.labels.template.radius = Object(c.c)(5), e.addDisposer(e.labels.template.events.on("enabled", e.invalidate, e, !1)), e.applyTheme(), e
         }
         return Object(r.c)(e, t), e.prototype.createSlice = function() {
-          return new a.a
+          return new a.a()
         }, e.prototype.createTick = function() {
-          return new s.a
+          return new s.a()
         }, e.prototype.createLabel = function() {
-          return new o.a
+          return new o.a()
         }, e.prototype.applyInternalDefaults = function() {
           t.prototype.applyInternalDefaults.call(this), h.hasValue(this.readerTitle) || (this.readerTitle = this.language.translate("Pie Slice Series"))
         }, e.prototype.createDataItem = function() {
-          return new p
+          return new p()
         }, e.prototype.initSlice = function(t) {
           t.isMeasured = !1, t.defaultState.properties.scale = 1, t.observe("scale", this.handleSliceScale, this), t.observe(["dx", "dy", "x", "y", "shiftRadius"], this.handleSliceMove, this), t.tooltipText = "{category}: {value.percent.formatNumber('#.#')}% ({value.value})", t.states.create("hover").properties.scale = 1.05, t.defaultState.properties.shiftRadius = 0, t.togglable = !0, t.events.on("toggled", function(t) {
             t.target.hideTooltip()
@@ -17425,7 +17425,7 @@
     l.c.registeredClasses.PieSeries = d, l.c.registeredClasses.PieSeriesDataItem = p
   },
   Q0ab: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("X/sl").map,
       a = i("ugpH"),
@@ -17443,7 +17443,7 @@
     })
   },
   Q4nc: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return r
     });
@@ -17469,7 +17469,7 @@
     var r = i("6aQQ");
     t.exports = !r(function() {
       function t() {}
-      return t.prototype.constructor = null, Object.getPrototypeOf(new t) !== t.prototype
+      return t.prototype.constructor = null, Object.getPrototypeOf(new t()) !== t.prototype
     })
   },
   QQDG: function(t, e, i) {
@@ -17490,7 +17490,7 @@
     })
   },
   QgOz: function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("tHyI"),
       a = i("oxAz"),
@@ -17526,7 +17526,7 @@
     })
   },
   Qkdp: function(t, e, i) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     }), e.entries = function(t) {
@@ -17635,14 +17635,14 @@
       };
     s[h] = !0, t.exports = Object.create || function(t, e) {
       var i;
-      return null !== t ? (c.prototype = n(t), i = new c, c.prototype = null, i[h] = t) : i = d(), void 0 === e ? i : a(i, e)
+      return null !== t ? (c.prototype = n(t), i = new c(), c.prototype = null, i[h] = t) : i = d(), void 0 === e ? i : a(i, e)
     }
   },
   R3j0: function(t, e, i) {
     i("6WsA")("hasInstance")
   },
   R6wv: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return u
     });
@@ -17759,7 +17759,7 @@
     o.c.registeredClasses.Polygon = u
   },
   RBX2: function(t, e, i) {
-    "use strict";
+    
     i("0sYB")({
       target: "URL",
       proto: !0,
@@ -17771,7 +17771,7 @@
     })
   },
   "RIy+": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("jnLg").start,
       a = i("rCh7")("trimStart"),
@@ -17792,7 +17792,7 @@
     t.exports = r("navigator", "userAgent") || ""
   },
   RlUG: function(t, e, i) {
-    "use strict";
+    
     var r = i("HMf+"),
       n = i("JZFm");
     t.exports = r("Map", function(t) {
@@ -17802,7 +17802,7 @@
     }, n)
   },
   Rnbi: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return s
     });
@@ -17883,7 +17883,7 @@
     a.c.registeredClasses.Triangle = s
   },
   Rpw0: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return u
     }), i.d(e, "b", function() {
@@ -18049,7 +18049,7 @@
           configurable: !0
         }), t.VERSION = "4.10.7", t
       }(),
-      h = new u
+      h = new u()
   },
   Rs0P: function(t, e, i) {
     var r = i("Kg2n"),
@@ -18077,7 +18077,7 @@
     })
   },
   ScGY: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "f", function() {
       return r
     }), i.d(e, "g", function() {
@@ -18102,7 +18102,7 @@
       u = "__§§§§__"
   },
   ScUe: function(t, e, i) {
-    "use strict";
+    
     var r = i("exNg"),
       n = i("swFJ");
     t.exports = "".repeat || function(t) {
@@ -18125,7 +18125,7 @@
       p = i("lt6Q"),
       d = s.WeakMap;
     if (o) {
-      var f = new d,
+      var f = new d(),
         g = f.get,
         m = f.has,
         y = f.set;
@@ -18163,7 +18163,7 @@
     }
   },
   "TDx+": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -18202,7 +18202,7 @@
   },
   TFFM: function(t, e, i) {
     var r = function(t) {
-      "use strict";
+      
       var e, i = Object.prototype,
         r = i.hasOwnProperty,
         n = "function" == typeof Symbol ? Symbol : {},
@@ -18518,7 +18518,7 @@
     }
   },
   TGuK: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return p
     }), i.d(e, "c", function() {
@@ -18538,7 +18538,7 @@
       p = function(t) {
         function e() {
           var e = t.call(this) || this;
-          return e._rules = new a.b, e._appliedRules = {}, e._appliedTargets = [], e._useDefault = !0, e.adapter = new o.a(e), e._enabled = !1, e._responsiveDisposers = [], e._noStates = [], e.className = "Responsive", e.rules.events.on("inserted", function() {
+          return e._rules = new a.b(), e._appliedRules = {}, e._appliedTargets = [], e._useDefault = !0, e.adapter = new o.a(e), e._enabled = !1, e._responsiveDisposers = [], e._noStates = [], e.className = "Responsive", e.rules.events.on("inserted", function() {
             e.checkRules()
           }, !0), e.rules.events.on("removed", function() {
             e.checkRules()
@@ -18593,7 +18593,7 @@
           configurable: !0
         }), Object.defineProperty(e.prototype, "allRules", {
           get: function() {
-            var t = new a.b;
+            var t = new a.b();
             return this.useDefault && t.copyFrom(this.defaultRules), t.copyFrom(this.rules), this.adapter.apply("allRules", t)
           },
           enumerable: !0,
@@ -18660,7 +18660,7 @@
           for (var t = this._responsiveDisposers.pop(); t;) t.dispose(), t = this._responsiveDisposers.pop()
         }, e
       }(n.b),
-      d = new a.b;
+      d = new a.b();
     d.events.on("inserted", function(t) {
       t.newValue.id = s.c.getUniqueId()
     });
@@ -18726,7 +18726,7 @@
     }()
   },
   TIsG: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("Y8n3"),
       a = i("exNg"),
@@ -18771,7 +18771,7 @@
     i("NRfM")(r.JSON, "JSON", !0)
   },
   TQpL: function(t, e, i) {
-    "use strict";
+    
     var r = i("HnbP");
     t.exports.f = function(t) {
       return new function(t) {
@@ -18784,7 +18784,7 @@
     }
   },
   TXRX: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return s
     });
@@ -18871,7 +18871,7 @@
     })
   },
   TZWN: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -18903,7 +18903,7 @@
     a.c.registeredClasses.CirclePattern = o
   },
   "Tjl+": function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return y
     }), i.d(e, "b", function() {
@@ -18944,13 +18944,13 @@
           configurable: !0
         }), Object.defineProperty(t.prototype, "map", {
           get: function() {
-            return this._map || (this._map = new o.a), this._map
+            return this._map || (this._map = new o.a()), this._map
           },
           enumerable: !0,
           configurable: !0
         }), Object.defineProperty(t.prototype, "delayedMap", {
           get: function() {
-            return this._delayedMap || (this._delayedMap = new o.a), this._delayedMap
+            return this._delayedMap || (this._delayedMap = new o.a()), this._delayedMap
           },
           enumerable: !0,
           configurable: !0
@@ -19012,11 +19012,11 @@
           t.dispose()
         }, t.prototype.clone = function(t) {
           t || (t = "clone-" + p.c.getUniqueId());
-          var e = new this.constructor;
+          var e = new this.constructor();
           return e.cloneId = t, e.copyFrom(this), e
         }, Object.defineProperty(t.prototype, "clones", {
           get: function() {
-            return this._clones || (this._clones = new n.b), this._clones
+            return this._clones || (this._clones = new n.b()), this._clones
           },
           enumerable: !0,
           configurable: !0
@@ -19170,7 +19170,7 @@
         }, t.prototype.asFunction = function(t) {
           return !1
         }, t.prototype.createClassInstance = function(t) {
-          if (m.hasValue(p.c.registeredClasses[t])) return new p.c.registeredClasses[t];
+          if (m.hasValue(p.c.registeredClasses[t])) return new p.c.registeredClasses[t]();
           throw Error('Invalid type: "' + t + '".')
         }, t.prototype.createEntryInstance = function(t) {
           var e;
@@ -19199,7 +19199,7 @@
         }
         return Object(r.c)(e, t), Object.defineProperty(e.prototype, "events", {
           get: function() {
-            return this._eventDispatcher || (this._eventDispatcher = new l.a, this._disposers.push(this._eventDispatcher)), this._eventDispatcher
+            return this._eventDispatcher || (this._eventDispatcher = new l.a(), this._disposers.push(this._eventDispatcher)), this._eventDispatcher
           },
           enumerable: !0,
           configurable: !0
@@ -19283,7 +19283,7 @@
     })
   },
   Trvg: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return l
     });
@@ -19296,7 +19296,7 @@
         function e() {
           var e = t.call(this) || this;
           e.className = "TextLink", e.selectable = !0;
-          var i = new o.a;
+          var i = new o.a();
           return e.fill = i.getFor("primaryButton").brighten(.3), e.states.create("hover").properties.fill = i.getFor("primaryButtonHover").brighten(.3), e.states.create("down").properties.fill = i.getFor("primaryButtonDown").brighten(.3), e.cursorOverStyle = a.a.pointer, e.applyTheme(), e
         }
         return Object(r.c)(e, t), e
@@ -19330,7 +19330,7 @@
     })
   },
   Uf57: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return P
     }), i.d(e, "a", function() {
@@ -19498,7 +19498,7 @@
       w = function(t) {
         function e() {
           var e = t.call(this) || this;
-          return e.groupFields = {}, e._xAxis = new l.d, e._yAxis = new l.d, e._xValueFields = [], e._yValueFields = [], e._baseInterval = {}, e.dataGrouped = !1, e.usesShowFields = !1, e._dataSetChanged = !1, e._maxxX = 1e5, e._maxxY = 1e5, e._propertiesChanged = !1, e.className = "XYSeries", e.isMeasured = !1, e.groupFields.valueX = "close", e.groupFields.valueY = "close", e.groupFields.customValue = "close", e.groupFields.openValueX = "open", e.groupFields.openValueY = "open", e.cursorTooltipEnabled = !0, e.cursorHoverEnabled = !0, e.excludeFromTotal = !1, e.mainContainer.mask = new a.a, e.mainContainer.mask.setElement(e.paper.add("path")), e.stacked = !1, e.snapTooltip = !1, e._showBullets = !1, e.tooltip.pointerOrientation = "horizontal", e.properties.stackToNegative = !0, e.hideTooltipWhileZooming = !0, e.setPropertyValue("maskBullets", !0), e.tooltip.events.on("hidden", function() {
+          return e.groupFields = {}, e._xAxis = new l.d(), e._yAxis = new l.d(), e._xValueFields = [], e._yValueFields = [], e._baseInterval = {}, e.dataGrouped = !1, e.usesShowFields = !1, e._dataSetChanged = !1, e._maxxX = 1e5, e._maxxY = 1e5, e._propertiesChanged = !1, e.className = "XYSeries", e.isMeasured = !1, e.groupFields.valueX = "close", e.groupFields.valueY = "close", e.groupFields.customValue = "close", e.groupFields.openValueX = "open", e.groupFields.openValueY = "open", e.cursorTooltipEnabled = !0, e.cursorHoverEnabled = !0, e.excludeFromTotal = !1, e.mainContainer.mask = new a.a(), e.mainContainer.mask.setElement(e.paper.add("path")), e.stacked = !1, e.snapTooltip = !1, e._showBullets = !1, e.tooltip.pointerOrientation = "horizontal", e.properties.stackToNegative = !0, e.hideTooltipWhileZooming = !0, e.setPropertyValue("maskBullets", !0), e.tooltip.events.on("hidden", function() {
             e.returnBulletDefaultState()
           }, void 0, !1), e._disposers.push(e._xAxis), e._disposers.push(e._yAxis), e.observe(a.b, function() {
             e.inited && (e._propertiesChanged = !0, e.legendDataItem && (e.legendDataItem.childrenCreated = !1), e.chart && e.chart.legend && e.chart.legend.invalidateDataItems(), e.invalidate())
@@ -19507,7 +19507,7 @@
         return Object(r.c)(e, t), e.prototype.applyInternalDefaults = function() {
           t.prototype.applyInternalDefaults.call(this), m.hasValue(this.readerTitle) || (this.readerTitle = this.language.translate("X/Y Series"))
         }, e.prototype.createDataItem = function() {
-          return new P
+          return new P()
         }, e.prototype.resetExtremes = function() {
           this._tmin.clear(), this._tmax.clear(), this._smin.clear(), this._smax.clear()
         }, e.prototype.dataChangeUpdate = function() {
@@ -19620,7 +19620,7 @@
           configurable: !0
         }), e.prototype.setXAxis = function(t) {
           var e = this._xAxis.get();
-          e != t && (e && (this.dataItemsByAxis.removeKey(e.uid), this._xAxis.dispose(), e.series.removeValue(this)), this._xAxis.set(t, t.registerSeries(this)), this.dataItemsByAxis.setKey(t.uid, new s.a), this.invalidateData())
+          e != t && (e && (this.dataItemsByAxis.removeKey(e.uid), this._xAxis.dispose(), e.series.removeValue(this)), this._xAxis.set(t, t.registerSeries(this)), this.dataItemsByAxis.setKey(t.uid, new s.a()), this.invalidateData())
         }, Object.defineProperty(e.prototype, "yAxis", {
           get: function() {
             if (this.chart) {
@@ -19639,7 +19639,7 @@
           configurable: !0
         }), e.prototype.setYAxis = function(t) {
           var e = this._yAxis.get();
-          e != t && (e && (this.dataItemsByAxis.removeKey(e.uid), this._yAxis.dispose(), e.series.removeValue(this)), this._yAxis.set(t, t.registerSeries(this)), t.chart instanceof u.a && t.chart.handleYAxisSet(this), this.dataItemsByAxis.setKey(t.uid, new s.a), this.invalidateData())
+          e != t && (e && (this.dataItemsByAxis.removeKey(e.uid), this._yAxis.dispose(), e.series.removeValue(this)), this._yAxis.set(t, t.registerSeries(this)), t.chart instanceof u.a && t.chart.handleYAxisSet(this), this.dataItemsByAxis.setKey(t.uid, new s.a()), this.invalidateData())
         }, Object.defineProperty(e.prototype, "baseAxis", {
           get: function() {
             var t = this.xAxis,
@@ -20144,7 +20144,7 @@
     i("6WsA")("asyncIterator")
   },
   UjlR: function(t, e, i) {
-    "use strict";
+    
     var r = i("o3G/"),
       n = i("tHyI"),
       a = i("cLsB"),
@@ -20173,13 +20173,13 @@
     }
   },
   UsNi: function(t, e, i) {
-    "use strict";
+    
     var r = i("m4/l"),
       n = i("58Sn"),
       a = i("+qIf"),
       o = i("hD5A"),
       s = i("MIZb"),
-      l = new a.a,
+      l = new a.a(),
       u = i("x79X"),
       h = i("Tjl+"),
       c = i("zhwk"),
@@ -20454,7 +20454,7 @@
       }), e.prototype.loadDefaultCSS = function() {
         this._cssLoaded || (this._disposers.push(function(t, e) {
           e || (e = "ampopup");
-          var i = new s.a,
+          var i = new s.a(),
             r = i.getFor("text"),
             a = i.getFor("background");
           a.alpha = .8;
@@ -20543,7 +20543,7 @@
     }(h.b)
   },
   UseD: function(t, e, i) {
-    "use strict";
+    
     var r, n = i("jqyf"),
       a = i("3sMl"),
       o = i("vfdp"),
@@ -20659,7 +20659,7 @@
     } : o
   },
   Uslz: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return c
     });
@@ -20674,13 +20674,13 @@
       c = function(t) {
         function e() {
           var e = t.call(this) || this;
-          e._axis = new a.d, e.dataItems = new s.b, e.className = "AxisBreak", e.breakSize = .01, e.marginLeft = -5, e.marginRight = -5, e.marginTop = -5, e.marginBottom = -5;
-          var i = new h.a,
-            r = new o.a;
+          e._axis = new a.d(), e.dataItems = new s.b(), e.className = "AxisBreak", e.breakSize = .01, e.marginLeft = -5, e.marginRight = -5, e.marginTop = -5, e.marginBottom = -5;
+          var i = new h.a(),
+            r = new o.a();
           r.fill = i.getFor("background"), r.stroke = Object(u.c)(), r.fillOpacity = .9, r.zIndex = 0, e._fillShape = r;
-          var n = new o.a;
+          var n = new o.a();
           n.fill = Object(u.c)(), n.stroke = i.getFor("grid"), n.strokeOpacity = .3, n.zIndex = 1, e._startLine = n;
-          var l = new o.a;
+          var l = new o.a();
           return l.fill = Object(u.c)(), l.stroke = Object(u.c)("#000000"), l.strokeOpacity = .3, l.zIndex = 2, e._endLine = l, e._disposers.push(e._axis), e.applyTheme(), e
         }
         return Object(r.c)(e, t), e.prototype.dispose = function() {
@@ -20783,7 +20783,7 @@
     l.c.registeredClasses.AxisBreak = c
   },
   VAFc: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return s
     });
@@ -20870,7 +20870,7 @@
     o.c.registeredClasses.DropShadowFilter = s
   },
   VB2N: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return d
     }), i.d(e, "a", function() {
@@ -20924,16 +20924,16 @@
       f = function(t) {
         function e() {
           var e = t.call(this) || this;
-          e.dataItemsByCategory = new l.a, e.className = "CategoryAxis", e.axisFieldName = "category", e._lastDataItem = e.createDataItem(), e._lastDataItem.component = e, e._disposers.push(e._lastDataItem), e.applyTheme();
+          e.dataItemsByCategory = new l.a(), e.className = "CategoryAxis", e.axisFieldName = "category", e._lastDataItem = e.createDataItem(), e._lastDataItem.component = e, e._disposers.push(e._lastDataItem), e.applyTheme();
           var i = e.dataItemsByCategory;
           return e.addDisposer(e.mainDataSet.events.on("removed", function(t) {
             i.removeKey(t.oldValue.category)
           })), e
         }
         return Object(r.c)(e, t), e.prototype.createDataItem = function() {
-          return new d
+          return new d()
         }, e.prototype.createAxisBreak = function() {
-          return new u.a
+          return new u.a()
         }, e.prototype.processSeriesDataItem = function(e, i) {
           t.prototype.processSeriesDataItem.call(this, e, i);
           var r = e["category" + this.axisLetter];
@@ -21222,7 +21222,7 @@
     s.c.registeredClasses.CategoryAxis = f, s.c.registeredClasses.CategoryAxisDataItem = d
   },
   VGgz: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return l
     }), i.d(e, "c", function() {
@@ -21239,7 +21239,7 @@
       s = i("Mtpk"),
       l = function() {
         function t(t) {
-          this._values = [], this.events = new n.a, null != t && this.setAll(t)
+          this._values = [], this.events = new n.a(), null != t && this.setAll(t)
         }
         return Object.defineProperty(t.prototype, "values", {
           get: function() {
@@ -21307,7 +21307,7 @@
         }, t.prototype.clear = function() {
           this.setAll([])
         }, t.prototype.slice = function(e, i) {
-          var r = new t;
+          var r = new t();
           return r._values = this._values.slice(e, i), r
         }, t.prototype.findClosestIndex = function(t, e, i) {
           void 0 === i && (i = "any");
@@ -21388,7 +21388,7 @@
           var r = new e(this.template);
           return r._values = this._values.slice(t, i), r
         }, e.prototype.create = function(t) {
-          var e = null != t ? new t : this.template.clone();
+          var e = null != t ? new t() : this.template.clone();
           return this.insert(e), e
         }, e
       }(l),
@@ -21412,13 +21412,13 @@
             e.insert(t.clone())
           })
         }, e.prototype.create = function(t) {
-          var e = null != t ? new t : this.template.clone();
+          var e = null != t ? new t() : this.template.clone();
           return this.insert(e), e
         }, e
       }(u)
   },
   VIOb: function(t, e, i) {
-    "use strict";
+    
     var r = i("m4/l"),
       n = i("aCit"),
       a = i("Y9w3"),
@@ -21435,9 +21435,9 @@
         function e() {
           var e = t.call(this) || this;
           e.className = "Grip";
-          var i = new p.a;
+          var i = new p.a();
           e.layout = "absolute", e.padding(10, 10, 10, 10), e.margin(3, 3, 3, 3), e.background.fillOpacity = .3, e.background.cornerRadius(10, 10, 10, 10);
-          var r = new c.a;
+          var r = new c.a();
           r.element = e.paper.add("path");
           var n = f.moveTo({
             x: -6,
@@ -21531,9 +21531,9 @@
       _ = function(t) {
         function e() {
           var i = t.call(this) || this;
-          if (i._legend = new o.d, i.constructor === e) throw new Error("'Chart' cannot be instantiated directly. Please use a specific chart type.");
+          if (i._legend = new o.d(), i.constructor === e) throw new Error("'Chart' cannot be instantiated directly. Please use a specific chart type.");
           i.className = "Chart";
-          var r = new u.a;
+          var r = new u.a();
           i.titles = new s.e(r), i._disposers.push(new s.c(i.titles)), i._disposers.push(r), i.width = Object(d.c)(100), i.height = Object(d.c)(100), i.layout = "vertical";
           var n = i.createChild(l.a);
           n.shouldClone = !1, n.layout = "vertical", n.width = Object(d.c)(100), n.height = Object(d.c)(100), i.chartAndLegendContainer = n;
@@ -21683,7 +21683,7 @@
     t.exports = i
   },
   Vk33: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return h
     });
@@ -21769,7 +21769,7 @@
     a.c.registeredClasses.WavedCircle = h
   },
   VlLm: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("3sMl"),
       a = i("vfdp"),
@@ -21809,7 +21809,7 @@
     }
   },
   Vs7R: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return R
     }), i.d(e, "a", function() {
@@ -21853,7 +21853,7 @@
       L = function(t) {
         function e() {
           var e = t.call(this) || this;
-          return e.properties = {}, e._eventDispatcher = new a.a(e), e._bindings = {}, e._isTemplate = !1, e._isPath = !1, e._inited = !1, e._ready = !1, e.isHiding = !1, e._isHidden = !1, e.isShowing = !1, e.isStandaloneInstance = !1, e._isActive = !1, e._mask = new h.d, e._positionPrecision = 3, e._language = new h.d, e._exporting = new h.d, e._exportable = !0, e._bbox = {
+          return e.properties = {}, e._eventDispatcher = new a.a(e), e._bindings = {}, e._isTemplate = !1, e._isPath = !1, e._inited = !1, e._ready = !1, e.isHiding = !1, e._isHidden = !1, e.isShowing = !1, e.isStandaloneInstance = !1, e._isActive = !1, e._mask = new h.d(), e._positionPrecision = 3, e._language = new h.d(), e._exporting = new h.d(), e._exportable = !0, e._bbox = {
             x: 0,
             y: 0,
             width: 0,
@@ -22073,14 +22073,14 @@
         }, Object.defineProperty(e.prototype, "map", {
           get: function() {
             var t = this.topParent;
-            return t ? t.map : (this._map || (this._map = new l.a), this._map)
+            return t ? t.map : (this._map || (this._map = new l.a()), this._map)
           },
           enumerable: !0,
           configurable: !0
         }), Object.defineProperty(e.prototype, "delayedMap", {
           get: function() {
             var t = this.topParent;
-            return t ? t.delayedMap : (this._delayedMap || (this._delayedMap = new l.a), this._delayedMap)
+            return t ? t.delayedMap : (this._delayedMap || (this._delayedMap = new l.a()), this._delayedMap)
           },
           enumerable: !0,
           configurable: !0
@@ -22140,7 +22140,7 @@
           configurable: !0
         }), Object.defineProperty(e.prototype, "filters", {
           get: function() {
-            return this._filters || (this._filters = new u.b, this._disposers.push(this._filters.events.onAll(this.applyFilters, this)), this._disposers.push(new u.c(this._filters))), this._filters
+            return this._filters || (this._filters = new u.b(), this._disposers.push(this._filters.events.onAll(this.applyFilters, this)), this._disposers.push(new u.c(this._filters))), this._filters
           },
           enumerable: !0,
           configurable: !0
@@ -22426,7 +22426,7 @@
         }, Object.defineProperty(e.prototype, "states", {
           get: function() {
             if (!this._states) {
-              var t = new n.a;
+              var t = new n.a();
               this._states = new l.c(t), this._disposers.push(this._states.events.on("insertKey", this.processState, this, !1)), this._disposers.push(this._states.events.on("setKey", this.processState, this, !1)), this._disposers.push(new l.b(this._states)), this._disposers.push(t)
             }
             return this._states
@@ -22612,7 +22612,7 @@
           configurable: !0
         }), Object.defineProperty(e.prototype, "numberFormatter", {
           get: function() {
-            return this._numberFormatter ? this._numberFormatter : this.virtualParent ? this.virtualParent.numberFormatter : this._parent ? this._parent.numberFormatter : (this._numberFormatter = new P.a, this._numberFormatter.language = this.language, this.numberFormatter)
+            return this._numberFormatter ? this._numberFormatter : this.virtualParent ? this.virtualParent.numberFormatter : this._parent ? this._parent.numberFormatter : (this._numberFormatter = new P.a(), this._numberFormatter.language = this.language, this.numberFormatter)
           },
           set: function(t) {
             this._numberFormatter = t, this._numberFormatter.language = this.language
@@ -22621,7 +22621,7 @@
           configurable: !0
         }), Object.defineProperty(e.prototype, "dateFormatter", {
           get: function() {
-            return this._dateFormatter ? this._dateFormatter : this.virtualParent ? this.virtualParent.dateFormatter : this._parent ? this._parent.dateFormatter : (this._dateFormatter = new w.a, this._dateFormatter.language = this.language, this.dateFormatter)
+            return this._dateFormatter ? this._dateFormatter : this.virtualParent ? this.virtualParent.dateFormatter : this._parent ? this._parent.dateFormatter : (this._dateFormatter = new w.a(), this._dateFormatter.language = this.language, this.dateFormatter)
           },
           set: function(t) {
             this._dateFormatter = t, this._dateFormatter.language = this.language
@@ -22630,7 +22630,7 @@
           configurable: !0
         }), Object.defineProperty(e.prototype, "durationFormatter", {
           get: function() {
-            return this._durationFormatter ? this._durationFormatter : this.virtualParent ? this.virtualParent.durationFormatter : this._parent ? this._parent.durationFormatter : (this._durationFormatter = new O.a, this._durationFormatter.language = this.language, this.durationFormatter)
+            return this._durationFormatter ? this._durationFormatter : this.virtualParent ? this.virtualParent.durationFormatter : this._parent ? this._parent.durationFormatter : (this._durationFormatter = new O.a(), this._durationFormatter.language = this.language, this.durationFormatter)
           },
           set: function(t) {
             this._durationFormatter = t, this._durationFormatter.language = this.language
@@ -22640,7 +22640,7 @@
         }), Object.defineProperty(e.prototype, "language", {
           get: function() {
             var t = this._language.get();
-            return t || (this.virtualParent ? this.virtualParent.language : this._parent ? this._parent.language : (t = new S.a, this.language = t, t))
+            return t || (this.virtualParent ? this.virtualParent.language : this._parent ? this._parent.language : (t = new S.a(), this.language = t, t))
           },
           set: function(t) {
             var e = this;
@@ -24451,7 +24451,7 @@
         }), Object.defineProperty(e.prototype, "plugins", {
           get: function() {
             var t = this;
-            return this._plugins || (this._plugins = new u.b, this._disposers.push(this._plugins.events.on("inserted", function(e) {
+            return this._plugins || (this._plugins = new u.b(), this._disposers.push(this._plugins.events.on("inserted", function(e) {
               e.newValue.target = t, e.newValue.init()
             })), this._disposers.push(new u.c(this._plugins))), this._plugins
           },
@@ -24468,7 +24468,7 @@
     _.c.registeredClasses.Sprite = L
   },
   Vwc7: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("vfdp"),
       a = i("1wCr"),
@@ -24705,7 +24705,7 @@
     }
   },
   W0E6: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return c
     });
@@ -24725,17 +24725,17 @@
             g: 183,
             b: 220
           }), e.className = "PatternSet";
-          var i = new o.a;
+          var i = new o.a();
           return e.list = [e.getLinePattern(1e3, 45, 1, 6), e.getRectPattern(10, 0, 4), e.getLinePattern(1e3, -45, 1, 6), e.getCirclePattern(11, 2, !0), e.getLinePattern(6, 90, 1), e.getRectPattern(12, 45, 6, !0), e.getLinePattern(6, 0, 1), e.getRectPattern(7, 0, 4), e.getLinePattern(1e3, 45, 2, 3, "4,2"), e.getCirclePattern(9, 3, !1), e.getLinePattern(1e3, -45, 2, 3, "4,2"), e.getRectPattern(10, 45, Math.sqrt(50)), e.getLinePattern(1e3, -45, 2, 1), e.getRectPattern(10, 0, 9), e.getLinePattern(1e3, 45, 2, 1), e.getLinePattern(1e3, 0, 3, 1), e.getRectPattern(10, 45, 10), e.getLinePattern(1e3, 90, 3, 1)], e.baseColor = i.getFor("stroke"), e.applyTheme(), e
         }
         return Object(r.c)(e, t), e.prototype.getLinePattern = function(t, e, i, r, n) {
-          var a = new s.a;
+          var a = new s.a();
           return a.width = t, a.height = t, a.stroke = this.baseColor, a.gap = r, a.strokeDasharray = n, a.strokeWidth = i, a.rotation = e, a
         }, e.prototype.getRectPattern = function(t, e, i, r) {
-          var n = new l.a;
+          var n = new l.a();
           return n.width = t, n.height = t, n.rectWidth = i, n.rectHeight = i, r ? (n.stroke = this.baseColor, n.strokeWidth = 1, n.fillOpacity = 0) : (n.fill = this.baseColor, n.strokeWidth = 0), 0 != e && (n.shapeRendering = "auto"), n.rotation = e, n
         }, e.prototype.getCirclePattern = function(t, e, i) {
-          var r = new u.a;
+          var r = new u.a();
           return r.width = t, r.height = t, r.shapeRendering = "auto", r.radius = e, i ? (r.stroke = this.baseColor, r.strokeWidth = 1, r.fillOpacity = 0) : (r.fill = this.baseColor, r.strokeWidth = 0), r
         }, Object.defineProperty(e.prototype, "list", {
           get: function() {
@@ -24783,7 +24783,7 @@
     h.c.registeredClasses.PatternSet = c
   },
   W8Sc: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -24802,7 +24802,7 @@
     i("6WsA")("split")
   },
   WODi: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return s
     });
@@ -24865,7 +24865,7 @@
     a.c.registeredClasses.LinePattern = s
   },
   WShl: function(t, e, i) {
-    "use strict";
+    
     var r = i("EErT"),
       n = i("8+rI"),
       a = i("Pm8L");
@@ -24875,7 +24875,7 @@
     }
   },
   WYhe: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return n
     }), i.d(e, "b", function() {
@@ -24967,10 +24967,10 @@
           return t.metaKey
         }, t
       }(),
-      a = new n
+      a = new n()
   },
   WeDP: function(t, e, i) {
-    "use strict";
+    
     var r, n, a, o = i("Ox5T"),
       s = i("k2B3"),
       l = i("JZRr"),
@@ -24986,7 +24986,7 @@
     }
   },
   Wglt: function(t, e, i) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     }), e.fromArray = n, e.length = function(t) {
@@ -25215,7 +25215,7 @@
     })
   },
   XUj0: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("saPf");
     r({
@@ -25229,7 +25229,7 @@
     })
   },
   XaED: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("saPf");
     r({
@@ -25285,7 +25285,7 @@
     }
   },
   Xroj: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("saPf");
     r({
@@ -25329,7 +25329,7 @@
     }
   },
   Y8ws: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("saPf");
     r({
@@ -25343,7 +25343,7 @@
     })
   },
   Y9w3: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return _
     });
@@ -25371,7 +25371,7 @@
           return e.dataFields = {}, e._dataSources = {}, e._parseDataFrom = 0, e._dataDisposers = [], e._currentDataSetId = "", e._start = 0, e._end = 1, e.skipRangeEvent = !1, e.rangeChangeDuration = 0, e.rangeChangeEasing = m.cubicOut, e.parsingStepDuration = 50, e.dataInvalid = !1, e.rawDataInvalid = !1, e.dataRangeInvalid = !1, e.dataItemsInvalid = !1, e.interpolationDuration = 0, e.interpolationEasing = m.cubicOut, e.sequencedInterpolation = !0, e.sequencedInterpolationDelay = 0, e.dataValidationProgress = 0, e._addAllDataItems = !0, e._usesData = !0, e.className = "Component", e.minZoomCount = 1, e.maxZoomCount = 0, e._dataItems = new o.b(e.createDataItem()), e._dataItems.events.on("inserted", e.handleDataItemAdded, e, !1), e._dataItems.events.on("removed", e.handleDataItemRemoved, e, !1), e._disposers.push(new a.c(e._dataItems)), e._disposers.push(e._dataItems.template), e.invalidateData(), e.dataUsers.events.on("inserted", e.handleDataUserAdded, e, !1), e._disposers.push(new l.c(e._dataDisposers)), e._start = 0, e._end = 1, e.maxZoomDeclination = 1, e.applyTheme(), e
         }
         return Object(r.c)(e, t), e.prototype.createDataItem = function() {
-          return new p.a
+          return new p.a()
         }, e.prototype.handleDataUserAdded = function(t) {
           t.newValue.dataProvider = this
         }, e.prototype.handleDataItemValueChange = function(t, e) {
@@ -25558,7 +25558,7 @@
           this._parseDataFrom = 0, this.disposeData(), this._data = t, t && t.length > 0 ? this.invalidateData() : (this.dispatchImmediately("beforedatavalidated"), this.dispatch("datavalidated"))
         }, e.prototype.getDataSource = function(t) {
           var e = this;
-          return x.hasValue(this._dataSources[t]) || (this._dataSources[t] = new u.a, this._dataSources[t].component = this, this.setDataSourceEvents(this._dataSources[t], t), this._dataSources[t].adapter.add("dateFields", function(t) {
+          return x.hasValue(this._dataSources[t]) || (this._dataSources[t] = new u.a(), this._dataSources[t].component = this, this.setDataSourceEvents(this._dataSources[t], t), this._dataSources[t].adapter.add("dateFields", function(t) {
             return e.dataSourceDateFields(t)
           }), this._dataSources[t].adapter.add("numberFields", function(t) {
             return e.dataSourceNumberFields(t)
@@ -25617,7 +25617,7 @@
           })
         }, Object.defineProperty(e.prototype, "responsive", {
           get: function() {
-            return this._responsive || (this._responsive = new h.a, this._responsive.component = this), this._responsive
+            return this._responsive || (this._responsive = new h.a(), this._responsive.component = this), this._responsive
           },
           set: function(t) {
             this._responsive = t, this._responsive.component = this
@@ -25754,7 +25754,7 @@
           configurable: !0
         }), Object.defineProperty(e.prototype, "dataSets", {
           get: function() {
-            return this._dataSets || (this._dataSets = new s.a), this._dataSets
+            return this._dataSets || (this._dataSets = new s.a()), this._dataSets
           },
           enumerable: !0,
           configurable: !0
@@ -25799,7 +25799,7 @@
         }, Object.defineProperty(e.prototype, "dataUsers", {
           get: function() {
             var t = this;
-            return this._dataUsers || (this._dataUsers = new a.b, this._disposers.push(new l.b(function() {
+            return this._dataUsers || (this._dataUsers = new a.b(), this._disposers.push(new l.b(function() {
               v.each(t._dataUsers.iterator(), function(t) {
                 t.dispose()
               })
@@ -25870,7 +25870,7 @@
     }
   },
   YOID: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return p
     });
@@ -25921,7 +25921,7 @@
     o.c.registeredClasses.LineSeriesSegment = p
   },
   "YRD/": function(t, e, i) {
-    "use strict";
+    
     var r = i("1wCr"),
       n = i("8+rI"),
       a = i("KslR"),
@@ -25953,7 +25953,7 @@
     })
   },
   Ybtf: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -26014,7 +26014,7 @@
     })
   },
   Ygeo: function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("7dku").right,
       a = r.aTypedArray;
@@ -26023,7 +26023,7 @@
     })
   },
   YotE: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -26115,7 +26115,7 @@
     })
   },
   ZLF9: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return d
     });
@@ -26132,8 +26132,8 @@
       d = function(t) {
         function e() {
           var e = t.call(this) || this;
-          e._elements = new o.b, e.properties = {}, e.className = "Pattern", e.width = 10, e.height = 10, e.x = 0, e.y = 0, e.patternUnits = "userSpaceOnUse";
-          var i = new u.a;
+          e._elements = new o.b(), e.properties = {}, e.className = "Pattern", e.width = 10, e.height = 10, e.x = 0, e.y = 0, e.patternUnits = "userSpaceOnUse";
+          var i = new u.a();
           return e.backgroundFill = i.getFor("background"), e.backgroundOpacity = 0, e.fillOpacity = 1, e.fill = i.getFor("alternativeBackground"), e.stroke = i.getFor("alternativeBackground"), e.strokeOpacity = 1, e.strokeWidth = 1, e.shapeRendering = "crispEdges", e.rotation = 0, e.element = e.paper.addGroup("pattern"), e.id = "pattern-" + l.c.getUniqueId(), e.element.attr({
             id: e.id
           }), e._disposers.push(e.element), e._disposers.push(new o.c(e._elements)), e.patternUnits = e.patternUnits, e.width = e.width, e.height = e.height, e.applyTheme(), e
@@ -26359,7 +26359,7 @@
     })
   },
   ZhuL: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return s
     });
@@ -26400,7 +26400,7 @@
       }(n.a)
   },
   ZjxQ: function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = r.aTypedArray,
       a = r.exportTypedArrayMethod,
@@ -26410,7 +26410,7 @@
     })
   },
   ZoDA: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -26439,7 +26439,7 @@
     a.c.registeredClasses.ValueAxisBreak = o
   },
   aCit: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return u
     }), i.d(e, "c", function() {
@@ -26457,7 +26457,7 @@
       u = function() {
         function t() {
           var t = this;
-          this.events = new r.a, this.themes = [], this.loadedThemes = {}, this._uidCount = 0, this.registeredClasses = {}, this._placeholders = {}, this.invalidSprites = {}, this.invalidDatas = {}, this.invalidRawDatas = [], this.invalidDataItems = [], this.invalidDataRange = [], this.invalidPositions = {}, this.invalidLayouts = {}, this.baseSprites = [], this.baseSpritesByUid = {}, this.queue = [], this.deferred = [], this.uid = this.getUniqueId(), this.invalidSprites.noBase = [], this.invalidDatas.noBase = [], this.invalidLayouts.noBase = [], this.invalidPositions.noBase = [], "undefined" != typeof addEventListener && (addEventListener("beforeprint", function() {
+          this.events = new r.a(), this.themes = [], this.loadedThemes = {}, this._uidCount = 0, this.registeredClasses = {}, this._placeholders = {}, this.invalidSprites = {}, this.invalidDatas = {}, this.invalidRawDatas = [], this.invalidDataItems = [], this.invalidDataRange = [], this.invalidPositions = {}, this.invalidLayouts = {}, this.baseSprites = [], this.baseSpritesByUid = {}, this.queue = [], this.deferred = [], this.uid = this.getUniqueId(), this.invalidSprites.noBase = [], this.invalidDatas.noBase = [], this.invalidLayouts.noBase = [], this.invalidPositions.noBase = [], "undefined" != typeof addEventListener && (addEventListener("beforeprint", function() {
             l.each(t.baseSprites, function(t) {
               var e = t.paper.svg;
               e.setAttribute("viewBox", "0 0 " + e.clientWidth + " " + e.clientHeight)
@@ -26473,7 +26473,7 @@
           return this._uidCount += 1, "id-" + t
         }, Object.defineProperty(t.prototype, "map", {
           get: function() {
-            return this._map || (this._map = new n.a), this._map
+            return this._map || (this._map = new n.a()), this._map
           },
           enumerable: !0,
           configurable: !0
@@ -26514,10 +26514,10 @@
           t.baseId && l.remove(this.invalidLayouts[t.baseId], t), l.remove(this.invalidLayouts.noBase, t)
         }, t
       }(),
-      h = new u
+      h = new u()
   },
   aFzC: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "d", function() {
       return u
     }), e.e = function(t, e, i, r, o, h) {
@@ -26811,7 +26811,7 @@
       }()
   },
   aGXA: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return u
     });
@@ -26825,9 +26825,9 @@
         function e() {
           var e = t.call(this) || this;
           e.className = "Button", e.tooltipY = 0, e.iconPosition = "left", e.layout = "horizontal", e.contentAlign = "center", e.contentValign = "middle", e.padding(8, 16, 8, 16), e.setStateOnChildren = !0;
-          var i = new s.a,
+          var i = new s.a(),
             r = e.background;
-          r.fill = i.getFor("secondaryButton"), r.stroke = i.getFor("secondaryButtonStroke"), r.fillOpacity = 1, r.strokeOpacity = 1, r.cornerRadius(3, 3, 3, 3), e.label = new a.a, e.label.fill = i.getFor("secondaryButtonText"), e.label.shouldClone = !1;
+          r.fill = i.getFor("secondaryButton"), r.stroke = i.getFor("secondaryButtonStroke"), r.fillOpacity = 1, r.strokeOpacity = 1, r.cornerRadius(3, 3, 3, 3), e.label = new a.a(), e.label.fill = i.getFor("secondaryButtonText"), e.label.shouldClone = !1;
           var n = r.states.create("hover");
           n.properties.fillOpacity = 1, n.properties.fill = i.getFor("secondaryButtonHover");
           var o = r.states.create("down");
@@ -26862,7 +26862,7 @@
           enumerable: !0,
           configurable: !0
         }), e.prototype.createBackground = function() {
-          return new o.a
+          return new o.a()
         }, e.prototype.copyFrom = function(e) {
           t.prototype.copyFrom.call(this, e), e.label && this.label.copyFrom(e.label), e.icon && (this.icon = e.icon.clone())
         }, e
@@ -26870,7 +26870,7 @@
     l.c.registeredClasses.Button = u
   },
   aHAe: function(t, e, i) {
-    "use strict";
+    
     var r = i("cLsB"),
       n = i("7X7h"),
       a = i("VwzZ"),
@@ -26889,12 +26889,12 @@
       if (v && (y = r(y, m > 2 ? arguments[2] : void 0, 2)), void 0 == b || g == Array && o(b))
         for (i = new g(e = s(f.length)); e > x; x++) d = v ? y(f[x], x) : f[x], l(i, x, d);
       else
-        for (p = (c = b.call(f)).next, i = new g; !(h = p.call(c)).done; x++) d = v ? a(c, y, [h.value, x], !0) : h.value, l(i, x, d);
+        for (p = (c = b.call(f)).next, i = new g(); !(h = p.call(c)).done; x++) d = v ? a(c, y, [h.value, x], !0) : h.value, l(i, x, d);
       return i.length = x, i
     }
   },
   aM7D: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return O
     }), i.d(e, "a", function() {
@@ -26928,7 +26928,7 @@
         }
         return Object(r.c)(e, t), Object.defineProperty(e.prototype, "bullets", {
           get: function() {
-            return this._bullets || (this._bullets = new s.a, this._disposers.push(new s.b(this._bullets))), this._bullets
+            return this._bullets || (this._bullets = new s.a(), this._disposers.push(new s.b(this._bullets))), this._bullets
           },
           enumerable: !0,
           configurable: !0
@@ -26948,17 +26948,17 @@
       T = function(t) {
         function e() {
           var i = t.call(this) || this;
-          if (i._ignoreMinMax = !1, i._showBullets = !0, i.legendSettings = new p.c, i._tmin = new s.a, i._tmax = new s.a, i._smin = new s.a, i._smax = new s.a, i.dataItemsByAxis = new s.a, i.skipFocusThreshold = 20, i._itemReaderTextChanged = !1, i.calculatePercent = !1, i.usePercentHack = !0, i.autoDispose = !0, i.simplifiedProcessing = !1, i.constructor === e) throw new Error("'Series' cannot be instantiated directly. Please use a specific series type.");
-          i.className = "Series", i.isMeasured = !1, i.layout = "none", i.shouldClone = !1, i.setPropertyValue("hidden", !1), i.axisRanges = new o.b, i.axisRanges.events.on("inserted", i.processAxisRange, i, !1), i.minBulletDistance = 0, i.mainContainer = i.createChild(u.a), i.mainContainer.shouldClone = !1, i.mainContainer.mask = i.createChild(a.a), i._disposers.push(i.mainContainer);
+          if (i._ignoreMinMax = !1, i._showBullets = !0, i.legendSettings = new p.c(), i._tmin = new s.a(), i._tmax = new s.a(), i._smin = new s.a(), i._smax = new s.a(), i.dataItemsByAxis = new s.a(), i.skipFocusThreshold = 20, i._itemReaderTextChanged = !1, i.calculatePercent = !1, i.usePercentHack = !0, i.autoDispose = !0, i.simplifiedProcessing = !1, i.constructor === e) throw new Error("'Series' cannot be instantiated directly. Please use a specific series type.");
+          i.className = "Series", i.isMeasured = !1, i.layout = "none", i.shouldClone = !1, i.setPropertyValue("hidden", !1), i.axisRanges = new o.b(), i.axisRanges.events.on("inserted", i.processAxisRange, i, !1), i.minBulletDistance = 0, i.mainContainer = i.createChild(u.a), i.mainContainer.shouldClone = !1, i.mainContainer.mask = i.createChild(a.a), i._disposers.push(i.mainContainer);
           var r = i.mainContainer.createChild(u.a);
-          return i._shouldBeReady.push(r), r.shouldClone = !1, r.layout = "none", r.virtualParent = i, i._disposers.push(r), i.bulletsContainer = r, i.tooltip = new h.a, i.tooltip.virtualParent = i, i._disposers.push(i.tooltip), i.hiddenState.transitionEasing = v.cubicIn, i.dataItem = i.createDataItem(), i._disposers.push(i.dataItem), i.dataItem.component = i, i.role = "group", i.applyTheme(), i
+          return i._shouldBeReady.push(r), r.shouldClone = !1, r.layout = "none", r.virtualParent = i, i._disposers.push(r), i.bulletsContainer = r, i.tooltip = new h.a(), i.tooltip.virtualParent = i, i._disposers.push(i.tooltip), i.hiddenState.transitionEasing = v.cubicIn, i.dataItem = i.createDataItem(), i._disposers.push(i.dataItem), i.dataItem.component = i, i.role = "group", i.applyTheme(), i
         }
         return Object(r.c)(e, t), e.prototype.applyTheme = function() {
           t.prototype.applyTheme.call(this), d.a.autoSetClassName && this.bulletsContainer && (this.bulletsContainer.className = this.className + "-bullets", this.bulletsContainer.setClassName())
         }, e.prototype.applyInternalDefaults = function() {
           t.prototype.applyInternalDefaults.call(this), _.hasValue(this.readerTitle) || (this.readerTitle = this.language.translate("Series"))
         }, e.prototype.createDataItem = function() {
-          return new O
+          return new O()
         }, Object.defineProperty(e.prototype, "chart", {
           get: function() {
             return this._chart
@@ -27146,7 +27146,7 @@
           configurable: !0
         }), Object.defineProperty(e.prototype, "bullets", {
           get: function() {
-            return this._bullets || (this._bullets = new o.e(new c.a), this._bullets.template.virtualParent = this, this._bullets.events.on("inserted", this.processBullet, this, !1), this._bullets.events.on("removed", this.removeBullet, this, !1), this._disposers.push(new o.c(this._bullets)), this._disposers.push(this._bullets.template)), this._bullets
+            return this._bullets || (this._bullets = new o.e(new c.a()), this._bullets.template.virtualParent = this, this._bullets.events.on("inserted", this.processBullet, this, !1), this._bullets.events.on("removed", this.removeBullet, this, !1), this._disposers.push(new o.c(this._bullets)), this._disposers.push(this._bullets.template)), this._bullets
           },
           enumerable: !0,
           configurable: !0
@@ -27211,7 +27211,7 @@
         }, Object.defineProperty(e.prototype, "heatRules", {
           get: function() {
             var t = this;
-            return this._heatRules || (this._heatRules = new o.b, this._heatRules.events.on("inserted", function(e) {
+            return this._heatRules || (this._heatRules = new o.b(), this._heatRules.events.on("inserted", function(e) {
               var i = e.newValue,
                 r = i.target;
               if (r) {
@@ -27323,7 +27323,7 @@
     g.c.registeredClasses.Series = T, g.c.registeredClasses.SeriesDataItem = O
   },
   aSLB: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("3sMl"),
       a = i("hqo8"),
@@ -27359,7 +27359,7 @@
     })
   },
   akNo: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return d
     });
@@ -27395,7 +27395,7 @@
           }, e.className = "DurationFormatter", e.applyTheme(), e
         }
         return Object(r.c)(e, t), e.prototype.format = function(t, e, i) {
-          this.language || (this.sprite ? this.language = this.sprite.language : this.language = new n.a);
+          this.language || (this.sprite ? this.language = this.sprite.language : this.language = new n.a());
           var r = i || this._baseUnit;
           void 0 !== e && "" !== e || (e = c.hasValue(this.durationFormat) ? this.durationFormat : this.getFormat(c.toNumber(t), null, r)), e = h.cleanFormat(e);
           var a, o = this.parseFormat(e, r),
@@ -27635,7 +27635,7 @@
     t.exports = a
   },
   cBFz: function(t, e, i) {
-    "use strict";
+    
     var r = i("vfdp"),
       n = i("UseD"),
       a = i("6aQQ"),
@@ -27683,7 +27683,7 @@
     }
   },
   cOH5: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return n
     });
@@ -27726,7 +27726,7 @@
       }(i("pzs1").a)
   },
   cSfM: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("saPf");
     r({
@@ -27740,7 +27740,7 @@
     })
   },
   "cXJ+": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("7dku").right,
       a = i("xlUI"),
@@ -27760,7 +27760,7 @@
     })
   },
   cxKZ: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return f
     });
@@ -27789,7 +27789,7 @@
           }, e.fitPointerToBounds = !1, e._verticalOrientation = "up", e.fixDoc = !0, e.className = "Tooltip", e.isMeasured = !1, e.getFillFromObject = !0, e.margin(5, 5, 5, 5), e.defaultState.transitionDuration = 1, e.hiddenState.transitionDuration = 1;
           var i = e.background;
           i.interactionsEnabled = !1, i.fillOpacity = .9, i.strokeWidth = 1, i.strokeOpacity = 1, i.stroke = Object(u.c)("#ffffff"), i.cornerRadius = 3, i.pointerLength = 6, i.pointerBaseWidth = 10;
-          var r = new h.a;
+          var r = new h.a();
           r.dy = 1, r.dx = 1, r.opacity = .5, i.filters.push(r), e.autoTextColor = !0;
           var n = e.createChild(s.a);
           return n.shouldClone = !1, e.label = n, n.padding(7, 12, 4, 12), n.interactionsEnabled = !1, n.horizontalCenter = "middle", n.fill = Object(u.c)("#ffffff"), e._disposers.push(n), e.label.events.on("sizechanged", e.drawBackground, e), e.label.zIndex = 1, e.pointerOrientation = "vertical", e.animationDuration = 0, e.animationEasing = p.cubicOut, e.setPropertyValue("showInViewport", !1), e.role = "tooltip", e.visible = !1, e.opacity = 0, e.x = 0, e.y = 0, e.events.on("visibilitychanged", e.handleVisibility, e), e.applyTheme(), e
@@ -27847,7 +27847,7 @@
           enumerable: !0,
           configurable: !0
         }), e.prototype.createBackground = function() {
-          return new o.a
+          return new o.a()
         }, Object.defineProperty(e.prototype, "pointerOrientation", {
           get: function() {
             return this.getPropertyValue("pointerOrientation")
@@ -27988,7 +27988,7 @@
     a.c.registeredClasses.Tooltip = f
   },
   dAGi: function(t, e, i) {
-    "use strict";
+    
     var r = i("NZ9V"),
       n = i("3weC"),
       a = i("swFJ"),
@@ -28023,7 +28023,7 @@
     })
   },
   dlbc: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("saPf");
     r({
@@ -28066,7 +28066,7 @@
     })
   },
   eAid: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return l
     });
@@ -28079,7 +28079,7 @@
         function e() {
           var e = t.call(this) || this;
           e.className = "AxisLine", e.element = e.paper.add("path");
-          var i = new s.a;
+          var i = new s.a();
           return e.stroke = i.getFor("grid"), e.strokeOpacity = .15, e.pixelPerfect = !0, e.fill = Object(o.c)(), e.applyTheme(), e.interactionsEnabled = !1, e
         }
         return Object(r.c)(e, t), e
@@ -28087,7 +28087,7 @@
     a.c.registeredClasses.AxisLine = l
   },
   eCqC: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return a
     }), i.d(e, "b", function() {
@@ -28097,14 +28097,14 @@
       n = i("Mtpk"),
       a = function() {
         function t() {
-          this._storage = new r.a, this.ttl = 1e3
+          this._storage = new r.a(), this.ttl = 1e3
         }
         return t.prototype.set = function(t, e, i, a) {
           var o = this._storage.insertKeyIfEmpty(t, function() {
-              return new r.a
+              return new r.a()
             }),
             s = {
-              touched: (new Date).getTime(),
+              touched: (new Date()).getTime(),
               ttl: n.isNumber(a) ? a : this.ttl,
               value: i
             };
@@ -28114,7 +28114,7 @@
             var r = this._storage.getKey(t);
             if (r.hasKey(e)) {
               var n = r.getKey(e);
-              return n.ttl && n.touched + n.ttl < (new Date).getTime() && (n.expired = !0), n.expired ? (r.removeKey(e), i) : n.value
+              return n.ttl && n.touched + n.ttl < (new Date()).getTime() && (n.expired = !0), n.expired ? (r.removeKey(e), i) : n.value
             }
             return i
           }
@@ -28123,7 +28123,7 @@
           t ? this._storage.removeKey(t) : this._storage.clear()
         }, t
       }(),
-      o = new a
+      o = new a()
   },
   eK2B: function(t, e, i) {
     i("6WsA")("matchAll")
@@ -28164,7 +28164,7 @@
     })
   },
   eN1s: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -28215,10 +28215,10 @@
     t.exports = function(t) {
       var e = /./;
       try {
-        "/./" [t](e)
+        "/./"[t](e)
       } catch (i) {
         try {
-          return e[r] = !1, "/./" [t](e)
+          return e[r] = !1, "/./"[t](e)
         } catch (t) {}
       }
       return !1
@@ -28232,7 +28232,7 @@
     }
   },
   eygo: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("vfdp"),
       a = i("3sMl"),
@@ -28393,7 +28393,7 @@
         if (t == i) {
           switch (e.length) {
             case 0:
-              return new t;
+              return new t();
             case 1:
               return new t(e[0]);
             case 2:
@@ -28404,7 +28404,7 @@
               return new t(e[0], e[1], e[2], e[3])
           }
           var r = [null];
-          return r.push.apply(r, e), new(u.apply(t, r))
+          return r.push.apply(r, e), new(u.apply(t, r))()
         }
         var n = i.prototype,
           h = l(s(n) ? n : Object.prototype),
@@ -28414,7 +28414,7 @@
     })
   },
   "fG/y": function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = r.aTypedArray,
       a = r.exportTypedArrayMethod,
@@ -28442,7 +28442,7 @@
     }
   },
   ffjw: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("X/sl").find,
       a = i("0FA2"),
@@ -28464,7 +28464,7 @@
     i("6WsA")("unscopables")
   },
   flUP: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("gxUV").f,
       a = i("tHyI"),
@@ -28493,7 +28493,7 @@
     })
   },
   fluH: function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("+s7l"),
       a = r.aTypedArray;
@@ -28563,7 +28563,7 @@
       m.nextTick(P(t))
     } : v && v.now ? r = function(t) {
       v.now(P(t))
-    } : y && !p ? (a = (n = new y).port2, n.port1.onmessage = w, r = u(a.postMessage, a, 1)) : !o.addEventListener || "function" != typeof postMessage || o.importScripts || s(O) || "file:" === d.protocol ? r = "onreadystatechange" in c("script") ? function(t) {
+    } : y && !p ? (a = (n = new y()).port2, n.port1.onmessage = w, r = u(a.postMessage, a, 1)) : !o.addEventListener || "function" != typeof postMessage || o.importScripts || s(O) || "file:" === d.protocol ? r = "onreadystatechange" in c("script") ? function(t) {
       h.appendChild(c("script")).onreadystatechange = function() {
         h.removeChild(this), _(t)
       }
@@ -28590,7 +28590,7 @@
     }
   },
   gqvf: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return x
     });
@@ -28614,8 +28614,8 @@
       x = function(t) {
         function e() {
           var e = t.call(this) || this;
-          e._lineX = new o.d, e._lineY = new o.d, e._xAxis = new o.d, e._yAxis = new o.d, e._snapToDisposers = [], e.className = "XYCursor", e.behavior = "zoomX", e.maxPanOut = .1;
-          var i = new p.a,
+          e._lineX = new o.d(), e._lineY = new o.d(), e._xAxis = new o.d(), e._yAxis = new o.d(), e._snapToDisposers = [], e.className = "XYCursor", e.behavior = "zoomX", e.maxPanOut = .1;
+          var i = new p.a(),
             r = e.createChild(a.a);
           r.shouldClone = !1, r.fillOpacity = .2, r.fill = i.getFor("alternativeBackground"), r.isMeasured = !1, r.visible = !1, r.interactionsEnabled = !1, e.selection = r, e._disposers.push(e.selection);
           var n = e.createChild(a.a);
@@ -28976,7 +28976,7 @@
     })
   },
   hD5A: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return o
     }), i.d(e, "c", function() {
@@ -29038,7 +29038,7 @@
       }(o)
   },
   hGwe: function(t, e, i) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     }), e.polyline = function(t) {
@@ -29224,7 +29224,7 @@
     }
   },
   hJ5i: function(t, e, i) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     }), e.indexOf = a, e.any = function(t, e) {
@@ -29351,7 +29351,7 @@
     })
   },
   hpNl: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return n
     });
@@ -29362,7 +29362,7 @@
       }()
   },
   hqo8: function(t, e, i) {
-    "use strict";
+    
     var r = i("lnCe"),
       n = i("vfdp"),
       a = i("6aQQ");
@@ -29380,7 +29380,7 @@
     u ? n = (r = u.split("."))[0] + r[1] : o && (!(r = o.match(/Edge\/(\d+)/)) || r[1] >= 74) && (r = o.match(/Chrome\/(\d+)/)) && (n = r[1]), t.exports = n && +n
   },
   hxI2: function(t, e, i) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     }), e.rgb = function(t, e) {
@@ -30341,7 +30341,7 @@
     }
   },
   hznD: function(t, e, i) {
-    "use strict";
+    
     var r = i("oRlD"),
       n = i("5ou3");
     t.exports = r ? {}.toString : function() {
@@ -30365,7 +30365,7 @@
     }
   },
   ilXn: function(t, e, i) {
-    "use strict";
+    
     var r = /[^\0-\u007E]/,
       n = /[.\u3002\uFF0E\uFF61]/g,
       a = "Overflow: input needs wider integers to process",
@@ -30426,7 +30426,7 @@
     }
   },
   "jC/1": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("HnbP"),
       a = i("7X7h"),
@@ -30452,7 +30452,7 @@
     })
   },
   jFX2: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("F/ei"),
       a = i("swFJ"),
@@ -30556,7 +30556,7 @@
     })
   },
   jfaP: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return u
     });
@@ -30714,7 +30714,7 @@
     }
   },
   k6kv: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return g
     });
@@ -30864,8 +30864,8 @@
             }), n.show(0)
           }
         }, e.prototype.createBreakSprites = function(t) {
-          t.startLine = new o.a, t.endLine = new o.a;
-          var e = new s.a;
+          t.startLine = new o.a(), t.endLine = new o.a();
+          var e = new s.a();
           e.setWavedSides(!1, !0, !1, !0), t.fillShape = e
         }, e.prototype.toAxisPosition = function(t) {
           var e = t,
@@ -30910,7 +30910,7 @@
     })
   },
   kHz4: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("HnbP"),
       a = i("TQpL"),
@@ -30951,7 +30951,7 @@
     })
   },
   kQxV: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return u
     });
@@ -30964,7 +30964,7 @@
       u = function(t) {
         function e() {
           var e = null !== t && t.apply(this, arguments) || this;
-          return e._interactionEvents = new n.a, e
+          return e._interactionEvents = new n.a(), e
         }
         return Object(r.c)(e, t), e.prototype._dispatchSpriteEvent = function(t) {
           if (!this.target.disabled && !this.target.isTemplate && this.target.events.isEnabled(t.type)) {
@@ -31071,7 +31071,7 @@
       }(a.b)
   },
   "kZk/": function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("jnLg").trim;
     r({
@@ -31114,7 +31114,7 @@
     t.exports = r
   },
   lL3t: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("X/sl").some,
       a = i("xlUI"),
@@ -31145,7 +31145,7 @@
     })
   },
   lPoY: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("ojxk").indexOf,
       a = i("xlUI"),
@@ -31182,7 +31182,7 @@
     })
   },
   lkeQ: function(t, e, i) {
-    "use strict";
+    
     var r = i("vfdp"),
       n = i("UseD"),
       a = i("yBTm"),
@@ -31205,7 +31205,7 @@
     }), p("values", g, !f), p(o, g, !f)
   },
   lm74: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("o3G/"),
       a = [].reverse,
@@ -31234,12 +31234,12 @@
     })
   },
   "m4/l": function(t, e, i) {
-    "use strict";
+    
     e.c = function(t, e) {
       function i() {
         this.constructor = t
       }
-      r(t, e), t.prototype = null === e ? Object.create(e) : (i.prototype = e.prototype, new i)
+      r(t, e), t.prototype = null === e ? Object.create(e) : (i.prototype = e.prototype, new i())
     }, i.d(e, "a", function() {
       return n
     }), e.b = function(t, e, i, r) {
@@ -31411,7 +31411,7 @@
     t.exports = r
   },
   mIpt: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -31442,7 +31442,7 @@
           return a.hasValue(t) && "" != t || !a.hasValue(this.options.emptyAs) ? t : this.options.emptyAs
         }, Object.defineProperty(t.prototype, "dateFormatter", {
           get: function() {
-            return this.options.dateFormatter || (this.options.dateFormatter = new r.a, this.options.dateFormat && (this.options.dateFormat = this.options.dateFormat)), this.options.dateFormatter
+            return this.options.dateFormatter || (this.options.dateFormatter = new r.a(), this.options.dateFormat && (this.options.dateFormat = this.options.dateFormat)), this.options.dateFormatter
           },
           enumerable: !0,
           configurable: !0
@@ -31456,7 +31456,7 @@
       }()
   },
   mSSX: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("6aQQ"),
       a = i("4BZe"),
@@ -31476,7 +31476,7 @@
     })
   },
   mtbW: function(t, e, i) {
-    "use strict";
+    
     var r = i("vfdp"),
       n = i("3sMl"),
       a = i("jqyf"),
@@ -31551,7 +31551,7 @@
         }) || !l(function() {
           new w(-1)
         }) || l(function() {
-          return new w, new w(1.5), new w(NaN), "ArrayBuffer" != w.name
+          return new w(), new w(1.5), new w(NaN), "ArrayBuffer" != w.name
         })) {
         for (var B, U = (O = function(t) {
             return u(this, O), new w(p(t))
@@ -31647,7 +31647,7 @@
     }
   },
   "mte+": function(t, e, i) {
-    "use strict";
+    
     var r = i("6aQQ");
 
     function n(t, e) {
@@ -31669,7 +31669,7 @@
     })
   },
   nK49: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("ojxk").includes,
       a = i("0FA2");
@@ -31687,7 +31687,7 @@
     }), a("includes")
   },
   nPzZ: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return d
     });
@@ -31717,7 +31717,7 @@
           if (t.prototype.setFill.call(this, e), e instanceof u.a) i = e.hex;
           else if (e instanceof c.a || e instanceof h.a) i = e.stops.getIndex(0).color.hex;
           else {
-            var r = new p.a;
+            var r = new p.a();
             r.lightness = -.25, this.edge.filters.push(r), this.sideA.filters.push(r.clone()), this.sideB.filters.push(r.clone())
           }
           if (i) {
@@ -31843,7 +31843,7 @@
       }(n.a)
   },
   ncT3: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return c
     });
@@ -31858,7 +31858,7 @@
       c = function(t) {
         function e() {
           var e = t.call(this) || this;
-          return e.className = "Cone", e.angle = 30, e.radius = Object(l.c)(100), e.topRadius = Object(l.c)(100), e.top = e.createChild(o.a), e.top.shouldClone = !1, e.bottom = e.createChild(o.a), e.bottom.shouldClone = !1, e.body = e.createChild(a.a), e.body.shouldClone = !1, e.body.setElement(e.paper.add("path")), e.layout = "none", e.bodyFillModifier = new s.a, e.bodyFillModifier.lightnesses = [0, -.25, 0], e.body.fillModifier = e.bodyFillModifier, e.applyTheme(), e
+          return e.className = "Cone", e.angle = 30, e.radius = Object(l.c)(100), e.topRadius = Object(l.c)(100), e.top = e.createChild(o.a), e.top.shouldClone = !1, e.bottom = e.createChild(o.a), e.bottom.shouldClone = !1, e.body = e.createChild(a.a), e.body.shouldClone = !1, e.body.setElement(e.paper.add("path")), e.layout = "none", e.bodyFillModifier = new s.a(), e.bodyFillModifier.lightnesses = [0, -.25, 0], e.body.fillModifier = e.bodyFillModifier, e.applyTheme(), e
         }
         return Object(r.c)(e, t), e.prototype.draw = function() {
           t.prototype.draw.call(this), u.copyProperties(this, this.top, a.b), u.copyProperties(this, this.bottom, a.b), u.copyProperties(this, this.body, a.b);
@@ -31923,7 +31923,7 @@
       }(n.a)
   },
   ncgu: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return s
     }), i.d(e, "a", function() {
@@ -32028,7 +32028,7 @@
     })
   },
   o0Lc: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return l
     }), i.d(e, "b", function() {
@@ -32178,7 +32178,7 @@
     }
   },
   oC3T: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return u
     });
@@ -32430,7 +32430,7 @@
     r[i("KslR")("toStringTag")] = "z", t.exports = "[object z]" === String(r)
   },
   oa9N: function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD").exportTypedArrayMethod,
       n = i("6aQQ"),
       a = i("vfdp").Uint8Array,
@@ -32483,7 +32483,7 @@
     })
   },
   ohjg: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return h
     });
@@ -32497,7 +32497,7 @@
       h = function(t) {
         function e() {
           var e = t.call(this) || this;
-          return e.properties = {}, e.isTemplate = !1, e._scale = 1, e._nonScaling = !0, e.className = "Filter", e.filterPrimitives = new s.b, e.properties.filterUnits = "objectBoundingBox", e.filterPrimitives.events.on("inserted", function(t) {
+          return e.properties = {}, e.isTemplate = !1, e._scale = 1, e._nonScaling = !0, e.className = "Filter", e.filterPrimitives = new s.b(), e.properties.filterUnits = "objectBoundingBox", e.filterPrimitives.events.on("inserted", function(t) {
             e._disposers.push(t.newValue)
           }), e.width = 120, e.height = 120, e.applyTheme(), e
         }
@@ -32621,7 +32621,7 @@
     })
   },
   onIP: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("X/sl").findIndex,
       a = i("0FA2"),
@@ -32640,7 +32640,7 @@
     }), a("findIndex")
   },
   onRi: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("exNg"),
       a = i("4BZe"),
@@ -32729,7 +32729,7 @@
     })
   },
   p9TX: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return f
     });
@@ -32747,7 +32747,7 @@
       f = function(t) {
         function e() {
           var e = t.call(this) || this;
-          return e.isOversized = !1, e.className = "Label", e.fill = (new l.a).getFor("text"), e.wrap = !1, e.truncate = !1, e.fullWords = !0, e.ellipsis = "…", e.textAlign = "start", e.textValign = "top", e.layout = "absolute", e.baseLineRatio = -.27, e._positionPrecision = 1, e.events.on("maxsizechanged", function() {
+          return e.isOversized = !1, e.className = "Label", e.fill = (new l.a()).getFor("text"), e.wrap = !1, e.truncate = !1, e.fullWords = !0, e.ellipsis = "…", e.textAlign = "start", e.textValign = "top", e.layout = "absolute", e.baseLineRatio = -.27, e._positionPrecision = 1, e.events.on("maxsizechanged", function() {
             e.inited && e.handleMaxSize()
           }, e, !1), e.events.once("validated", e.handleValidate, e, !1), e.applyTheme(), e
         }
@@ -33182,12 +33182,12 @@
       stat: !0
     }, {
       now: function() {
-        return (new Date).getTime()
+        return (new Date()).getTime()
       }
     })
   },
   pR7v: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return f
     }), i.d(e, "a", function() {
@@ -33239,9 +33239,9 @@
             i = t.component;
           t.axisFill.disabled || (u.round(e / i.step / 2, 5) == Math.round(e / i.step / 2) ? t.axisFill.__disabled = !0 : t.axisFill.__disabled = !1)
         }, e.prototype.createDataItem = function() {
-          return new f
+          return new f()
         }, e.prototype.createAxisBreak = function() {
-          return new l.a
+          return new l.a()
         }, e.prototype.dataChangeUpdate = function() {
           this.clearCache(), this.keepSelection ? (0 != this._start && this.dispatchImmediately("startchanged"), 1 != this._end && this.dispatchImmediately("endchanged"), 0 == this._start && 1 == this._end || this.dispatchImmediately("startendchanged")) : 0 == this._start && 1 == this._end || (this._start = 0, this._end = 1, this.dispatchImmediately("startendchanged")), this._maxZoomed = this._maxDefined, this._minZoomed = this._minDefined, this._maxAdjusted = this._maxDefined, this._minAdjusted = this._minDefined
         }, e.prototype.processSeriesDataItems = function() {
@@ -33885,7 +33885,7 @@
     }
   },
   pjXm: function(t, e, i) {
-    "use strict";
+    
     e.a = function() {
       for (var t = [], e = 0; e < arguments.length; e++) t[e] = arguments[e];
       n.a.verbose && console && console.log.apply(console, Object(r.f)(t))
@@ -33911,7 +33911,7 @@
     })
   },
   pzs1: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return o
     });
@@ -34069,7 +34069,7 @@
     t.exports = /(iphone|ipod|ipad).*applewebkit/i.test(r)
   },
   qCRI: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return r
     });
@@ -34115,13 +34115,13 @@
     }()
   },
   qJno: function(t, e, i) {
-    "use strict";
+    
     var r = i("m4/l"),
       n = i("58Sn"),
       a = i("MIZb"),
       o = i("+qIf"),
       s = i("hD5A"),
-      l = new o.a,
+      l = new o.a(),
       u = i("x79X"),
       h = i("vMqJ"),
       c = i("zhwk"),
@@ -34137,7 +34137,7 @@
     var v = function(t) {
       function e() {
         var e = t.call(this) || this;
-        return e.adapter = new u.a(e), e.closeDelay = 1e3, e.closeOnClick = !0, e._language = new s.d, e._menuTag = "ul", e._itemTag = "li", e._labelTag = "a", e._iconTag = "img", e._classPrefix = "amexport", e._defaultStyles = !0, e._align = "right", e._verticalAlign = "top", e._tabindex = 0, e._ignoreNextClose = !1, e._items = [{
+        return e.adapter = new u.a(e), e.closeDelay = 1e3, e.closeOnClick = !0, e._language = new s.d(), e._menuTag = "ul", e._itemTag = "li", e._labelTag = "a", e._iconTag = "img", e._classPrefix = "amexport", e._defaultStyles = !0, e._align = "right", e._verticalAlign = "top", e._tabindex = 0, e._ignoreNextClose = !1, e._items = [{
           label: "...",
           menu: [{
             label: "Image",
@@ -34209,7 +34209,7 @@
             branch: e,
             level: i
           }).branch).unsupported) {
-          e.ascendants || (e.ascendants = new h.b);
+          e.ascendants || (e.ascendants = new h.b());
           var n, a = e.type,
             o = this.createItemElement(i, a);
           e.icon ? ((n = this.createIconElement(i, a)).src = e.icon, (e.label || e.title) && (n.title = e.title || e.label)) : e.svg ? (n = this.createSvgElement(i, a, e.svg), (e.label || e.title) && (n.title = e.title || e.label)) : ((n = this.createLabelElement(i, a)).innerHTML = e.label ? this.language.translate(e.label) : "", e.title && (n.title = e.title));
@@ -34268,7 +34268,7 @@
           var u = i + 1;
           if (e.menu) {
             for (var p = this.createMenuElement(u), d = e.menu.length, g = 0; g < d; g++) {
-              var m = new h.b;
+              var m = new h.b();
               e.menu[g].ascendants = m, e.ascendants.length && m.copyFrom(e.ascendants), m.push(e), this.drawBranch(p, e.menu[g], u)
             }
             if ("" == p.innerHTML) return;
@@ -34310,7 +34310,7 @@
           type: e
         }).className, i.setAttribute("tabindex", this.tabindex.toString()), i.setAttribute("role", "menuitem"), i
       }, e.prototype.createSvgElement = function(t, e, i) {
-        var r = (new DOMParser).parseFromString(i, "image/svg+xml").documentElement,
+        var r = (new DOMParser()).parseFromString(i, "image/svg+xml").documentElement,
           n = this.classPrefix + "-icon " + this.classPrefix + "-icon-level-" + t + " " + this.classPrefix + "-item-" + (e || "blank");
         return this.typeClickable(e) && (n += " " + this.classPrefix + "-clickable"), r.setAttribute("class", this.adapter.apply("labelClass", {
           className: n,
@@ -34433,7 +34433,7 @@
       }), e.prototype.loadDefaultCSS = function() {
         this._disposers.push(function(t, e) {
           var i = e || "amexport",
-            r = new a.a;
+            r = new a.a();
           return l.insertKeyIfEmpty(i, function() {
             var e = new s.c([new n.c(t, "." + i + "-menu *", {
               "box-sizing": "border-box"
@@ -34553,7 +34553,7 @@
         get: function() {
           var t = this,
             e = this._language.get();
-          return null == e && (e = new p.a, this._language.set(e, e.events.on("localechanged", function(e) {
+          return null == e && (e = new p.a(), this._language.set(e, e.events.on("localechanged", function(e) {
             t.invalidate()
           }))), e
         },
@@ -34678,7 +34678,7 @@
     })
   },
   quKg: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return p
     }), i.d(e, "a", function() {
@@ -34765,7 +34765,7 @@
           enumerable: !0,
           configurable: !0
         }), e.prototype.createSeries = function() {
-          return new o.a
+          return new o.a()
         }, Object.defineProperty(e.prototype, "startAngle", {
           get: function() {
             return this.getPropertyValue("startAngle")
@@ -34789,7 +34789,7 @@
     s.c.registeredClasses.PieChart = d, s.c.registeredClasses.PieChartDataItem = p
   },
   qzbU: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return s
     });
@@ -34801,7 +34801,7 @@
         function e() {
           var e = t.call(this) || this;
           e.className = "Tick";
-          var i = new o.a;
+          var i = new o.a();
           return e.fillOpacity = 0, e.length = 6, e.strokeOpacity = .2, e.stroke = i.getFor("grid"), e.isMeasured = !1, e.nonScalingStroke = !0, e.applyTheme(), e
         }
         return Object(r.c)(e, t), Object.defineProperty(e.prototype, "length", {
@@ -34822,7 +34822,7 @@
       n = i("DUr5");
     t.exports = function(t) {
       return r(function() {
-        return !!n[t]() || "​᠎" != "​᠎" [t]() || n[t].name !== t
+        return !!n[t]() || "​᠎" != "​᠎"[t]() || n[t].name !== t
       })
     }
   },
@@ -34849,7 +34849,7 @@
     i("6WsA")("toStringTag")
   },
   s4go: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("3sMl"),
       a = i("hqo8"),
@@ -34898,7 +34898,7 @@
     })
   },
   sSOU: function(t, e, i) {
-    "use strict";
+    
     var r = i("Wqjq").charAt,
       n = i("SqFF"),
       a = i("vBfr"),
@@ -34943,7 +34943,7 @@
     }
   },
   sgPD: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("jnLg").end,
       a = i("rCh7")("trimEnd"),
@@ -34966,7 +34966,7 @@
     }
   },
   sxA1: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return c
     });
@@ -34981,7 +34981,7 @@
       c = function(t) {
         function e() {
           var e = t.call(this) || this;
-          return e._stops = new a.b, e._rotation = 0, e.className = "LinearGradient", e._stops.events.on("setIndex", e.validate, e), e._stops.events.on("inserted", e.validate, e), e.element = e.paper.addGroup("linearGradient"), e.id = "gradient-" + s.c.getUniqueId(), e.element.attr({
+          return e._stops = new a.b(), e._rotation = 0, e.className = "LinearGradient", e._stops.events.on("setIndex", e.validate, e), e._stops.events.on("inserted", e.validate, e), e.element = e.paper.addGroup("linearGradient"), e.id = "gradient-" + s.c.getUniqueId(), e.element.attr({
             id: e.id
           }), e._disposers.push(e.element), e.applyTheme(), e
         }
@@ -35093,7 +35093,7 @@
     }), a("fill")
   },
   tEse: function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("X/sl").filter,
       a = i("Nfo5"),
@@ -35126,7 +35126,7 @@
     t.exports = /Version\/10\.\d+(\.\d+)?( Mobile\/\w+)? Safari\//.test(r)
   },
   tg9j: function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("tHyI"),
       a = i("Y8n3"),
@@ -35140,7 +35140,7 @@
     })
   },
   tjMS: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return r
     }), e.c = function(t) {
@@ -35177,7 +35177,7 @@
     })
   },
   u5pl: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("saPf");
     r({
@@ -35194,7 +35194,7 @@
     i("6WsA")("iterator")
   },
   uKH8: function(t, e, i) {
-    "use strict";
+    
     var r = i("HnbP"),
       n = i("Kg2n"),
       a = [].slice,
@@ -35216,7 +35216,7 @@
     }
   },
   uPlY: function(t, e, i) {
-    "use strict";
+    
     var r = i("6aQQ"),
       n = i("rhk+").start,
       a = Math.abs,
@@ -35236,7 +35236,7 @@
     } : l
   },
   uWmK: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return w
     }), i.d(e, "c", function() {
@@ -35363,7 +35363,7 @@
         function e() {
           var e = t.call(this) || this;
           e.className = "Legend", e.layout = "grid", e.setPropertyValue("useDefaultMarker", !1), e.setPropertyValue("scrollable", !1), e.setPropertyValue("contentAlign", "center");
-          var i = new l.a;
+          var i = new l.a();
           i.applyOnClones = !0, i.padding(8, 0, 8, 0), i.margin(0, 10, 0, 10), i.layout = "horizontal", i.clickable = !0, i.focusable = !0, i.role = "switch", i.togglable = !0, i.cursorOverStyle = x.a.pointer, i.background.fillOpacity = 0, e.itemContainers = new o.e(i), e._disposers.push(new o.c(e.itemContainers)), e._disposers.push(e.itemContainers.template), e._disposers.push(Object(p.b)().body.events.on("keyup", function(t) {
             if (h.b.isKey(t.event, "enter") && e.focusedItem) {
               var i = e.focusedItem,
@@ -35373,8 +35373,8 @@
               }), e.focusedItem = i)
             }
           }, e));
-          var r = new f.a,
-            n = new l.a;
+          var r = new f.a(),
+            n = new l.a();
           n.width = 23, n.height = 23, n.interactionsEnabled = !1, n.applyOnClones = !0, n.setStateOnChildren = !0, n.background.fillOpacity = 0, n.background.strokeOpacity = 0, n.propertyFields.fill = "fill", n.valign = "middle";
           var a = r.getFor("disabledBackground");
           n.events.on("childadded", function(t) {
@@ -35383,15 +35383,15 @@
           }), e.markers = new o.e(n), e._disposers.push(new o.c(e.markers)), e._disposers.push(e.markers.template);
           var c = n.createChild(s.a);
           c.width = Object(d.c)(100), c.height = Object(d.c)(100), c.applyOnClones = !0, c.propertyFields.fill = "fill", c.strokeOpacity = 0;
-          var g = new u.a;
+          var g = new u.a();
           g.text = "{name}", g.margin(0, 5, 0, 5), g.valign = "middle", g.applyOnClones = !0, g.states.create("active").properties.fill = r.getFor("disabledBackground"), e.labels = new o.e(g), e._disposers.push(new o.c(e.labels)), e._disposers.push(e.labels.template), g.interactionsEnabled = !1, g.truncate = !0, g.fullWords = !1;
-          var m = new u.a;
+          var m = new u.a();
           return m.margin(0, 5, 0, 0), m.valign = "middle", m.width = 50, m.align = "right", m.textAlign = "end", m.applyOnClones = !0, m.states.create("active").properties.fill = r.getFor("disabledBackground"), m.interactionsEnabled = !1, e.valueLabels = new o.e(m), e._disposers.push(new o.c(e.valueLabels)), e._disposers.push(e.valueLabels.template), e.position = "bottom", i.states.create("active"), i.setStateOnChildren = !0, e.role = "group", e.events.on("layoutvalidated", e.handleScrollbar, e, !1), e.applyTheme(), e
         }
         return Object(r.c)(e, t), e.prototype.applyInternalDefaults = function() {
           t.prototype.applyInternalDefaults.call(this), m.hasValue(this.readerTitle) || (this.readerTitle = this.language.translate("Legend"))
         }, e.prototype.createDataItem = function() {
-          return new w
+          return new w()
         }, e.prototype.validateDataElements = function() {
           this.scrollbar && (this.scrollbar.start = 0, this.scrollbar.end = 1), t.prototype.validateDataElements.call(this)
         }, e.prototype.validateDataElement = function(e) {
@@ -35485,7 +35485,7 @@
           })
         }, e.prototype.toggleDataItem = function(t) {
           var e = t.dataContext;
-          !e.visible || e.isHiding || e instanceof v.a && e.isHidden ? (t.color = t.colorOrig, t.itemContainer.isActive = !1, !0 === e.hidden && (e.hidden = !1), e.show ? e.show() : e.visible = !0, this.svgContainer.readerAlert(this.language.translate("%1 shown", this.language.locale, t.label.readerTitle))) : (t.itemContainer.isActive = !0, e.hide ? e.hide() : e.visible = !1, this.svgContainer.readerAlert(this.language.translate("%1 hidden", this.language.locale, t.label.readerTitle)), t.color = (new f.a).getFor("disabledBackground"))
+          !e.visible || e.isHiding || e instanceof v.a && e.isHidden ? (t.color = t.colorOrig, t.itemContainer.isActive = !1, !0 === e.hidden && (e.hidden = !1), e.show ? e.show() : e.visible = !0, this.svgContainer.readerAlert(this.language.translate("%1 shown", this.language.locale, t.label.readerTitle))) : (t.itemContainer.isActive = !0, e.hide ? e.hide() : e.visible = !1, this.svgContainer.readerAlert(this.language.translate("%1 hidden", this.language.locale, t.label.readerTitle)), t.color = (new f.a()).getFor("disabledBackground"))
         }, Object.defineProperty(e.prototype, "preloader", {
           get: function() {},
           enumerable: !0,
@@ -35547,7 +35547,7 @@
     }
   },
   ux7t: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return f
     });
@@ -35565,7 +35565,7 @@
       f = function(t) {
         function e() {
           var e = t.call(this) || this;
-          return e.transitionDuration = 0, e.transitionEasing = c.cubicOut, e.properties = {}, e.propertyFields = {}, e.filters = new s.b, e.isTemplate = !1, e.className = "SpriteState", e._disposers.push(new s.c(e.filters)), e.applyTheme(), e
+          return e.transitionDuration = 0, e.transitionEasing = c.cubicOut, e.properties = {}, e.propertyFields = {}, e.filters = new s.b(), e.isTemplate = !1, e.className = "SpriteState", e._disposers.push(new s.c(e.filters)), e.applyTheme(), e
         }
         return Object(r.c)(e, t), Object.defineProperty(e.prototype, "adapter", {
           get: function() {
@@ -35629,13 +35629,13 @@
     var r = i("6aQQ");
     t.exports = function(t) {
       return r(function() {
-        var e = "" [t]('"');
+        var e = ""[t]('"');
         return e !== e.toLowerCase() || e.split('"').length > 3
       })
     }
   },
   v36H: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return P
     }), i.d(e, "a", function() {
@@ -35677,9 +35677,9 @@
         return Object(r.c)(e, t), e.prototype.applyInternalDefaults = function() {
           t.prototype.applyInternalDefaults.call(this), b.hasValue(this.readerTitle) || (this.readerTitle = this.language.translate("Line Series"))
         }, e.prototype.createSegment = function() {
-          return new l.a
+          return new l.a()
         }, e.prototype.createDataItem = function() {
-          return new P
+          return new P()
         }, e.prototype.setInitialWorkingValues = function(t) {
           var e = this._yAxis.get(),
             i = this._xAxis.get();
@@ -35900,7 +35900,7 @@
     d.c.registeredClasses.LineSeries = w, d.c.registeredClasses.LineSeriesDataItem = P
   },
   v9UT: function(t, e, i) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     }), e.used = function(t) {}, e.copyProperties = function(t, e) {
@@ -36269,7 +36269,7 @@
     }
   },
   vBfr: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("F/ei"),
       a = i("Ox5T"),
@@ -36310,7 +36310,7 @@
         C = S[m] || S["@@iterator"] || d && S[d],
         I = !g && C || w(d),
         k = "Array" == e && S.entries || C;
-      if (k && (x = a(k.call(new t)), f !== Object.prototype && x.next && (c || a(x) === f || (o ? o(x, f) : "function" != typeof x[m] && l(x, m, y)), s(x, O, !0, !0), c && (p[O] = y))), "values" == d && C && "values" !== C.name && (T = !0, I = function() {
+      if (k && (x = a(k.call(new t())), f !== Object.prototype && x.next && (c || a(x) === f || (o ? o(x, f) : "function" != typeof x[m] && l(x, m, y)), s(x, O, !0, !0), c && (p[O] = y))), "values" == d && C && "values" !== C.name && (T = !0, I = function() {
           return C.call(this)
         }), c && !b || S[m] === I || l(S, m, I), p[e] = I, d)
         if (_ = {
@@ -36340,7 +36340,7 @@
     })
   },
   vMqJ: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return l
     }), i.d(e, "d", function() {
@@ -36457,7 +36457,7 @@
     }
     var p = function() {
         function t(t) {
-          void 0 === t && (t = []), this.events = new a.a, this._values = t
+          void 0 === t && (t = []), this.events = new a.a(), this._values = t
         }
         return Object.defineProperty(t.prototype, "values", {
           get: function() {
@@ -36681,7 +36681,7 @@
             e.push(t.clone())
           })
         }, e.prototype.create = function(t) {
-          var e = null != t ? new t : this.template.clone();
+          var e = null != t ? new t() : this.template.clone();
           return this.push(e), e
         }, e.prototype.clone = function() {
           for (var t = new e(this.template), i = this.values, r = i.length, n = 0; n < r; ++n) t.push(i[n].clone());
@@ -36696,7 +36696,7 @@
     }
   },
   vbOF: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return h
     });
@@ -36710,7 +36710,7 @@
       h = function(t) {
         function e(e) {
           var i = t.call(this) || this;
-          return i._eventDispatcher = new n.a(i), i.eventDisposers = new s.a, i.replacedStyles = new s.a, i._clickable = !1, i._contextMenuDisabled = !1, i._hoverable = !1, i._trackable = !1, i._draggable = !1, i._swipeable = !1, i._resizable = !1, i._wheelable = !1, i._inert = !1, i._isHover = !1, i.isRealHover = !1, i._isHoverByTouch = !1, i._isDown = !1, i._isFocused = !1, i._isTouchProtected = !1, i._inertiaOptions = new s.a, i.inertias = new s.a, i._hitOptions = {}, i._hoverOptions = {}, i._swipeOptions = {}, i._keyboardOptions = {}, i._mouseOptions = {}, i._cursorOptions = {
+          return i._eventDispatcher = new n.a(i), i.eventDisposers = new s.a(), i.replacedStyles = new s.a(), i._clickable = !1, i._contextMenuDisabled = !1, i._hoverable = !1, i._trackable = !1, i._draggable = !1, i._swipeable = !1, i._resizable = !1, i._wheelable = !1, i._inert = !1, i._isHover = !1, i.isRealHover = !1, i._isHoverByTouch = !1, i._isDown = !1, i._isFocused = !1, i._isTouchProtected = !1, i._inertiaOptions = new s.a(), i.inertias = new s.a(), i._hitOptions = {}, i._hoverOptions = {}, i._swipeOptions = {}, i._keyboardOptions = {}, i._mouseOptions = {}, i._cursorOptions = {
             defaultStyle: [{
               property: "cursor",
               value: "default"
@@ -36743,7 +36743,7 @@
           configurable: !0
         }), Object.defineProperty(e.prototype, "overPointers", {
           get: function() {
-            return this._overPointers || (this._overPointers = new o.b), this._overPointers
+            return this._overPointers || (this._overPointers = new o.b()), this._overPointers
           },
           enumerable: !0,
           configurable: !0
@@ -36758,7 +36758,7 @@
           configurable: !0
         }), Object.defineProperty(e.prototype, "downPointers", {
           get: function() {
-            return this._downPointers || (this._downPointers = new o.b), this._downPointers
+            return this._downPointers || (this._downPointers = new o.b()), this._downPointers
           },
           enumerable: !0,
           configurable: !0
@@ -37009,7 +37009,7 @@
     }).call(e, i("VTyh"))
   },
   "vi/P": function(t, e, i) {
-    "use strict";
+    
     var r, n = i("vfdp"),
       a = i("/vWR"),
       o = i("Tl3C"),
@@ -37037,28 +37037,28 @@
         delete: function(t) {
           if (u(t) && !d(t)) {
             var e = h(this);
-            return e.frozen || (e.frozen = new r), y.call(this, t) || e.frozen.delete(t)
+            return e.frozen || (e.frozen = new r()), y.call(this, t) || e.frozen.delete(t)
           }
           return y.call(this, t)
         },
         has: function(t) {
           if (u(t) && !d(t)) {
             var e = h(this);
-            return e.frozen || (e.frozen = new r), v.call(this, t) || e.frozen.has(t)
+            return e.frozen || (e.frozen = new r()), v.call(this, t) || e.frozen.has(t)
           }
           return v.call(this, t)
         },
         get: function(t) {
           if (u(t) && !d(t)) {
             var e = h(this);
-            return e.frozen || (e.frozen = new r), v.call(this, t) ? b.call(this, t) : e.frozen.get(t)
+            return e.frozen || (e.frozen = new r()), v.call(this, t) ? b.call(this, t) : e.frozen.get(t)
           }
           return b.call(this, t)
         },
         set: function(t, e) {
           if (u(t) && !d(t)) {
             var i = h(this);
-            i.frozen || (i.frozen = new r), v.call(this, t) ? x.call(this, t, e) : i.frozen.set(t, e)
+            i.frozen || (i.frozen = new r()), v.call(this, t) ? x.call(this, t, e) : i.frozen.set(t, e)
           } else x.call(this, t, e);
           return this
         }
@@ -37066,7 +37066,7 @@
     }
   },
   vjgd: function(t, e, i) {
-    "use strict";
+    
     var r = i("7X7h"),
       n = i("Y8n3"),
       a = i("tHyI");
@@ -37088,7 +37088,7 @@
     })
   },
   w2pQ: function(t, e, i) {
-    "use strict";
+    
     i("sSOU");
     var r, n = i("0sYB"),
       a = i("3sMl"),
@@ -37528,7 +37528,7 @@
           if (n instanceof wt) e = w(n);
           else if (i = Pt(e = {}, String(n))) throw TypeError(i);
         if (i = Pt(s, o, null, e)) throw TypeError(i);
-        var l = s.searchParams = new x,
+        var l = s.searchParams = new x(),
           u = _(l);
         u.updateSearchParams(s.query), u.updateURL = function() {
           s.query = String(l) || null
@@ -37686,7 +37686,7 @@
     })
   },
   w4m0: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return s
     });
@@ -37799,7 +37799,7 @@
       }(n.a)
   },
   wGwV: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("lnCe"),
       a = i("97TN"),
@@ -37834,7 +37834,7 @@
     }), n || "function" != typeof a || a.prototype.finally || h(a.prototype, "finally", s("Promise").prototype.finally)
   },
   wLyq: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("gxUV").f,
       a = i("tHyI"),
@@ -37865,7 +37865,7 @@
     })
   },
   wUYf: function(t, e, i) {
-    "use strict";
+    
     Object.defineProperty(e, "__esModule", {
       value: !0
     }), e.order = function(t, e) {
@@ -37878,7 +37878,7 @@
     }
   },
   wfEi: function(t, e, i) {
-    "use strict";
+    
     var r = i("NSJ1");
     (0, i("UseD").exportTypedArrayStaticMethod)("from", i("3Fha"), r)
   },
@@ -37900,7 +37900,7 @@
     })
   },
   wyAw: function(t, e, i) {
-    "use strict";
+    
     var r = i("UseD"),
       n = i("X/sl").find,
       a = r.aTypedArray;
@@ -37909,7 +37909,7 @@
     })
   },
   x79X: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "b", function() {
       return h
     }), i.d(e, "c", function() {
@@ -37954,7 +37954,7 @@
           return i
         }, t
       }(),
-      c = new h,
+      c = new h(),
       p = function() {
         function t(t) {
           this._callbackId = 0, this._callbacks = new r.c(function(t, e) {
@@ -38020,7 +38020,7 @@
       }()
   },
   xIv9: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return u
     });
@@ -38034,7 +38034,7 @@
         function e() {
           var e = t.call(this) || this;
           e.className = "ResizeButton", e.orientation = "horizontal", e.layout = "absolute", e.horizontalCenter = "middle", e.verticalCenter = "middle", e.draggable = !0, e.padding(8, 8, 8, 8), e.background.cornerRadius(20, 20, 20, 20);
-          var i = new a.a;
+          var i = new a.a();
           i.element = e.paper.add("path");
           var r = l.moveTo({
             x: -2,
@@ -38049,7 +38049,7 @@
           }), r += l.lineTo({
             x: 2,
             y: 6
-          }), i.path = r, i.pixelPerfect = !0, i.padding(0, 4, 0, 4), i.stroke = (new o.a).getFor("alternativeText"), i.strokeOpacity = .7, e.icon = i, e.label.dispose(), e.label = void 0, e.applyTheme(), e
+          }), i.path = r, i.pixelPerfect = !0, i.padding(0, 4, 0, 4), i.stroke = (new o.a()).getFor("alternativeText"), i.strokeOpacity = .7, e.icon = i, e.label.dispose(), e.label = void 0, e.applyTheme(), e
         }
         return Object(r.c)(e, t), Object.defineProperty(e.prototype, "orientation", {
           set: function(t) {
@@ -38085,7 +38085,7 @@
     })
   },
   xgTw: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return u
     });
@@ -38242,7 +38242,7 @@
     a.c.registeredClasses.Polyspline = u
   },
   xlUI: function(t, e, i) {
-    "use strict";
+    
     var r = i("6aQQ");
     t.exports = function(t, e) {
       var i = [][t];
@@ -38261,7 +38261,7 @@
     })
   },
   xv7a: function(t, e, i) {
-    "use strict";
+    
     var r = i("0sYB"),
       n = i("6aQQ"),
       a = i("o3G/"),
@@ -38305,7 +38305,7 @@
     })
   },
   yBTm: function(t, e, i) {
-    "use strict";
+    
     var r = i("9XRO"),
       n = i("0FA2"),
       a = i("CNF5"),
@@ -38433,7 +38433,7 @@
     })
   },
   zhwk: function(t, e, i) {
-    "use strict";
+    
     i.d(e, "a", function() {
       return P
     }), e.b = O;
@@ -38469,7 +38469,7 @@
             wheel: "wheel"
           }, i._usePointerEventsOnly = !1, i._useTouchEventsOnly = !1, i._addHoverEvents = !0, i._passiveSupported = !1, i._delayedEvents = {
             out: []
-          }, i.overObjects = new a.b, i.downObjects = new a.b, i.trackedObjects = new a.b, i.transformedObjects = new a.b, i.pointers = new h.a, i.inertiaOptions = new h.a, i.hitOptions = {
+          }, i.overObjects = new a.b(), i.downObjects = new a.b(), i.trackedObjects = new a.b(), i.transformedObjects = new a.b(), i.pointers = new h.a(), i.inertiaOptions = new h.a(), i.hitOptions = {
             doubleHitTime: 300,
             hitTolerance: 10,
             noFocus: !0
@@ -39332,7 +39332,7 @@
       w = null;
 
     function O() {
-      return null == w && (w = new P), w
+      return null == w && (w = new P()), w
     }
   }
 });

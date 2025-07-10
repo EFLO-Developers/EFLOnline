@@ -43,7 +43,7 @@
     return s
   })({
     1: [function(require, module, exports) {
-      'use strict';
+      
 
       var cache = {};
       var start = '(?:^|\\s)';
@@ -80,7 +80,7 @@
     }, {}],
     2: [function(require, module, exports) {
       (function(global) {
-        'use strict';
+        
 
         var emitter = require('contra/emitter');
         var crossvent = require('crossvent');
@@ -777,7 +777,7 @@
 
     }, {}],
     4: [function(require, module, exports) {
-      'use strict';
+      
 
       var ticky = require('ticky');
 
@@ -794,7 +794,7 @@
       "ticky": 9
     }],
     5: [function(require, module, exports) {
-      'use strict';
+      
 
       var atoa = require('atoa');
       var debounce = require('./debounce');
@@ -867,7 +867,7 @@
     }],
     6: [function(require, module, exports) {
       (function(global) {
-        'use strict';
+        
 
         var customEvent = require('custom-event');
         var eventmap = require('./eventmap');
@@ -985,7 +985,7 @@
     }],
     7: [function(require, module, exports) {
       (function(global) {
-        'use strict';
+        
 
         var eventmap = [];
         var eventname = '';
