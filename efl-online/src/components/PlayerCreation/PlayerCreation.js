@@ -233,6 +233,14 @@ export default function PlayerCreate() {
         }
     };
 
+    const setPlayerArchetype = (archetypeId) => {
+        // Set the ArchetypeId to the selected archetype
+        SetNewPlayer(prevState => ({
+            ...prevState,
+            ArchetypeId: archetypeId
+        }));
+    };
+
     // Show loading spinner while loading
     if (loading) {
         return <div><MainTemplate><LoadingSpinner></LoadingSpinner></MainTemplate></div>;
@@ -352,14 +360,8 @@ export default function PlayerCreate() {
                                                                 id="Weight"
                                                                 value={newPlayer.Weight}
                                                                 onChange={handleInputChange}/>
-                                                            {/* Duplicate Weight input (possible bug, left for review) */}
-                                                            <label>Weight</label>
-                                                            <label className="sub-label required">*Required</label>
-                                                            <input className="multisteps-form__input form-control mb-3" type="text" placeholder="" 
-                                                                id="Weight"
-                                                                name="Weight"
-                                                                value={newPlayer.Weight}
-                                                                onChange={handleInputChange}/>
+                                                          
+                                                          
                                                         </div>
                                                     </div>
                                                     <div className="button-row d-flex mt-4">
@@ -374,7 +376,7 @@ export default function PlayerCreate() {
                                                 <h5 className="card-title mb-3">{selectedPosition} Archetypes</h5>
 
                                                  {archetypes && archetypes.map((archetype) => (
-                                                    <div className="card pt-4 pb-4 mb-4" style={archetype.ArchetypeId == newPlayer.ArchetypeId ? { backgroundColor: "rgb(117, 182, 142)", color: "white" } : {}}>
+                                                    <div className="card pt-4 pb-4 mb-4" onClick={() => setPlayerArchetype(archetype.ArchetypeId)} style={archetype.ArchetypeId == newPlayer.ArchetypeId ? { backgroundColor: "rgb(117, 182, 142)", color: "white" } : {}}>
                                                         <h6 key={archetype.ArchetypeId} value={archetype.ArchetypeId} style={archetype.ArchetypeId == newPlayer.ArchetypeId ? { color: "white" } : {}}>                   
                                                             {archetype.ArchetypeName}
                                                         </h6>
