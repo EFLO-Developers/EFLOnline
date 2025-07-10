@@ -561,7 +561,7 @@
 
   }, {}],
   3: [function(require, module, exports) {
-    'use strict';
+    
 
     var ticky = require('ticky');
 
@@ -578,7 +578,7 @@
     "ticky": 11
   }],
   4: [function(require, module, exports) {
-    'use strict';
+    
 
     var atoa = require('atoa');
     var debounce = require('./debounce');
@@ -651,7 +651,7 @@
   }],
   5: [function(require, module, exports) {
     (function(global) {
-      'use strict';
+      
 
       var customEvent = require('custom-event');
       var eventmap = require('./eventmap');
@@ -768,7 +768,7 @@
   }],
   6: [function(require, module, exports) {
     (function(global) {
-      'use strict';
+      
 
       var eventmap = [];
       var eventname = '';
@@ -841,7 +841,7 @@
     }).call(this, typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
   }, {}],
   8: [function(require, module, exports) {
-    'use strict';
+    
 
     var cache = {};
     var start = '(?:^|\\s)';
@@ -878,7 +878,7 @@
   }, {}],
   9: [function(require, module, exports) {
     (function(global) {
-      'use strict';
+      
 
       var emitter = require('contra/emitter');
       var crossvent = require('crossvent');

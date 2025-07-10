@@ -313,7 +313,7 @@ export default function ApproverDash(){
                                                                         <td className="col " colSpan="2">{task.ClaimedPoints}</td>
                                                                         <td>
                                                                             {task.URL ? (
-                                                                                <a href={task.URL} target="_blank">Link</a>
+                                                                                <a href={task.URL} target="_blank" rel="noreferrer">Link</a>
                                                                             ) : null}
                                                                         </td>
                                                                         <td className="col-3 text-center">

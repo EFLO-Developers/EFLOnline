@@ -36,7 +36,7 @@
     1: [function(t, e, s) {
       (function(t) {
         (function() {
-          "use strict";
+          
 
           function e(t, e) {
             return t(e = {
@@ -99,7 +99,7 @@
                         s: e,
                         ms: t,
                         Q: h
-                      } [d] || String(d || "").toLowerCase().replace(/s$/, "")
+                      }[d] || String(d || "").toLowerCase().replace(/s$/, "")
                     },
                     u: function(t) {
                       return void 0 === t
@@ -145,7 +145,7 @@
                         var e = t.date,
                           s = t.utc;
                         if (null === e) return new Date(NaN);
-                        if (w.u(e)) return new Date;
+                        if (w.u(e)) return new Date();
                         if (e instanceof Date) return new Date(e);
                         if ("string" == typeof e && !/Z$/i.test(e)) {
                           var i = e.match(d);
@@ -426,12 +426,12 @@
                     s = (c("monthsShort") || e.map((function(t) {
                       return t.substr(0, 3)
                     }))).indexOf(t) + 1;
-                  if (s < 1) throw new Error;
+                  if (s < 1) throw new Error();
                   this.month = s % 12 || s
                 }],
                 MMMM: [h, function(t) {
                   var e = c("months").indexOf(t) + 1;
-                  if (e < 1) throw new Error;
+                  if (e < 1) throw new Error();
                   this.month = e % 12 || e
                 }],
                 Y: [/[+-]?\d+/, l("year")],
@@ -483,7 +483,7 @@
                     u = n.seconds,
                     f = n.milliseconds,
                     g = n.zone,
-                    m = new Date,
+                    m = new Date(),
                     b = l || (r || h ? 1 : m.getDate()),
                     y = r || m.getFullYear(),
                     v = 0;
@@ -549,7 +549,7 @@
       }).call(this, "undefined" != typeof global ? global : "undefined" != typeof self ? self : "undefined" != typeof window ? window : {})
     }, {}],
     2: [function(t, e, s) {
-      "use strict";
+      
       Object.defineProperty(s, "__esModule", {
         value: !0
       });
