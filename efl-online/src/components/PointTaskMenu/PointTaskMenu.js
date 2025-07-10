@@ -316,11 +316,17 @@ const PointTaskMenu = ({ Player }) => {
                     <button type="button" className="btn btn-primary btn-lg w-100 mb-2" data-bs-toggle="modal" data-bs-target="#modal_manual_pointtask">
                         Manual Point Task
                     </button>
-                    <button type="button" className="btn btn-primary btn-lg w-100 mb-2" onClick={handleActivityCheckSubmit}>
+                    <button type="button" className="btn btn-primary btn-lg w-100 mb-2" onClick={handleActivityCheckSubmit}
+                        disabled={player?.tpe?.Claimed_Weekly_ActivityCheck === 1}>
                         Activity Check
                     </button>
                     <h6 className="mt-2">SEASONAL</h6>
-                    <button type="button" className="btn btn-primary btn-lg w-100 mb-2" onClick={handleTrainingCampSubmit}>
+                    <button
+                        type="button"
+                        className="btn btn-primary btn-lg w-100 mb-2"
+                        onClick={handleTrainingCampSubmit}
+                        disabled={player?.tpe?.Claimed_Seasonal_TrainingCamp === 1}
+                    >
                         Training Camp
                     </button>
                     <button type="button" className="btn btn-primary btn-lg w-100 mb-2 d-none" data-bs-toggle="modal" data-bs-target="#modal_manual_pointtask">
