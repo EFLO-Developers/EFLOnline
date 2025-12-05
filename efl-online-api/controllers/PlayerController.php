@@ -383,8 +383,9 @@ class PlayerController {
             $player = $stmt->fetch(PDO::FETCH_ASSOC);
 
             // Get all PlayerUpdates for this user
-            $stmt = $this->pdo->prepare("SELECT * FROM PlayerUpdate WHERE UserId = ?");
-            $stmt->execute([$player['UserId']]);
+            $stmt = $this->pdo->prepare("SELECT * FROM PlayerUpdate WHERE UserId = ? AND WeekEnding >= ? AND (? IS NULL OR WeekEnding <= ?)");
+            $stmt->execute([$player['UserId'], $player['CreateDate'], $player['RetiredDate'], $player['RetiredDate']]);
+
             $playerUpdates = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             // Build details for each update
