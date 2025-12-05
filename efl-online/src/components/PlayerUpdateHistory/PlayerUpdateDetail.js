@@ -91,11 +91,27 @@ const PlayerUpdateDetail = ({ Update, EditMode }) => {
                         {update.pointTaskSubmissions && update.pointTaskSubmissions.length > 0 && (
                             <>
                                 <h6 className="mini-heading">Point Task Submissions</h6>
+                                
+                                {/* Summary of capped vs uncapped claimed points */}
+                                <div className="mb-2">
+                                    <span className="badge bg-primary me-2">
+                                       Total TPE: {update.pointTaskSubmissions.reduce((sum, task) => sum + task.ClaimedPoints, 0)} TPE
+                                    </span>
+                                    <span className="badge bg-primary me-2">
+                                        Capped: {update.pointTaskSubmissions.filter(task => task.IsUncapped === 0).reduce((sum, task) => sum + task.ClaimedPoints, 0)} TPE
+                                    </span>
+                                    <span className="badge bg-secondary">
+                                        Uncapped: {update.pointTaskSubmissions.filter(task => task.IsUncapped === 1).reduce((sum, task) => sum + task.ClaimedPoints, 0)} TPE
+                                    </span>
+                                </div>
+                                
+
                                 <table className="table table-flush text-sm mb-2">
                                     <thead>
                                         <tr>
                                             <th>Task</th>
                                             <th colSpan="2" className="col">TPE</th>
+                                            <th>Type</th>
                                             <th></th>
                                             <th className="col text-center">Status</th>
                                             <th></th>
@@ -109,6 +125,7 @@ const PlayerUpdateDetail = ({ Update, EditMode }) => {
                                                         {task.RejectedDate ? (<span>({task.PointTaskSubmissionId})</span>) : null} {task.Name}
                                                     </td>
                                                     <td className="col" colSpan="2">{task.ClaimedPoints}</td>
+                                                    <td className="col" colSpan="2">{task.IsUncapped ? 'Uncapped' : 'Capped'}</td>
                                                     <td>
                                                         {task.URL ? (
                                                             <a href={task.URL} target="_blank" rel="noopener noreferrer">Link</a>
@@ -130,11 +147,17 @@ const PlayerUpdateDetail = ({ Update, EditMode }) => {
                                                         ) : null}
                                                     </td>
                                                     <td className="col-1">
-                                                        <a className="svg-btn" onClick={() => deleteSubmittedPointTask(task.PointTaskSubmissionId)}>
-                                                            <svg width="16" height="16" fill="currentColor" className="bi bi-trash-fill" viewBox="0 0 16 16">
-                                                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
-                                                            </svg>
-                                                        </a>
+                                                        {(task.ApprovedDate == null || task.RejectedDate != null) && (
+                                                            <a
+                                                                className="svg-btn"
+                                                                onClick={() => deleteSubmittedPointTask(task.PointTaskSubmissionId)}
+                                                                style={{ cursor: 'pointer' }}
+                                                            >
+                                                                <svg width="16" height="16" fill="currentColor" className="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                                                                </svg>
+                                                            </a>
+                                                        )}
                                                     </td>
                                                 </tr>
                                                 {task.Notes ? (
